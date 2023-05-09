@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import './App.scss';
-import AuthFailPage from './pages/AuthFailPage';
+import AuthFailPage from './pages/AuthFailPage/AuthFailPage';
 
 function App() {
   return (

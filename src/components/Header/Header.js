@@ -30,7 +30,7 @@ function Header() {
               ></input>
             </form>
             <div className="header__wrapper">
-            <img src={Favorites} alt="favorites" className="header__likes-icon"></img>
+            <Link to ="/favorites"><img src={Favorites} alt="favorites" className="header__likes-icon"></img></Link>
             <div className="header__avatar"></div>
             </div>
         </nav>
@@ -39,7 +39,7 @@ function Header() {
         <a href="#" className="nav__link nav__link--current">Shop</a>
         <a href="#" className="nav__link">Sell</a>
         <a href="#" className="nav__link">Trade</a>
-        <a href="#" className="nav__link">Repair</a>
+        <a href="#" className="nav__link">Forum</a>
         <a href="#" className="nav__link">News</a>
       </nav>
     </header>
