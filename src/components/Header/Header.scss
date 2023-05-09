@@ -3,7 +3,6 @@
 
 .header-container {
   border-bottom: 0.0625rem solid $divider-color;
-  box-shadow: 0 2px 2px -2px $alt-text-color;
 }
 .header {
   display: flex;
@@ -135,6 +134,10 @@
   }
 }
 
+.nav-container {
+  border-bottom: 0.0625rem solid $divider-color;
+  box-shadow: 0 2px 2px -2px $alt-text-color;
+}
 .nav {
   display: flex;
   justify-content: space-between;
@@ -144,6 +147,7 @@
   margin: 0 auto;
   font-weight: 600;
   padding: 1rem;
+  
 
   @include desktop {
     padding: 0 7.5rem;

@@ -6,6 +6,7 @@ import Favorites from "../../assets/icons/likes.svg"
 
 function Header() {
   return (
+    <>
     <header className="header-container">
       <div className="header">
         <Link to ="/">
@@ -35,6 +36,8 @@ function Header() {
             </div>
         </nav>
       </div>
+      </header>
+      <section className="nav-container">
       <nav className="nav">
         <a href="#" className="nav__link nav__link--current">Shop</a>
         <a href="#" className="nav__link">Sell</a>
@@ -42,7 +45,8 @@ function Header() {
         <a href="#" className="nav__link">Forum</a>
         <a href="#" className="nav__link">News</a>
       </nav>
-    </header>
+      </section>
+      </>
   );
 }
 
