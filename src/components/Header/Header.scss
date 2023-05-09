@@ -26,8 +26,7 @@
 
   &__logo {
     display: flex;
-    height: 1.5625rem;
-    width: 7.5rem;
+    height: 42px;
     margin: 0 auto;
 
     @include tablet {
@@ -77,11 +76,11 @@
   &__search {
     height: 2.25rem;
     margin: 1rem 0;
-    padding: 0.75rem 0.75rem 0.5rem 2.125rem;
+    padding: 0.75rem 0.75rem 0.75rem 2.125rem;
     flex: 1;
-    border-radius: 0.25rem;
+    border-radius: 3.125rem;
     outline: none;
-    border: 0.0625rem solid $divider-color;
+    border: 0.0625rem solid $other-color;
     background-color: $alt-background-color;
 
     &--active:focus {
@@ -97,14 +96,22 @@
       width: 100%;
       height: 2.5rem;
       margin: 1rem 0;
-      padding: 1.3rem 1rem 1rem 2.4rem;
+      padding: 1.3rem 1rem 1.25rem 2.75rem;
 
       &::placeholder {
         font-size: 0.8125rem;
       }
     }
   }
-
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+  }
+  &__likes-icon {
+    height: 1.25rem;
+  }
   &__avatar {
     width: 2.25rem;
     height: 2.25rem;
@@ -126,3 +133,43 @@
     }
   }
 }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80rem;
+  width: 100%;
+  margin: 0 auto;
+  font-weight: 600;
+  padding: 1rem;
+
+  @include desktop {
+    padding: 0 7.5rem;
+  }
+
+  &__link {
+    color: $primary-cta-color;
+    font-weight: 400;
+
+    &--current{
+      color: black;
+      padding: 1rem 0 1rem;
+      border-bottom: 4px solid $hover-cta-color;
+    }
+  }
+  &__img {
+    height: 2.75rem;
+    margin: 0;
+  }
+  &__container {
+    margin-top: 1rem;
+    width: 10.625rem;
+    padding-right: 2.5rem;
+    margin-bottom: 0.625rem;
+    border: 0.125rem solid $divider-color;
+    display: flex;
+    align-items: center;
+  }
+}
+

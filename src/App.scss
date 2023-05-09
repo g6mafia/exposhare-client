@@ -1,8 +1,23 @@
+@use "./styles/partials/typography" as *;
+@use "./styles/partials/colors" as *;
+@use "./styles/partials/mixins" as *;
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+  font-family: Lexend, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 81.25rem;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
 }
