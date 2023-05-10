@@ -1,6 +1,6 @@
 import "./Footer.scss";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo/exposhare-logo.png";
+import AltLogo from "../../assets/logo/exposhare-alt.png";
 import FacebookIcon from "../../assets/icons/facebook.svg";
 import TwitterIcon from "../../assets/icons/twitter.svg";
 import InstaIcon from "../../assets/icons/instagram.svg";
@@ -11,7 +11,7 @@ function Footer() {
     <div className="footer-container">
       <footer className="footer">
         <Link to="/">
-          <img className="footer__logo" src={Logo} alt="exposhare logo" />
+          <img className="footer__logo" src={AltLogo} alt="exposhare logo" />
         </Link>
 
         <section className="footer__block-1">
@@ -84,13 +84,13 @@ function Footer() {
         </section>
 
         <section className="footer__block-2">
-          <a href="#" target="_blank">
+          <a href="https://www.facebook.com/" target="_blank">
             <img src={FacebookIcon} className="footer__icon"></img>
           </a>
-          <a href="#" target="_blank">
+          <a href="https://twitter.com/" target="_blank">
             <img src={TwitterIcon} className="footer__icon"></img>
           </a>
-          <a href="#" target="_blank">
+          <a href="https://www.instagram.com/" target="_blank">
             <img src={InstaIcon} className="footer__icon"></img>
           </a>
         </section>

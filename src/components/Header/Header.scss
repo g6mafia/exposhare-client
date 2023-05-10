@@ -32,7 +32,6 @@
     @include tablet {
       margin: 0;
     }
-
   }
 
   &__nav-bar {
@@ -129,7 +128,6 @@
     }
 
     @include desktop {
-      
     }
   }
 }
@@ -149,23 +147,28 @@
   padding: 0 1rem;
   @include mBodySmall;
 
-    @include tablet {
-        @include BodyMedium;
-        padding: 1rem;
-    }
-    @include desktop {
-        @include BodyLarge;
-        padding: 0 7.5rem;
-    }
+  @include tablet {
+    @include BodyMedium;
+    padding: 0 2.5rem;
+  }
+  @include desktop {
+    @include BodyLarge;
+    padding: 0 7.5rem;
+  }
 
   &__link {
     color: $primary-cta-color;
     font-weight: 400;
+    width: 10%;
+    text-align: center;
+    padding: 1rem 0;
 
-    &--current{
-      color: black;
-      padding: 1rem 0 1rem;
-      border-bottom: 0.25rem solid $hover-cta-color;
+    &--current {
+      padding: 0;
+      font-weight: 600;
+      color: $hover-cta-color;
+      border-radius: 30px;
+      border: 2px solid $other-color;
     }
   }
   &__img {
@@ -182,4 +185,3 @@
     align-items: center;
   }
 }
-
