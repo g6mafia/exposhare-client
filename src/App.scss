@@ -20,4 +20,14 @@ main {
 
 a {
   text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
+a:link,
+a:visited {
+  text-decoration: none;
+}
+

@@ -146,12 +146,17 @@
   width: 100%;
   margin: 0 auto;
   font-weight: 600;
-  padding: 1rem;
-  
+  padding: 0 1rem;
+  @include mBodySmall;
 
-  @include desktop {
-    padding: 0 7.5rem;
-  }
+    @include tablet {
+        @include BodyMedium;
+        padding: 1rem;
+    }
+    @include desktop {
+        @include BodyLarge;
+        padding: 0 7.5rem;
+    }
 
   &__link {
     color: $primary-cta-color;
