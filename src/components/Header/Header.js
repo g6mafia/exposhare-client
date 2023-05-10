@@ -14,17 +14,16 @@ function Header() {
           </Link>
           <nav className="header__nav-bar">
             <form className="header__label">
-              <img
-                className="header__search-icon"
-                src={SearchIcon}
-                alt="search icon"
-              />
               <input
                 type="search"
                 className="header__search header__search--active"
                 placeholder="Search"
               ></input>
-              <button>SEARCH</button>
+              <button type="submit"className="header__button"><img
+                className="header__search-icon"
+                src={SearchIcon}
+                alt="search icon"
+              /></button>
             </form>
             <div className="header__wrapper">
               <Link to="/favorites">

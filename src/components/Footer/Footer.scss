@@ -14,37 +14,55 @@
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 2.5rem;
+    padding: 1rem 2.5rem 2.5rem;
   }
   @include desktop {
-    padding: 0 7.5rem;
+    padding: 1.5rem 7.5rem 2.5rem;
     margin: 0 auto;
     max-width: 80rem;
   }
   &__logo {
     display: flex;
     height: 2.1875rem;
-  
 
     @include tablet {
-      height: 2.625rem;
+      height: 2.475rem;
     }
   }
   &__block-1 {
+    display: none;
+    flex-direction: column;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__block-2 {
     display: flex;
     flex-direction: column;
 
     @include tablet {
       flex-direction: row;
+      flex-wrap: wrap;
     }
+    @include desktop {
+        flex-wrap: nowrap;
+      }
   }
-  &__block-2 {
+  &__block-3 {
     padding: 4rem 0 1rem;
+
+    @include tablet {
+      display: none;
+    }
   }
   &__divider {
     padding-top: 1rem;
+
     @include tablet {
-      padding-right: 1rem;
+      padding: 0 2rem;
     }
   }
   &__wrapper {
@@ -62,9 +80,11 @@
 
     @include tablet {
       @include BodyMedium;
+      margin: .75rem 0 .50rem;
     }
     @include desktop {
       @include BodyLarge;
+      margin: .50rem 0 1rem;
     }
   }
   &__link {
@@ -78,8 +98,8 @@
   &__form {
     display: flex;
     flex-direction: row;
-    align-items: center; 
-    width: 75%; 
+    align-items: center;
+    width: 75%;
   }
   &__label {
     display: flex;
@@ -98,13 +118,19 @@
     padding: 0;
     background: transparent;
   }
-  &__icon {
+  &__icon-right {
+    height: 2.5rem;
+    margin: 0;
+  }
+  &__icon-social {
     height: 1.5rem;
     margin-right: 1rem;
-
-    &--size {
-      height: 2.5rem;
-      margin: 0;
+    @include tablet {
+        margin: 2.5rem 0;
     }
+  }
+  &__copyright {
+    @include mBodySmall;
+    color: $third-color;
   }
 }

@@ -10,11 +10,23 @@ function Footer() {
   return (
     <div className="footer-container">
       <footer className="footer">
+        <div className="footer__wrapper">
         <Link to="/">
           <img className="footer__logo" src={AltLogo} alt="exposhare logo" />
         </Link>
-
         <section className="footer__block-1">
+          <a href="https://www.facebook.com/" target="_blank">
+            <img src={FacebookIcon} className="footer__icon-social"></img>
+          </a>
+          <a href="https://twitter.com/" target="_blank">
+            <img src={TwitterIcon} className="footer__icon-social"></img>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank">
+            <img src={InstaIcon} className="footer__icon-social"></img>
+          </a>
+        </section>
+        </div>
+        <section className="footer__block-2">
           <div className="footer__divider">
             <p href="#" className="footer__subtitle">
               ABOUT
@@ -27,7 +39,7 @@ function Footer() {
                 FAQ
               </a>
               <a href="" className="footer__link">
-                TEAM
+                Team
               </a>
               <a href="" className="footer__link">
                 Careers
@@ -78,22 +90,23 @@ function Footer() {
               <label htmlFor="name" className="footer__label">
                 <input type="email" name="email" className="footer__input" placeholder="Enter your email address"></input>
               </label>
-              <button type="submit" className="footer__button"><img src={ArrowRight} className="footer__icon footer__icon--size"/></button>
+              <button type="submit" className="footer__button"><img src={ArrowRight} className="footer__icon-right"/></button>
             </form>
           </div>
         </section>
 
-        <section className="footer__block-2">
+        <section className="footer__block-3">
           <a href="https://www.facebook.com/" target="_blank">
-            <img src={FacebookIcon} className="footer__icon"></img>
+            <img src={FacebookIcon} className="footer__icon-social"></img>
           </a>
           <a href="https://twitter.com/" target="_blank">
-            <img src={TwitterIcon} className="footer__icon"></img>
+            <img src={TwitterIcon} className="footer__icon-social"></img>
           </a>
           <a href="https://www.instagram.com/" target="_blank">
-            <img src={InstaIcon} className="footer__icon"></img>
+            <img src={InstaIcon} className="footer__icon-social"></img>
           </a>
         </section>
+        <p className="footer__copyright">Copyright © 2023</p>
       </footer>
     </div>
   );
