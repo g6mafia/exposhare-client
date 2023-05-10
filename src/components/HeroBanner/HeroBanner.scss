@@ -38,8 +38,11 @@
   &__slogan {
     @include componentSpacing;
     @include mSubheader;
+    font-weight: 400;
+
     @include tablet {
       @include Subheader;
+      font-weight: 400;
     }
   }
 

@@ -40,9 +40,9 @@ function Header() {
       </header>
       <section className="nav-container">
         <nav className="nav">
-          <a href="#" className="nav__link nav__link--current">
+          <Link to="/shop" className="nav__link nav__link--current">
             SHOP
-          </a>
+          </Link>
           <a href="#" className="nav__link">
             SELL
           </a>
