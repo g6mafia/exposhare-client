@@ -21,7 +21,7 @@
 
   &__logo {
     display: flex;
-    height: 2.625rem;
+    height: 3.75rem;
     margin: 0 auto;
 
     @include tablet {
@@ -93,12 +93,13 @@
     border: none;
     background: none;
     position: absolute;
-    bottom: 17px;
-    right: 11px;
+    bottom: 1.0625rem;
+    right: 0.6875rem;
+    cursor: pointer;
 
     @include tablet {
-      bottom: 19px;
-      right: 14px;
+      bottom: 1.1875rem;
+      right: 0.875rem;
     }
   }
   &__wrapper {

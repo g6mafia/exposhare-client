@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 import banner1 from "../../assets/images/banner-img-1.jpg";
 import banner2 from "../../assets/images/banner-img-2.jpg";
 import banner3 from "../../assets/images/banner-img-3.jpg";
+import banner4 from "../../assets/images/banner-img-4.jpg";
+import banner5 from "../../assets/images/banner-img-5.jpg";
 
 function HeroBanner() {
   const carouselRef = useRef(null);
@@ -54,6 +56,16 @@ function HeroBanner() {
       <div className="hero-banner__item">
       <div className="hero-banner__overlay"></div>
         <img src={banner3} alt="banner image 3" className="hero-banner__image" />
+      </div>
+
+      <div className="hero-banner__item">
+      <div className="hero-banner__overlay"></div>
+        <img src={banner4} alt="banner image 4" className="hero-banner__image" />
+      </div>
+
+      <div className="hero-banner__item">
+      <div className="hero-banner__overlay"></div>
+        <img src={banner5} alt="banner image 5" className="hero-banner__image" />
       </div>
     </section>
   );

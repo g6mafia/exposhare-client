@@ -1,2 +1,29 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
+
+
+.card-brands {
+    @include componentSpacing;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__title {
+
+    }
+    &__article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    padding: 1rem;
+    }
+    &__body {
+
+    }
+    &__image {
+
+    }
+    &__subtitle{}
+}
