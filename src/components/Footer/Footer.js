@@ -4,27 +4,27 @@ import AltLogo from "../../assets/logo/exposhare-alt.png";
 import FacebookIcon from "../../assets/icons/facebook.svg";
 import TwitterIcon from "../../assets/icons/twitter.svg";
 import InstaIcon from "../../assets/icons/instagram.svg";
-import ArrowRight from "../../assets/icons/arrow-right.svg"
+import ArrowRight from "../../assets/icons/arrow-right.svg";
 
 function Footer() {
   return (
     <div className="footer-container">
       <footer className="footer">
         <div className="footer__wrapper">
-        <Link to="/">
-          <img className="footer__logo" src={AltLogo} alt="exposhare logo" />
-        </Link>
-        <section className="footer__block-1">
-          <a href="https://www.facebook.com/" target="_blank">
-            <img src={FacebookIcon} className="footer__icon-social"></img>
-          </a>
-          <a href="https://twitter.com/" target="_blank">
-            <img src={TwitterIcon} className="footer__icon-social"></img>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank">
-            <img src={InstaIcon} className="footer__icon-social"></img>
-          </a>
-        </section>
+          <Link to="/">
+            <img className="footer__logo" src={AltLogo} alt="exposhare logo" />
+          </Link>
+          <section className="footer__block-1">
+            <a href="https://www.facebook.com/" target="_blank">
+              <img src={FacebookIcon} className="footer__icon-social"></img>
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+              <img src={TwitterIcon} className="footer__icon-social"></img>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+              <img src={InstaIcon} className="footer__icon-social"></img>
+            </a>
+          </section>
         </div>
         <section className="footer__block-2">
           <div className="footer__divider">
@@ -88,9 +88,16 @@ function Footer() {
             </p>
             <form className="footer__form">
               <label htmlFor="name" className="footer__label">
-                <input type="email" name="email" className="footer__input" placeholder="Enter your email address"></input>
+                <input
+                  type="email"
+                  name="email"
+                  className="footer__input"
+                  placeholder="Enter your email address"
+                ></input>
               </label>
-              <button type="submit" className="footer__button"><img src={ArrowRight} className="footer__icon-right"/></button>
+              <button type="submit" className="footer__button">
+                <img src={ArrowRight} className="footer__icon-right" />
+              </button>
             </form>
           </div>
         </section>
