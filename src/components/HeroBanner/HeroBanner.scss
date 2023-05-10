@@ -2,5 +2,74 @@
 @use "../../styles/partials/mixins" as *;
 
 .hero-banner {
-  @include componentSpacing;
+  position: relative;
+  width: 100%;
+  height: 25rem;
+  overflow: hidden;
+
+  @include tablet {
+    height: 31.25rem;
+  }
+
+  @include desktop {
+    height: 37.5rem;
+  }
+  &__container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $background-color;
+    z-index: 3;
+  }
+
+  &__title {
+    @include mHeader;
+
+    @include tablet {
+      @include Header;
+    }
+  }
+
+  &__slogan {
+    @include componentSpacing;
+    @include mSubheader;
+    @include tablet {
+      @include Subheader;
+    }
+  }
+
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 1;
+  }
+  
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $primary-text-color;
+    opacity: 0.3;
+    z-index: 2;
+  }
 }
