@@ -1,21 +1,35 @@
 @use "./variables" as *;
 
 @mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-      @content;
-    }
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
   }
-  
-  @mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
-      @content;
-    }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
   }
-  
-  @mixin list-type {
-      list-style-type: none;
-      text-decoration: none;
+}
+
+@mixin list-type {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+//component spacing
+@mixin componentSpacing {
+  padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 2.5rem;
   }
+  @include desktop {
+    padding: 0 7.5rem;
+    margin: 0 auto;
+    max-width: 80rem;
+  }
+}
 
 // mobile text styles
 
@@ -85,7 +99,6 @@
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.375rem;
-
 }
 
 @mixin BodyLarge {
@@ -105,4 +118,3 @@
   font-weight: 400;
   line-height: 1.125rem;
 }
-
