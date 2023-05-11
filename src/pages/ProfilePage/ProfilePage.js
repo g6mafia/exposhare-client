@@ -7,22 +7,25 @@ function ProfilePage () {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [profileData, setProfileData] = useState(null);
 
-  useEffect(() => {
-    axios
-      .get(`${ BASE_URL }/auth/profile`, { withCredentials: true })
-      .then((res) => {
-        setIsAuthenticated(false);
-        setIsLoggedIn(true);
-        setProfileData(res.data);
-      })
-      .catch((err) => {
-        if (err.response.status === 401) {
-          setIsAuthenticated(false);
-          setIsLoggedIn(false);
-        } else {
-          console.log('Error authenticating', err);
-        }
+  const fetchProfileData = async () => {
+    try {
+      const res = await axios.get(`${BASE_URL}/users/my-profile`, {
+        withCredentials: true,
       });
+      setIsAuthenticated(false);
+      setIsLoggedIn(true);
+      setProfileData(res.data);
+    } catch (err) {
+      if (err.response.status === 401) {
+        setIsAuthenticated(false);
+        setIsLoggedIn(false);
+      } else {
+        console.log('Error authenticating', err);
+      }
+    }
+  };
+  useEffect(() => {
+    fetchProfileData();
   }, []);
 
   const formatDate = (date) => {

@@ -112,7 +112,6 @@
       right: 0.875rem;
     }
 
-    
     &-signup {
       @include Buttons;
       color: $third-color;
@@ -156,8 +155,7 @@
 
   &__dropdown {
     position: absolute;
-    top: 100%;
-    right: 0;
+    top: 115%;
     background-color: $background-color;
     border: 0.0625rem solid $alt-text-color;
     border-radius: 0.3125rem;
@@ -166,16 +164,36 @@
     flex-direction: column;
     gap: 0.625rem;
     z-index: 10;
-  }
-  
-  &__dropdown-item {
-    cursor: pointer;
-    padding: 0.3125rem;
-    &:hover {
-      background-color: $third-color;
+
+    @include tablet {
+      top: 100%;
+      right: 0;
+    }
+
+    &-wrapper {
+      border-top: 1px solid $divider-color;
+      border-bottom: 1px solid $divider-color;
+    }
+    &-account {
+      @include BodyLarge;
+      font-weight: bold;
+    }
+    &-item {
+      @include BodyMedium;
+      cursor: pointer;
+      padding: 0.3125rem;
+
+      &:hover {
+        background-color: $third-color;
+      }
+    }
+    &-logout{
+      cursor: pointer;
+      padding: 0 0.3125rem;
+      @include BodySmall;
     }
   }
-  
+
   &__cart-icon {
     background-color: transparent;
     border: none;

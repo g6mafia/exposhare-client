@@ -1,12 +1,13 @@
 import "./Header.scss";
 import SearchIcon from "../../assets/icons/search.svg";
-import { Link, NavLink } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo/exposhare-logo.png";
 import Favorites from "../../assets/icons/likes.svg";
 import Cart from "../../assets/icons/cart.svg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Header({ isAuthenticated, setIsAuthenticated }) {
+  const navigate = useNavigate();
   //for dropdown modal on user avatar
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
@@ -16,7 +17,8 @@ function Header({ isAuthenticated, setIsAuthenticated }) {
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (
@@ -59,10 +61,21 @@ function Header({ isAuthenticated, setIsAuthenticated }) {
                   {isDropdownVisible && (
                     <div className="header__dropdown">
                       <Link to="/my-profile">
-                        <div className="header__dropdown-item">My Account</div>
+                        <div className="header__dropdown-account">My Account</div>
                       </Link>
+                      <div className="header__dropdown-wrapper">
+                        <Link to="/favorites">
+                          <div className="header__dropdown-item">Favorites</div>
+                        </Link>
+                        <Link to="/messages">
+                          <div className="header__dropdown-item">Messages</div>
+                        </Link>
+                        <Link to="/messages">
+                          <div className="header__dropdown-item">Purchases</div>
+                        </Link>
+                      </div>
                       <div
-                        className="header__dropdown-item"
+                        className="header__dropdown-logout"
                         onClick={handleLogout}
                       >
                         Log Out

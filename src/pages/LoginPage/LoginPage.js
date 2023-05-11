@@ -43,7 +43,7 @@ function LoginPage({ setIsAuthenticated }) {
                     Log in
                 </button>
 
-                {error && <div className="login__message">{error}</div>}
+                {error && <div className="login__message">{error.message}</div>}
             </form>
             <p>
                 Need an account? <Link to="/signup">Sign Up Here</Link>

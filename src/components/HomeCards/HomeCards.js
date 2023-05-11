@@ -2,7 +2,7 @@ import "./HomeCards.scss";
 import { Link } from "react-router-dom";
 import ArrowRight from "../../assets/icons/arrow-right.svg";
 
-function HomeCards({ listings }) {
+function HomeCards({ filteredBrands }) {
   return (
     <>
       <section className="card-brands">
@@ -15,19 +15,19 @@ function HomeCards({ listings }) {
           </Link>
         </div>
         <div className="card-brands__wrapper-2">
-          {listings.slice(0, 4).map((listing) => (
+          {filteredBrands.map((item) => (
             <Link
-              to={`/shop?brand=${encodeURIComponent(listing.brand)}`}
-              key={listing.id}
+              to={`/shop?brand=${encodeURIComponent(item.brand)}`}
+              key={item.id}
             >
-              <article key={listing.id} className="card-brands__article">
+              <article key={item.id} className="card-brands__article">
                 <div className="card-brands__body">
                   <img
-                    src={listing.image_url}
-                    alt={listing.brand}
+                    src={item.image_url}
+                    alt={item.brand}
                     className="card-brands__image"
                   ></img>
-                  <h3 className="card-brands__subtitle">{listing.brand}</h3>
+                  <h3 className="card-brands__subtitle">{item.brand}</h3>
                 </div>
               </article>
             </Link>

@@ -7,6 +7,13 @@ import axios from "axios";
 function HomePage() {
   const [listings, setListings] = useState([]);
 
+  const specificBrands = [
+    "FujiFilm",
+    "Sony",
+    "Nikon",
+    "Canon"
+  ]
+
   useEffect(() => {
     axios
       .get(`${BASE_URL}/api/listings`)
@@ -18,14 +25,27 @@ function HomePage() {
       })
   }, []);
 
-  if (!listings.length) {
+//array of objects with the information for each brand
+  const filteredBrands = specificBrands.map((brand) => {
+    const brandListings = listings.filter((item) => item.brand === brand);
+    if (brandListings.length > 0) {
+      return {
+        brand,
+        id: brandListings[0].id,
+        image_url: brandListings[0].image_url,
+      };
+    }
+    return null;
+  }).filter(item => item !== null);
+
+  if (!listings.length || filteredBrands.length === 0) {
     return <p className="loading">Loading...</p>;
   }
 
     return (
       <section>
         <HeroBanner />
-        <HomeCards listings={listings}/>
+        <HomeCards filteredBrands={filteredBrands}/>
       </section>
     );
   };
