@@ -3,9 +3,15 @@ import SearchIcon from "../../assets/icons/search.svg";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo/exposhare-logo.png";
 import Favorites from "../../assets/icons/likes.svg";
+import { useState, useEffect } from "react";
 
 function Header() {
+// const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+//  useEffect(() => {
   
+// }, []);
+
   return (
     <>
       <header className="header-container">
@@ -27,14 +33,29 @@ function Header() {
               /></button>
             </form>
             <div className="header__wrapper">
-              <Link to="/favorites">
-                <img
-                  src={Favorites}
-                  alt="favorites"
-                  className="header__likes-icon"
-                ></img>
-              </Link>
-              <Link to="/profile"><div className="header__avatar"></div></Link>
+            {isAuthenticated ? (
+              <>
+                <Link to="/favorites">
+                  <img
+                    src={Favorites}
+                    alt="favorites"
+                    className="header__likes-icon"
+                  ></img>
+                </Link>
+                <Link to="/profile">
+                  <div className="header__avatar"></div>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/signup">
+                  <button className="header__button">Sign Up</button>
+                </Link>
+                <Link to="/login">
+                  <button className="header__button">Log in</button>
+                </Link>
+              </>
+            )}
             </div>
           </nav>
         </div>

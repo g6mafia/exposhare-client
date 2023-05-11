@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BASE_URL } from "../../utils";
 
 function ProfilePage () {
-  const [isAuthenticating, setIsAuthenticating] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [profileData, setProfileData] = useState(null);
 
@@ -11,13 +11,13 @@ function ProfilePage () {
     axios
       .get(`${ BASE_URL }/auth/profile`, { withCredentials: true })
       .then((res) => {
-        setIsAuthenticating(false);
+        setIsAuthenticated(false);
         setIsLoggedIn(true);
         setProfileData(res.data);
       })
       .catch((err) => {
         if (err.response.status === 401) {
-          setIsAuthenticating(false);
+          setIsAuthenticated(false);
           setIsLoggedIn(false);
         } else {
           console.log('Error authenticating', err);
@@ -29,7 +29,7 @@ function ProfilePage () {
     return new Date(date).toLocaleDateString('en-US');
   };
 
-  if (isAuthenticating) return null;
+  if (isAuthenticated) return null;
 
   return (
     <section className="profile-page">

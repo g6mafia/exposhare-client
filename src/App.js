@@ -20,7 +20,7 @@ function App() {
           <Route path="/auth-fail" element={<AuthFailPage />} />
           <Route path="profile" element={<ProfilePage />}/>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signup" render={(props) => <SignUpPage {...props} onSignUpSuccess={() => setIsAuthenticated(true)} />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { BASE_URL } from "../../utils";
 
-function SignUpPage() {
+function SignUpPage({onSignUpSuccess}) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -25,6 +25,7 @@ function SignUpPage() {
         setSuccess(true);
         setError("");
         e.target.reset();
+        onSignUpSuccess();
       })
       .catch((error) => {
         setSuccess(false);
@@ -46,11 +47,11 @@ function SignUpPage() {
 
         <button className="signup__button">Sign up</button>
 
-        {success && <div className="signup__message">Signed up!</div>}
-        {error && <div className="signup__message">{error.message}</div>}
+        {success && <div className="signup__success-message">Successfully Signed Up!</div>}
+        {error && <div className="signup__error-message">{error.message}</div>}
       </form>
-      <p>
-        Have an account? <Link to="/login">Log in</Link>
+      <p className="signup__login-link">
+        Already have an account? <Link to="/login">Log in</Link>
       </p>
     </section>
   );
