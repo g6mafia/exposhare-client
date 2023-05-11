@@ -1,13 +1,14 @@
 import "./SignUpPage.scss";
-import { Link } from "react-router-dom";
+import {  useNavigate, Link } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import axios from "axios";
 import { useState } from "react";
 import { BASE_URL } from "../../utils";
 
-function SignUpPage({ onSignUpSuccess }) {
+function SignUpPage({ setIsAuthenticated }) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,7 +45,8 @@ function SignUpPage({ onSignUpSuccess }) {
         setSuccess(true);
         setError("");
         e.target.reset();
-        onSignUpSuccess();
+        setIsAuthenticated(true);
+        navigate('/');
       })
       .catch((error) => {
         setSuccess(false);

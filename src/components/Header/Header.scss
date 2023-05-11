@@ -88,6 +88,16 @@
       }
     }
   }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
   &__button {
     height: 2.25rem;
     border: none;
@@ -97,16 +107,19 @@
     right: 0.6875rem;
     cursor: pointer;
 
-    &-wrapper {
-      display: flex;
-      flex-direction: column;
+    @include tablet {
+      bottom: 1.1875rem;
+      right: 0.875rem;
     }
+
+    
     &-signup {
       @include Buttons;
       color: $third-color;
       background-color: $primary-cta-color;
       border: 2px solid $primary-cta-color;
-      width: 100%;
+      width: 80px;
+      height: 28px;
       border-radius: 0.25rem;
       transition-duration: 0.4s;
 
@@ -124,8 +137,8 @@
       @include Buttons;
       background-color: $third-color;
       color: $primary-cta-color;
-      margin-bottom: 0.25rem;
-      width: 100%;
+      width: 80px;
+      height: 28px;
       border: 2px solid $other-color;
       border-radius: 0.25rem;
       transition-duration: 0.4s;
@@ -139,18 +152,43 @@
         transform: translateY(4px);
       }
     }
-    @include tablet {
-      bottom: 1.1875rem;
-      right: 0.875rem;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: $background-color;
+    border: 0.0625rem solid $alt-text-color;
+    border-radius: 0.3125rem;
+    padding: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    z-index: 10;
+  }
+  
+  &__dropdown-item {
+    cursor: pointer;
+    padding: 0.3125rem;
+    &:hover {
+      background-color: $third-color;
     }
   }
-  &__wrapper {
-    display: flex;
-    align-items: center;
+  
+  &__cart-icon {
+    background-color: transparent;
+    border: none;
+    height: 26px;
+    font-size: 1rem;
+    color: $logo-color;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   &__likes-icon {
     height: 1.25rem;
-    margin-right: 1.5rem;
   }
   &__avatar {
     width: 2.25rem;
