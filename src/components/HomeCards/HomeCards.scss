@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
     display: none;
-    
+
     &:hover {
       animation: moveRight6px 1s infinite;
     }
@@ -85,6 +85,7 @@
 
     @include tablet {
       flex-direction: row;
+      justify-content: center;
     }
   }
   &__article {
@@ -104,8 +105,15 @@
     justify-content: center;
   }
   &__image {
-    border-radius: 4px;
-    box-shadow: 8px 8px 8px 0px $shadow-color;
+    width: 12.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem 0rem $shadow-color;
+
+    @include tablet {
+      width: 18.75rem;
+      height: auto;
+      object-fit: cover;
+    }
   }
   &__subtitle {
     @include BodyLarge;

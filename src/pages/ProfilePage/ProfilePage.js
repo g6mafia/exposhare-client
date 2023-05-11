@@ -4,7 +4,7 @@ import { BASE_URL } from "../../utils";
 
 function ProfilePage () {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [profileData, setProfileData] = useState(null);
 
   const fetchProfileData = async () => {
@@ -24,6 +24,7 @@ function ProfilePage () {
       }
     }
   };
+
   useEffect(() => {
     fetchProfileData();
   }, []);
@@ -33,6 +34,10 @@ function ProfilePage () {
   };
 
   if (isAuthenticated) return null;
+  
+  if (isLoggedIn === null) {
+    return <p className="loading">Loading...</p>;
+  }
 
   return (
     <section className="profile-page">

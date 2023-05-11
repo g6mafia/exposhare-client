@@ -43,10 +43,13 @@ function HomePage() {
   }
 
     return (
-      <section>
+      <>
         <HeroBanner />
+        {/* <News /> */}
+        {/* <About /> */}
         <HomeCards filteredBrands={filteredBrands}/>
-      </section>
+         {/* <News /> */}
+      </>
     );
   };
   
