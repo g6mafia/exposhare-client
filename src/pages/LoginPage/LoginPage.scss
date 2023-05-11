@@ -1,0 +1,43 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.login-container {
+    background-color: $alt-background-color;
+}
+
+.login {
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__title {
+      @include  mSubheader;
+  
+      @include tablet {
+          @include  Subheader;
+      }
+  
+    }
+    &__button {
+        @include Buttons;
+        background-color: $third-color;
+        color: $primary-cta-color;
+        margin-bottom: 0.25rem;
+        width: 100%;
+        border: 0.125rem solid $other-color;
+        border-radius: 0.25rem;
+        transition-duration: 0.4s;
+        margin: 2rem 0;
+  
+        &:hover {
+          background-color: $other-hover-color;
+          color: $primary-cta-color;
+          border: 0.125rem solid $primary-cta-color;
+        }
+        &:active {
+          box-shadow: 0 0.3125rem #666;
+          transform: translateY(4px);
+        }
+      }
+}

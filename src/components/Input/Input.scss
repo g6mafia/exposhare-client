@@ -1,0 +1,24 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.input {
+  display: flex;
+  margin: 1rem 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &__label {
+    @include Labels;
+    width: 6.25rem;
+  }
+  &__field {
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    border: 2px solid $other-color;
+
+    &:focus {
+        border: 2px solid $primary-cta-color; 
+    }
+  }
+}

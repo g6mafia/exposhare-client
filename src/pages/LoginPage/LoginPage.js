@@ -11,10 +11,13 @@ function LoginPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
+        const username = e.target.username.value;
+        const password = e.target.password.value;
+
         axios.post(`${ BASE_URL }/auth/login`, {
-            email: e.target.email.value,
-            password: e.target.password.value
+            username,
+            password,
         })
         .then((response) => {
             localStorage.setItem('token', response.data.token);
@@ -27,11 +30,12 @@ function LoginPage() {
     }
 
     return (
+        <div className='login-container'>
         <section className="login">
             <form className="login__form" onSubmit={handleSubmit}>
                 <h1 className="login__title">Log in</h1>
 
-                <Input type="text" name="email" label="Email" />
+                <Input type="text" name="username" label="Username" />
                 <Input type="password" name="password" label="Password" />
 
                 <button className="login__button">
@@ -41,9 +45,10 @@ function LoginPage() {
                 {error && <div className="login__message">{error}</div>}
             </form>
             <p>
-                Need an account? <Link to="/signup">Sign up</Link>
+                Need an account? <Link to="/signup">Sign Up Here</Link>
             </p>
         </section>
+        </div>
     );
 }
 

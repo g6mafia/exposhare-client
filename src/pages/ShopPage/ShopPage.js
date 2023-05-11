@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import "./ShopPage.scss"
 // import queryString from 'query-string'; 
 // import FilterSidebar from './FilterSidebar';
 // import ListingGrid from './ListingGrid';
@@ -32,6 +33,9 @@ function ShopPage() {
   //axios 
   return (
     <>
+    <section className='shop'>
+    <h1 className='shop__title'>Shop</h1>
+    </section>
     </>
   );
 }

@@ -1,0 +1,18 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.shop {
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+    
+    &__title {
+      @include  mSubheader;
+  
+      @include tablet {
+          @include  Subheader;
+      }
+  
+    }
+}

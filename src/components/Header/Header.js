@@ -6,7 +6,7 @@ import Favorites from "../../assets/icons/likes.svg";
 import { useState, useEffect } from "react";
 
 function Header() {
-// const [isAuthenticated, setIsAuthenticated] = useState(false);
+const [isAuthenticated, setIsAuthenticated] = useState(false);
 
 //  useEffect(() => {
   
@@ -47,14 +47,14 @@ function Header() {
                 </Link>
               </>
             ) : (
-              <>
+              <div className="header__button-wrapper"> 
+              <Link to="/login">
+                  <button className="header__button-login">Log In</button>
+                </Link>
                 <Link to="/signup">
-                  <button className="header__button">Sign Up</button>
+                  <button className="header__button-signup">Sign Up</button>
                 </Link>
-                <Link to="/login">
-                  <button className="header__button">Log in</button>
-                </Link>
-              </>
+              </div>
             )}
             </div>
           </nav>

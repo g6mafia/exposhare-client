@@ -41,7 +41,7 @@
       justify-content: flex-end;
       flex-direction: row;
       align-items: center;
-      width: 34%;
+      // width: 34%;
     }
   }
 
@@ -97,6 +97,48 @@
     right: 0.6875rem;
     cursor: pointer;
 
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    &-signup {
+      @include Buttons;
+      color: $third-color;
+      background-color: $primary-cta-color;
+      border: 2px solid $primary-cta-color;
+      width: 100%;
+      border-radius: 0.25rem;
+      transition-duration: 0.4s;
+
+      &:hover {
+        background-color: $hover-cta-color;
+        color: $divider-color;
+        border: 2px solid $primary-cta-color;
+      }
+      &:active {
+        box-shadow: 0 0.3125rem #666;
+        transform: translateY(4px);
+      }
+    }
+    &-login {
+      @include Buttons;
+      background-color: $third-color;
+      color: $primary-cta-color;
+      margin-bottom: 0.25rem;
+      width: 100%;
+      border: 2px solid $other-color;
+      border-radius: 0.25rem;
+      transition-duration: 0.4s;
+
+      &:hover {
+        background-color: $other-hover-color;
+        color: $primary-cta-color;
+      }
+      &:active {
+        box-shadow: 0 0.3125rem #666;
+        transform: translateY(4px);
+      }
+    }
     @include tablet {
       bottom: 1.1875rem;
       right: 0.875rem;
@@ -171,6 +213,10 @@
       color: $hover-cta-color;
       border-radius: 30px;
       border: 2px solid $other-color;
+    }
+    &:active {
+      box-shadow: 0 2px #666;
+      transform: translateY(2px);
     }
   }
   &__img {
