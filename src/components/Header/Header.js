@@ -5,6 +5,7 @@ import Logo from "../../assets/logo/exposhare-logo.png";
 import Favorites from "../../assets/icons/likes.svg";
 
 function Header() {
+  
   return (
     <>
       <header className="header-container">
@@ -33,7 +34,7 @@ function Header() {
                   className="header__likes-icon"
                 ></img>
               </Link>
-              <div className="header__avatar"></div>
+              <Link to="/profile"><div className="header__avatar"></div></Link>
             </div>
           </nav>
         </div>
