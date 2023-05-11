@@ -14,6 +14,11 @@ function Header({ isAuthenticated, setIsAuthenticated }) {
     setIsDropdownVisible(!isDropdownVisible);
   };
 
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('token');
+  };
+
   return (
     <>
       <header className="header-container">
@@ -58,7 +63,7 @@ function Header({ isAuthenticated, setIsAuthenticated }) {
                       </Link>
                       <div
                         className="header__dropdown-item"
-                        onClick={() => setIsAuthenticated(false)}
+                        onClick={handleLogout}
                       >
                         Log Out
                       </div>

@@ -15,7 +15,7 @@ function LoginPage({ setIsAuthenticated }) {
         const username = e.target.username.value;
         const password = e.target.password.value;
 
-        axios.post(`${ BASE_URL }/auth/login`, {
+        axios.post(`${ BASE_URL }/users/login`, {
             username,
             password,
         })

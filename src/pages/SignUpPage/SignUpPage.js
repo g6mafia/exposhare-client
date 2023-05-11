@@ -33,7 +33,7 @@ function SignUpPage({ setIsAuthenticated }) {
     }
 
     axios
-      .post(`${BASE_URL}/auth/signup`, {
+      .post(`${BASE_URL}/users/signup`, {
         email,
         username,
         password,
