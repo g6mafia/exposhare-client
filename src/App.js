@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/shop" element={<ShopPage />} />
-          <Route path="auth-fail" element={<AuthFailPage />} />
+          <Route path="/auth-fail" element={<AuthFailPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

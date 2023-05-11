@@ -1,6 +1,6 @@
 import "./Header.scss";
 import SearchIcon from "../../assets/icons/search.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo/exposhare-logo.png";
 import Favorites from "../../assets/icons/likes.svg";
 
@@ -40,21 +40,41 @@ function Header() {
       </header>
       <section className="nav-container">
         <nav className="nav">
-          <Link to="/shop" className="nav__link nav__link--current">
+          <NavLink to="/shop" exact="true" className={(navData) =>
+              navData.isActive
+                ? 'nav__link nav__link--current'
+                : 'nav__link'
+            }>
             SHOP
-          </Link>
-          <a href="#" className="nav__link">
+          </NavLink>
+          <NavLink to="/sell" exact="true" className={(navData) =>
+              navData.isActive
+                ? 'nav__link nav__link--current'
+                : 'nav__link'
+            }>
             SELL
-          </a>
-          <a href="#" className="nav__link">
+          </NavLink>
+          <NavLink to="/trade" exact="true" className={(navData) =>
+              navData.isActive
+                ? 'nav__link nav__link--current'
+                : 'nav__link'
+            }>
             TRADE
-          </a>
-          <a href="#" className="nav__link">
+          </NavLink>
+          <NavLink to="/Forum" exact="true" className={(navData) =>
+              navData.isActive
+                ? 'nav__link nav__link--current'
+                : 'nav__link'
+            }>
             FORUM
-          </a>
-          <a href="#" className="nav__link">
+          </NavLink>
+          <NavLink to="/News" exact="true" className={(navData) =>
+              navData.isActive
+                ? 'nav__link nav__link--current'
+                : 'nav__link'
+            }>
             NEWS
-          </a>
+          </NavLink>
         </nav>
       </section>
     </>

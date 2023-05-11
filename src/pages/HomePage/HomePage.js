@@ -19,7 +19,7 @@ function HomePage() {
   }, []);
 
   if (!listings.length) {
-    return <p className="loading">Loading video...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
     return (
