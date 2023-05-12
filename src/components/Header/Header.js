@@ -6,7 +6,7 @@ import Favorites from "../../assets/icons/likes.svg";
 import Cart from "../../assets/icons/cart.svg";
 import { useState } from "react";
 
-function Header({ profileData, isAuthenticated, setIsAuthenticated }) {
+function Header({ profileData, isAuthenticated, handleChange }) {
   const navigate = useNavigate();
 
   //for dropdown modal on user avatar
@@ -17,7 +17,7 @@ function Header({ profileData, isAuthenticated, setIsAuthenticated }) {
   };
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
+    handleChange(null);
     localStorage.removeItem("token");
     navigate("/");
   };
@@ -45,7 +45,7 @@ function Header({ profileData, isAuthenticated, setIsAuthenticated }) {
               </button>
             </form>
             <div className="header__wrapper">
-              {isAuthenticated && profileData ? (
+              {isAuthenticated || profileData ? (
                 <>
                   <Link to="/users/favorites">
                     <img
@@ -62,7 +62,9 @@ function Header({ profileData, isAuthenticated, setIsAuthenticated }) {
                   {isDropdownVisible && (
                     <div className="header__dropdown">
                       <Link to="/users/my-profile">
-                        <div className="header__dropdown-account">My Account</div>
+                        <div className="header__dropdown-account">
+                          My Account
+                        </div>
                       </Link>
                       <div className="header__dropdown-wrapper">
                         <Link to="/users/favorites">

@@ -4,7 +4,7 @@ import axios from "axios";
 import { BASE_URL } from "../../utils";
 import "./ProfilePage.scss";
 
-function ProfilePage({handleChange}) {
+function ProfilePage({ handleChange, profileData }) {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
@@ -18,9 +18,10 @@ function ProfilePage({handleChange}) {
         },
         withCredentials: true,
       });
+      setIsLoggedIn(true);
       handleChange(res.data);
     } catch (err) {
-      if (err.response.status === 401) {
+      if ( err.response.status === 401) {
         setIsLoggedIn(false);
       } else {
         console.log("Error authenticating", err);
@@ -37,6 +38,7 @@ function ProfilePage({handleChange}) {
   };
 
   //validation
+
   if (isLoggedIn === null) {
     return <p className="loading">Loading...</p>;
   }

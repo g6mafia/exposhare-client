@@ -5,7 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from "../../utils";
 
-function LoginPage({ setIsAuthenticated }) {
+function LoginPage({ handleChange }) {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ function LoginPage({ setIsAuthenticated }) {
         .then((response) => {
             localStorage.setItem('token', response.data.token);
             setError('');
-            setIsAuthenticated(true);
+            handleChange(true);
             navigate('/');
         })
         .catch((error) => {

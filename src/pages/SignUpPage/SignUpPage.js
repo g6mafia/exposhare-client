@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { BASE_URL } from "../../utils";
 
-function SignUpPage({ setIsAuthenticated }) {
+function SignUpPage({ handleChange }) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ function SignUpPage({ setIsAuthenticated }) {
         setSuccess(true);
         setError("");
         e.target.reset();
-        setIsAuthenticated(true);
+        handleChange(true);
         navigate('/');
       })
       .catch((error) => {
