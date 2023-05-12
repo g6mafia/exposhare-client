@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "./ProfilePage.scss";
+import axios from "axios";
+import { BASE_URL } from "../../utils";
+
 
 function ProfilePage({ handleChange, profileData }) {
   const navigate = useNavigate();
@@ -15,10 +18,25 @@ function ProfilePage({ handleChange, profileData }) {
     navigate("/");
   };
 
+  // Handle delete user function
+  const handleDeleteUser = async () => {
+    try {
+      await axios.delete(`${BASE_URL}/users/delete`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      handleChange(null);
+      localStorage.removeItem("token");
+      navigate("/");
+    } catch (error) {
+      console.error("Error deleting user", error);
+      // Show an error message or handle the error as needed
+    }
+  };
+
   if (!profileData) {
-    return <p className="profile-page__auth">
-    This page requires authentication.
-  </p>;
+    return (
+      <p className="profile-page__auth">This page requires authentication.</p>
+    );
   }
 
   return (
@@ -30,34 +48,38 @@ function ProfilePage({ handleChange, profileData }) {
         </h1>
       </div>
 
-          <div>
-            <p>
-              Hello, {profileData.first_name} {profileData.last_name}
-            </p>
-            <article className="profile-page__wrapper-2">
-              <h2 className="profile-page__subtitle">
-                <img
-                  className="profile-page__avatar"
-                  src={profileData.avatar_url}
-                  alt={`${profileData.username} avatar`}
-                />{" "}
-                {profileData.username}
-              </h2>
-              <h3 className="profile-page__info">
-                {" "}
-                Joined in {formatDate(profileData.updated_at)}
-              </h3>
-            </article>
-            <article className="profile-page__wrapper-3">
-              <></>
-            </article>
-            <button
-              className="profile-page__button-logout"
-              onClick={handleLogout}
-            >
-              Log Out
-            </button>
-          </div>
+      <div>
+        <p className="profile-page__welcome-text">
+          Hello, {profileData.first_name} {profileData.last_name}
+        </p>
+        <article className="profile-page__wrapper-2">
+          <h2 className="profile-page__subtitle">
+            <img
+              className="profile-page__avatar"
+              src={profileData.avatar_url}
+              alt={`${profileData.username} avatar`}
+            />{" "}
+            {profileData.username}
+          </h2>
+          <h3 className="profile-page__info">
+            {" "}
+            Joined in {formatDate(profileData.updated_at)}
+          </h3>
+        </article>
+        <article className="profile-page__wrapper-3">
+          <></>
+        </article>
+        <button className="profile-page__button-logout" onClick={handleLogout}>
+          Log Out
+        </button>
+        
+        <button
+        className="profile-page__button-delete"
+        onClick={handleDeleteUser}
+      >
+        Delete My Account
+      </button>
+      </div>
     </section>
   );
 }

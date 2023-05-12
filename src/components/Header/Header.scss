@@ -219,6 +219,7 @@
     background-position: 25%;
     overflow: hidden;
     cursor: pointer;
+    border: 0.125rem solid $primary-text-color;
 
     @include tablet {
       width: 2.5rem;
