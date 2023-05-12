@@ -1,8 +1,10 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.profile-page {
-  &__wrapper-3 {
+.user-actions {
+  &__wrapper-button {
+    padding-top: 2rem;
+    border-top: 2px solid $divider-color;
     display: flex;
     flex-direction: column;
     align-items: center;

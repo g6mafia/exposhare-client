@@ -1,32 +1,42 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-
-.profile-page {
-    @include componentSpacing;
+.user-dashboard {
+  @include componentSpacing;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &__title {
+    @include mSubheader;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-  
-    &__button {
-        &-edit {
-          @include Buttons;
-          color: $third-color;
-          background-color: $primary-cta-color;
-          border: 2px solid $primary-cta-color;
-          padding: 0 1rem;
-          border-radius: 0.25rem;
-          transition-duration: 0.4s;
-    
-          &:hover {
-            background-color: $hover-cta-color;
-            color: $divider-color;
-            border: 2px solid $primary-cta-color;
-          }
-          &:active {
-            box-shadow: 0 0.3125rem #666;
-            transform: translateY(4px);
-          }
-        }
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 0.125rem solid $divider-color;
+    margin-bottom: 0;
+
+    @include tablet {
+      @include Subheader;
+    }
+  }
+  &__button {
+    &-edit {
+      @include Buttons;
+      color: $third-color;
+      background-color: $primary-cta-color;
+      border: 2px solid $primary-cta-color;
+      padding: 0 1rem;
+      border-radius: 0.25rem;
+      transition-duration: 0.4s;
+
+      &:hover {
+        background-color: $hover-cta-color;
+        color: $divider-color;
+        border: 2px solid $primary-cta-color;
       }
-}  
+      &:active {
+        box-shadow: 0 0.3125rem #666;
+        transform: translateY(4px);
+      }
+    }
+  }
+}

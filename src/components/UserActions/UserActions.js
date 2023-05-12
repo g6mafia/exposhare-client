@@ -5,16 +5,16 @@ import "./UserActions.scss"
 
 function UserActions({ handleLogout, handleDeleteUser }) {
     return (
-      <div className="profile-page__wrapper-3">
+      <div className="user-actions__wrapper-button">
         <button
-          className="profile-page__button-logout"
+          className="user-actions__button-logout"
           onClick={handleLogout}
         >
           Log Out
         </button>
   
         <button
-          className="profile-page__button-delete"
+          className="user-actions__button-delete"
           onClick={handleDeleteUser}
         >
           Delete My Account
