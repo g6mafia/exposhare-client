@@ -4,10 +4,12 @@ import { useNavigate, Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo/exposhare-logo.png";
 import Favorites from "../../assets/icons/likes.svg";
 import Cart from "../../assets/icons/cart.svg";
-import { useState } from "react";
+import Messages from "../../assets/icons/mail.svg";
+import { useState, useRef, useEffect } from "react";
 
 function Header({ profileData, isAuthenticated, handleChange }) {
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
 
   //for dropdown modal on user avatar
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -21,6 +23,19 @@ function Header({ profileData, isAuthenticated, handleChange }) {
     localStorage.removeItem("token");
     navigate("/");
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -47,20 +62,40 @@ function Header({ profileData, isAuthenticated, handleChange }) {
             <div className="header__wrapper">
               {isAuthenticated && profileData ? (
                 <>
+                
+                  <Link to="/users/messages">
+                    <img
+                      src={Messages}
+                      className="header__icon-messages"
+                      alt="mail icon"
+                    />
+                  </Link>
                   <Link to="/users/favorites">
                     <img
                       src={Favorites}
                       alt="favorites"
-                      className="header__likes-icon"
+                      className="header__icon-favorites"
                     />
                   </Link>
 
+                  <Link to="/users/cart">
+                    <img
+                      src={Cart}
+                      className="header__icon-cart"
+                      alt="cart icon"
+                    />
+                  </Link>
+                 
                   <div onClick={toggleDropdown}>
-                    <img className="header__avatar" src={profileData.avatar_url} alt={profileData.avatar_url}></img>
+                    <img
+                      className="header__avatar"
+                      src={profileData.avatar_url}
+                      alt={profileData.avatar_url}
+                    ></img>
                   </div>
 
                   {isDropdownVisible && (
-                    <div className="header__dropdown">
+                    <div ref={dropdownRef} className="header__dropdown">
                       <Link to="/users/my-profile">
                         <div className="header__dropdown-account">
                           My Account
@@ -85,9 +120,6 @@ function Header({ profileData, isAuthenticated, handleChange }) {
                       </div>
                     </div>
                   )}
-                  <Link to="/cart">
-                    <img src={Cart} className="header__cart-icon" alt="cart icon"/>
-                  </Link>
                 </>
               ) : (
                 <>

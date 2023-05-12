@@ -23,6 +23,7 @@ function App() {
 
 
   useEffect(() => {
+    console.log("Initial isAuthenticated:", isAuthenticated);
     async function fetchProfileData() {
       if (isAuthenticated) {
         try {

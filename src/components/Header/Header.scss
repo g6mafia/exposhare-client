@@ -41,7 +41,6 @@
       justify-content: flex-end;
       flex-direction: row;
       align-items: center;
-      // width: 34%;
     }
   }
 
@@ -69,7 +68,7 @@
     background-color: $alt-background-color;
 
     &--active:focus {
-      border: 2px solid $primary-cta-color;
+      border: 0.125rem solid $primary-cta-color;
     }
     &::placeholder {
       color: $primary-text-color;
@@ -92,6 +91,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 10rem;
     gap: 1rem;
 
     @include tablet {
@@ -129,7 +129,7 @@
       }
       &:active {
         box-shadow: 0 0.3125rem #666;
-        transform: translateY(4px);
+        transform: translateY(0.25rem);
       }
     }
     &-login {
@@ -148,13 +148,14 @@
       }
       &:active {
         box-shadow: 0 0.3125rem #666;
-        transform: translateY(4px);
+        transform: translateY(0.25rem);
       }
     }
   }
 
   &__dropdown {
     position: absolute;
+    box-shadow: 0 3px 3px -2px $alt-text-color;
     top: 115%;
     background-color: $background-color;
     border: 0.0625rem solid $alt-text-color;
@@ -171,8 +172,8 @@
     }
 
     &-wrapper {
-      border-top: 1px solid $divider-color;
-      border-bottom: 1px solid $divider-color;
+      border-top: 0.0625rem solid $divider-color;
+      border-bottom: 0.0625rem solid $divider-color;
     }
     &-account {
       @include BodyLarge;
@@ -197,19 +198,23 @@
     }
   }
 
-  &__cart-icon {
-    background-color: transparent;
-    border: none;
-    height: 26px;
-    font-size: 1rem;
-    color: $logo-color;
-    cursor: pointer;
-    &:hover {
-      text-decoration: underline;
+  &__icon {
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-  }
-  &__likes-icon {
-    height: 1.25rem;
+    &-cart {
+      height: 1.625rem;
+      margin-bottom: 5px;
+    }
+    &-favorites {
+      height: 1.35rem;
+    }
+
+    &-messages {
+      height: 1.625rem;
+    }
   }
   &__avatar {
     width: 2.25rem;
@@ -231,7 +236,7 @@
 
 .nav-container {
   border-bottom: 0.0625rem solid $divider-color;
-  box-shadow: 0 2px 2px -2px $alt-text-color;
+  box-shadow: 0 0.125rem 0.125rem -0.125rem $alt-text-color;
 }
 .nav {
   @include componentSpacing;
@@ -263,20 +268,20 @@
       padding: 0;
       font-weight: 600;
       color: $hover-cta-color;
-      border-radius: 30px;
-      border: 2px solid $other-color;
+      border-radius: 1.875rem;
+      border: 0.125rem solid $other-color;
     }
     &:hover {
       width: 10%;
       padding: 0;
       font-weight: 600;
       color: $hover-cta-color;
-      border-radius: 30px;
-      border: 2px solid $other-color;
+      border-radius: 1.875rem;
+      border: 0.125rem solid $other-color;
     }
     &:active {
-      box-shadow: 0 2px #666;
-      transform: translateY(2px);
+      box-shadow: 0 0.125rem #666;
+      transform: translateY(0.125rem);
     }
   }
   &__img {

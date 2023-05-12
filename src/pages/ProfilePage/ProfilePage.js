@@ -29,7 +29,6 @@ function ProfilePage({ handleChange, profileData }) {
       navigate("/");
     } catch (error) {
       console.error("Error deleting user", error);
-      // Show an error message or handle the error as needed
     }
   };
 
