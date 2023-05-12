@@ -164,7 +164,7 @@ function ProfilePage({ handleChange, profileData }) {
                   name="address"
                   defaultValue={profileData.address}
                 />
-                {/* <label htmlFor="bio" className="edit-user__label">
+                <label htmlFor="bio" className="edit-user__label">
                   Bio:
                 </label>
                 <input
@@ -173,7 +173,7 @@ function ProfilePage({ handleChange, profileData }) {
                   id="bio"
                   name="bio"
                   defaultValue={profileData.bio}
-                /> */}
+                />
                 <label htmlFor="avatar_url" className="edit-user__label">
                   Avatar URL:
                 </label>
