@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/auth-fail" element={<AuthFailPage />} />
-          <Route path="/my-profile" element={<ProfilePage />}/>
+          <Route path="/users/my-profile" element={<ProfilePage />}/>
           <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/signup" element={<SignUpPage setIsAuthenticated={setIsAuthenticated} />} />
         </Routes>

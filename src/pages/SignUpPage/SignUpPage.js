@@ -19,6 +19,7 @@ function SignUpPage({ setIsAuthenticated }) {
     const first_name = e.target.first_name.value;
     const last_name = e.target.last_name.value;
     const address = e.target.address.value;
+    const avatar_url = 'https://i.pravatar.cc/';
 
     //validation to confirm all fields are filled
     if (
@@ -40,6 +41,7 @@ function SignUpPage({ setIsAuthenticated }) {
         first_name,
         last_name,
         address,
+        avatar_url,
       })
       .then(() => {
         setSuccess(true);

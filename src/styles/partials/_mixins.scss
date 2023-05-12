@@ -34,13 +34,13 @@
 // mobile text styles
 
 @mixin mHeader {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 600;
   line-height: 2.25rem;
 }
 
 @mixin mSubheader {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.75rem;
 }

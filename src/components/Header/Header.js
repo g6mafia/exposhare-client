@@ -46,7 +46,7 @@ function Header({ isAuthenticated, setIsAuthenticated }) {
             <div className="header__wrapper">
               {isAuthenticated ? (
                 <>
-                  <Link to="/favorites">
+                  <Link to="/users/favorites">
                     <img
                       src={Favorites}
                       alt="favorites"
@@ -60,17 +60,17 @@ function Header({ isAuthenticated, setIsAuthenticated }) {
 
                   {isDropdownVisible && (
                     <div className="header__dropdown">
-                      <Link to="/my-profile">
+                      <Link to="/users/my-profile">
                         <div className="header__dropdown-account">My Account</div>
                       </Link>
                       <div className="header__dropdown-wrapper">
-                        <Link to="/favorites">
+                        <Link to="/users/favorites">
                           <div className="header__dropdown-item">Favorites</div>
                         </Link>
-                        <Link to="/messages">
+                        <Link to="/users/messages">
                           <div className="header__dropdown-item">Messages</div>
                         </Link>
-                        <Link to="/messages">
+                        <Link to="/users/messages">
                           <div className="header__dropdown-item">Purchases</div>
                         </Link>
                       </div>

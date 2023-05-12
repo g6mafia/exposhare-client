@@ -116,16 +116,16 @@
       @include Buttons;
       color: $third-color;
       background-color: $primary-cta-color;
-      border: 2px solid $primary-cta-color;
-      width: 80px;
-      height: 28px;
+      border: 0.125rem solid $primary-cta-color;
+      width: 5rem;
+      height: 1.75rem;
       border-radius: 0.25rem;
       transition-duration: 0.4s;
 
       &:hover {
         background-color: $hover-cta-color;
         color: $divider-color;
-        border: 2px solid $primary-cta-color;
+        border: 0.125rem solid $primary-cta-color;
       }
       &:active {
         box-shadow: 0 0.3125rem #666;
@@ -136,9 +136,9 @@
       @include Buttons;
       background-color: $third-color;
       color: $primary-cta-color;
-      width: 80px;
-      height: 28px;
-      border: 2px solid $other-color;
+      width: 5rem;
+      height: 1.75rem;
+      border: 0.125rem solid $other-color;
       border-radius: 0.25rem;
       transition-duration: 0.4s;
 
@@ -177,11 +177,13 @@
     &-account {
       @include BodyLarge;
       font-weight: bold;
+      color: $primary-text-color;
     }
     &-item {
       @include BodyMedium;
       cursor: pointer;
       padding: 0.3125rem;
+      color: $primary-text-color;
 
       &:hover {
         background-color: $third-color;
@@ -191,6 +193,7 @@
       cursor: pointer;
       padding: 0 0.3125rem;
       @include BodySmall;
+      color: $primary-text-color;
     }
   }
 
@@ -247,11 +250,12 @@
   }
 
   &__link {
+    display: flex;
     color: $primary-cta-color;
     font-weight: 400;
     width: 10%;
     min-width: 3.125rem;
-    text-align: center;
+    justify-content: center;
     padding: 1rem 0;
 
     &--current {
