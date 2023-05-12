@@ -43,11 +43,12 @@ function SignUpPage({ handleChange }) {
         address,
         avatar_url,
       })
-      .then(() => {
+      .then((response) => {
         setSuccess(true);
         setError("");
         e.target.reset();
-        handleChange(true);
+        localStorage.setItem("token", response.data.token);
+        handleChange(true, response.data);
         navigate('/');
       })
       .catch((error) => {

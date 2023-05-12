@@ -46,9 +46,9 @@ function App() {
 
 
   //handlechange function for changes in the user's authentication status or profileData
-  function handleChange(newProfileData) {
+  function handleChange(isAuthenticated, newProfileData= null) {
     setProfileData(newProfileData);
-    setIsAuthenticated(!!newProfileData);
+    setIsAuthenticated(isAuthenticated);
   }
   return (
     <div className="app">
