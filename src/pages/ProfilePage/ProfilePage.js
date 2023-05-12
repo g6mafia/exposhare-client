@@ -6,11 +6,13 @@ import { BASE_URL } from "../../utils";
 import UserDashboard from "../../components/UserDashboard/UserDashboard";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import UserActions from "../../components/UserActions/UserActions";
+import { CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET } from "../../config";
 
 function ProfilePage({ handleChange, profileData }) {
   const navigate = useNavigate();
   const [editForm, setEditForm] = useState(false);
   const [createListingForm, setCreateListingForm] = useState(false);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
   const cameraBrands = [
     "Canon",
@@ -22,7 +24,7 @@ function ProfilePage({ handleChange, profileData }) {
     "Pentax",
   ];
   const cameraConditions = ["New", "Used", "Refurbished"];
-  
+
   //handle log out function
   const handleLogout = () => {
     handleChange(null);
@@ -80,20 +82,25 @@ function ProfilePage({ handleChange, profileData }) {
   const handleCreateListing = async (e) => {
     e.preventDefault();
     try {
-      const { title, description, category, price } = e.target.elements;
+      const { title, description, category, brand, condition, price } =
+        e.target.elements;
       const response = await axios.post(
         `${BASE_URL}/api/listings`,
         {
           title: title.value,
           description: description.value,
           category: category.value,
+          brand: brand.value,
+          condition: condition.value,
           price: parseFloat(price.value),
+          image_url: uploadedImageUrl,
           user_id: profileData.id,
         },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
+      console.log('Request data:', response);
       handleChange(response);
       setCreateListingForm(false);
     } catch (error) {
@@ -112,6 +119,20 @@ function ProfilePage({ handleChange, profileData }) {
       navigate("/");
     } catch (error) {
       console.error("Error deleting user", error);
+    }
+  };
+
+  //handle image upload
+  const handleImageUpload = async (e) => {
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+    try {
+      const response = await axios.post(CLOUDINARY_UPLOAD_URL, formData);
+      setUploadedImageUrl(response.data.secure_url);
+    } catch (error) {
+      console.error("Error uploading image", error);
     }
   };
 
@@ -348,14 +369,15 @@ function ProfilePage({ handleChange, profileData }) {
                     ))}
                   </select>
 
-                  <label htmlFor="image_url" className="create-listing__label">
+                  <label htmlFor="image" className="create-listing__label">
                     Image URL:
                   </label>
                   <input
                     className="create-listing__input"
-                    type="text"
-                    id="image_url"
-                    name="image_url"
+                    type="file"
+                    id="image"
+                    name="image"
+                    onChange={handleImageUpload}
                   />
                 </div>
               </div>

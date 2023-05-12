@@ -274,7 +274,6 @@
       border: 0.125rem solid $other-color;
     }
     &:active {
-      transition: 0.4s;
       box-shadow: 0 0.1875rem #666;
       transform: translateY(0.125rem);
     }

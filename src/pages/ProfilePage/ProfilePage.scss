@@ -178,6 +178,8 @@
       border-right: 2px solid $divider-color;
     }
     &-image {
+      display: flex;
+      flex-direction: column;
       padding-left: 1rem;
       width: 50%;
     }
@@ -186,24 +188,25 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin: 10px 0;
+      margin: 0.625rem 0;
     }
   }
   
   &__form {
-    border-radius: 4px;
+    border-radius: 0.25rem;
     display: flex;
     padding: 1.25rem;
     flex-direction: column;
     background-color: $background-color;
-    box-shadow: 0 6px 6px -2px $shadow-color;
+    box-shadow: 0 0.375rem 0.375rem -0.125rem $shadow-color;
   }
   &__label {
     @include mBodyMedium;
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
     
     @include tablet {
       @include BodyMedium;
+      margin-bottom: 0.25rem;
     }
   }
   &__input {
