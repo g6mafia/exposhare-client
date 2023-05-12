@@ -19,7 +19,7 @@ function SignUpPage({ handleChange }) {
     const first_name = e.target.first_name.value;
     const last_name = e.target.last_name.value;
     const address = e.target.address.value;
-    const avatar_url = 'https://i.pravatar.cc/';
+    const avatar_url = `https://i.pravatar.cc/150?u=${Math.random()}`;
 
     //validation to confirm all fields are filled
     if (

@@ -27,7 +27,21 @@
     align-items: center;
     gap: 1rem;
   }
-  &__avatar {}
+  &__avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: 25%;
+    overflow: hidden;
+    cursor: pointer;
+
+    @include tablet {
+      width: 2.5rem;
+      height: 2.5rem;
+      order: 1;
+    }
+  }
 
   &__title {
     @include mSubheader;

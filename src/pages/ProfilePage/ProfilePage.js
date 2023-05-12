@@ -1,47 +1,12 @@
-import { useEffect, useState } from "react";
-import { useNavigate, Link, NavLink } from "react-router-dom";
-import axios from "axios";
-import { BASE_URL } from "../../utils";
+import { useNavigate } from "react-router-dom";
 import "./ProfilePage.scss";
 
 function ProfilePage({ handleChange, profileData }) {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-
-  //fetching current user profiledata
-  const fetchProfileData = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const res = await axios.get(`${BASE_URL}/users/my-profile`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      });
-      setIsLoggedIn(true);
-      handleChange(res.data);
-    } catch (err) {
-      if ( err.response.status === 401) {
-        setIsLoggedIn(false);
-      } else {
-        console.log("Error authenticating", err);
-      }
-    }
-  };
-
-  useEffect(() => {
-    fetchProfileData();
-  }, []);
 
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US");
   };
-
-  //validation
-
-  if (isLoggedIn === null) {
-    return <p className="loading">Loading...</p>;
-  }
 
   //handle log out function
   const handleLogout = () => {
@@ -49,6 +14,12 @@ function ProfilePage({ handleChange, profileData }) {
     localStorage.removeItem("token");
     navigate("/");
   };
+
+  if (!profileData) {
+    return <p className="profile-page__auth">
+    This page requires authentication.
+  </p>;
+  }
 
   return (
     <section className="profile-page">
@@ -58,9 +29,8 @@ function ProfilePage({ handleChange, profileData }) {
           <button className="profile-page__button-edit">Edit Profile</button>
         </h1>
       </div>
-      {isLoggedIn ? (
-        profileData && (
-          <>
+
+          <div>
             <p>
               Hello, {profileData.first_name} {profileData.last_name}
             </p>
@@ -87,15 +57,7 @@ function ProfilePage({ handleChange, profileData }) {
             >
               Log Out
             </button>
-          </>
-        )
-      ) : (
-        <>
-          <p className="profile-page__auth">
-            This page requires authentication.
-          </p>
-        </>
-      )}
+          </div>
     </section>
   );
 }

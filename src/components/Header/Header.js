@@ -45,7 +45,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
               </button>
             </form>
             <div className="header__wrapper">
-              {isAuthenticated || profileData ? (
+              {isAuthenticated && profileData ? (
                 <>
                   <Link to="/users/favorites">
                     <img
@@ -56,7 +56,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
                   </Link>
 
                   <div onClick={toggleDropdown}>
-                    <div className="header__avatar"></div>
+                    <img className="header__avatar" src={profileData.avatar_url} alt={profileData.avatar_url}></img>
                   </div>
 
                   {isDropdownVisible && (
@@ -86,7 +86,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
                     </div>
                   )}
                   <Link to="/cart">
-                    <img src={Cart} className="header__cart-icon" />
+                    <img src={Cart} className="header__cart-icon" alt="cart icon"/>
                   </Link>
                 </>
               ) : (
