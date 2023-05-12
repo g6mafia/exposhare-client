@@ -23,7 +23,7 @@ function UserProfile({ profileData }) {
             {profileData.username}
           </p>
   
-          <p className="profile-page__bio">Bio: </p>
+          {/* <p className="profile-page__bio">Bio: {profileData.bio} </p> */}
           <p className="profile-page__info">
             {" "}
             Joined in {formatDate(profileData.updated_at)}

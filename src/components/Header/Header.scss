@@ -141,8 +141,7 @@
       border: none;
 
       &:hover {
-        border-bottom: 0.125rem solid $other-color;
-        border-radius: 0.625rem;
+        text-decoration: underline;
        
       }
     }

@@ -20,6 +20,7 @@ function SignUpPage({ handleChange }) {
     const last_name = e.target.last_name.value;
     const address = e.target.address.value;
     const avatar_url = `https://i.pravatar.cc/150?u=${Math.random()}`;
+    const bio = "";
 
     //validation to confirm all fields are filled
     if (
@@ -42,6 +43,7 @@ function SignUpPage({ handleChange }) {
         last_name,
         address,
         avatar_url,
+        bio,
       })
       .then((response) => {
         setSuccess(true);
