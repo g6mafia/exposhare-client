@@ -141,14 +141,9 @@
       border: none;
 
       &:hover {
-        border: 0.125rem solid $other-color;
+        border-bottom: 0.125rem solid $other-color;
         border-radius: 0.625rem;
        
-      }
-      &:active {
-        transition: 0.4s;
-        box-shadow: 0 3px #666;
-        transform: translateY(2px);
       }
     }
   }
