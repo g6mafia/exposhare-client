@@ -1,7 +1,8 @@
 import "./UserProfile.scss";
 import Star from "../../assets/icons/star.svg";
+import UserListings from "../UserListings/UserListings";
 
-function UserProfile({ profileData }) {
+function UserProfile({ profileData, setCreateListingForm }) {
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US");
   };
@@ -29,7 +30,9 @@ function UserProfile({ profileData }) {
               <span className="user-profile__data">100</span>
             </div>
             <div className="user-profile__block-text">
-              <p className="user-profile__text user-profile__text--spacing">Reviews (3)</p>
+              <p className="user-profile__text user-profile__text--spacing">
+                Reviews (3)
+              </p>
               <div className="user-profile__block-stars">
                 <img src={Star} className="user-profile__icon-star"></img>
                 <img src={Star} className="user-profile__icon-star"></img>
@@ -54,12 +57,7 @@ function UserProfile({ profileData }) {
         </p>
       </div>
       <div className="user-profile__wrapper-right">
-        <h2 className="user-profile__title user-profile__title--listing">
-          My Listings{" "}
-          <button type="submit" className="user-profile__button">
-            Create a new listing
-          </button>
-        </h2>
+        <UserListings profileData={profileData} setCreateListingForm={setCreateListingForm}/>
       </div>
     </section>
   );

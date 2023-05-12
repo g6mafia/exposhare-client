@@ -10,7 +10,19 @@ import UserActions from "../../components/UserActions/UserActions";
 function ProfilePage({ handleChange, profileData }) {
   const navigate = useNavigate();
   const [editForm, setEditForm] = useState(false);
+  const [createListingForm, setCreateListingForm] = useState(false);
 
+  const cameraBrands = [
+    "Canon",
+    "Nikon",
+    "Sony",
+    "FujiFilm",
+    "Panasonic",
+    "Olympus",
+    "Pentax",
+  ];
+  const cameraConditions = ["New", "Used", "Refurbished"];
+  
   //handle log out function
   const handleLogout = () => {
     handleChange(null);
@@ -63,6 +75,32 @@ function ProfilePage({ handleChange, profileData }) {
       console.error("Error updating user", error);
     }
   };
+
+  //handle create listing function
+  const handleCreateListing = async (e) => {
+    e.preventDefault();
+    try {
+      const { title, description, category, price } = e.target.elements;
+      const response = await axios.post(
+        `${BASE_URL}/api/listings`,
+        {
+          title: title.value,
+          description: description.value,
+          category: category.value,
+          price: parseFloat(price.value),
+          user_id: profileData.id,
+        },
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      );
+      handleChange(response);
+      setCreateListingForm(false);
+    } catch (error) {
+      console.error("Error creating listing", error);
+    }
+  };
+
   // Handle delete user function
   const handleDeleteUser = async () => {
     try {
@@ -87,122 +125,256 @@ function ProfilePage({ handleChange, profileData }) {
   return (
     <section className="profile-page">
       <UserDashboard setEditForm={setEditForm} />
-      <UserProfile profileData={profileData} />
+      <UserProfile
+        profileData={profileData}
+        setCreateListingForm={setCreateListingForm}
+      />
       <UserActions
         handleLogout={handleLogout}
         handleDeleteUser={handleDeleteUser}
       />
       {editForm && (
         <>
-        <div className="edit-user__overlay"></div>
-        <div className="edit-user">
-          <form className="edit-user__form" onSubmit={handleEditUser}>
-            <p className="edit-user__title">Edit Your Information: </p>
-            <div className="edit-user__container-input">
-              <div className="edit-user__wrapper-1">
-                <label htmlFor="username" className="edit-user__label">
-                  Username:
-                </label>
-                <input
-                  className="edit-user__input"
-                  type="text"
-                  id="username"
-                  name="username"
-                  defaultValue={profileData.username}
-                />
+          <div className="edit-user__overlay"></div>
+          <div className="edit-user">
+            <form className="edit-user__form" onSubmit={handleEditUser}>
+              <p className="edit-user__title">Edit Your Information: </p>
+              <div className="edit-user__container-input">
+                <div className="edit-user__wrapper-1">
+                  <label htmlFor="username" className="edit-user__label">
+                    Username:
+                  </label>
+                  <input
+                    className="edit-user__input"
+                    type="text"
+                    id="username"
+                    name="username"
+                    defaultValue={profileData.username}
+                  />
 
-                <label htmlFor="password" className="edit-user__label">
-                  Password (optional):
-                </label>
-                <input
-                  className="edit-user__input"
-                  type="password"
-                  id="password"
-                  name="password"
-                />
+                  <label htmlFor="password" className="edit-user__label">
+                    Password (optional):
+                  </label>
+                  <input
+                    className="edit-user__input"
+                    type="password"
+                    id="password"
+                    name="password"
+                  />
 
-                <label htmlFor="first_name" className="edit-user__label">
-                  First Name:
-                </label>
-                <input
-                  className="edit-user__input"
-                  type="text"
-                  id="first_name"
-                  name="first_name"
-                  defaultValue={profileData.first_name}
-                />
+                  <label htmlFor="first_name" className="edit-user__label">
+                    First Name:
+                  </label>
+                  <input
+                    className="edit-user__input"
+                    type="text"
+                    id="first_name"
+                    name="first_name"
+                    defaultValue={profileData.first_name}
+                  />
 
-                <label htmlFor="last_name" className="edit-user__label">
-                  Last Name:
-                </label>
-                <input
-                  className="edit-user__input"
-                  type="text"
-                  id="last_name"
-                  name="last_name"
-                  defaultValue={profileData.last_name}
-                />
+                  <label htmlFor="last_name" className="edit-user__label">
+                    Last Name:
+                  </label>
+                  <input
+                    className="edit-user__input"
+                    type="text"
+                    id="last_name"
+                    name="last_name"
+                    defaultValue={profileData.last_name}
+                  />
+                </div>
+                <div className="edit-user__wrapper-2">
+                  <label htmlFor="email" className="edit-user__label">
+                    Email:
+                  </label>
+                  <input
+                    className="edit-user__input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    defaultValue={profileData.email}
+                  />
+                  <label htmlFor="address" className="edit-user__label">
+                    Address:
+                  </label>
+                  <input
+                    className="edit-user__input"
+                    type="text"
+                    id="address"
+                    name="address"
+                    defaultValue={profileData.address}
+                  />
+                  <label htmlFor="bio" className="edit-user__label">
+                    Bio:
+                  </label>
+                  <input
+                    className="edit-user__input"
+                    type="textarea"
+                    id="bio"
+                    name="bio"
+                    defaultValue={profileData.bio}
+                  />
+                  <label htmlFor="avatar_url" className="edit-user__label">
+                    Avatar URL:
+                  </label>
+                  <input
+                    className="edit-user__input"
+                    type="text"
+                    id="avatar_url"
+                    name="avatar_url"
+                    defaultValue={profileData.avatar_url}
+                  />
+                </div>
               </div>
-              <div className="edit-user__wrapper-2">
-                <label htmlFor="email" className="edit-user__label">
-                  Email:
-                </label>
-                <input
-                  className="edit-user__input"
-                  type="email"
-                  id="email"
-                  name="email"
-                  defaultValue={profileData.email}
-                />
-                <label htmlFor="address" className="edit-user__label">
-                  Address:
-                </label>
-                <input
-                  className="edit-user__input"
-                  type="text"
-                  id="address"
-                  name="address"
-                  defaultValue={profileData.address}
-                />
-                <label htmlFor="bio" className="edit-user__label">
-                  Bio:
-                </label>
-                <input
-                  className="edit-user__input"
-                  type="textarea"
-                  id="bio"
-                  name="bio"
-                  defaultValue={profileData.bio}
-                />
-                <label htmlFor="avatar_url" className="edit-user__label">
-                  Avatar URL:
-                </label>
-                <input
-                  className="edit-user__input"
-                  type="text"
-                  id="avatar_url"
-                  name="avatar_url"
-                  defaultValue={profileData.avatar_url}
-                />
+              <div className="edit-user__container-button">
+                <button type="submit" className="edit-user__button-submit">
+                  Save Changes
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setEditForm(false)}
+                  className="edit-user__button-cancel"
+                >
+                  Cancel
+                </button>
               </div>
-            </div>
-            <div className="edit-user__container-button">
-              <button type="submit" className="edit-user__button-submit">
-                Save Changes
-              </button>
-              <button
-                type="button"
-                onClick={() => setEditForm(false)}
-                className="edit-user__button-cancel"
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
         </>
       )}
-    
+
+      {createListingForm && (
+        <>
+          <div className="create-listing__overlay"></div>
+          <div className="create-listing">
+            <form
+              className="create-listing__form"
+              onSubmit={handleCreateListing}
+            >
+              <p className="create-listing__title">Create New Listing: </p>
+              <div className="create-listing__container">
+                <div className="create-listing__container-input">
+                  <label htmlFor="title" className="create-listing__label">
+                    Title:
+                  </label>
+                  <input
+                    className="create-listing__input"
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Title"
+                    required
+                  />
+
+                  <label
+                    htmlFor="description"
+                    className="create-listing__label"
+                  >
+                    Description:
+                  </label>
+                  <input
+                    className="create-listing__input"
+                    type="text"
+                    id="description"
+                    name="description"
+                    placeholder="Description"
+                    required
+                  />
+
+                  <label htmlFor="category" className="create-listing__label">
+                    Category:
+                  </label>
+                  <select
+                    className="create-listing__input"
+                    id="category"
+                    name="category"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Select a category
+                    </option>
+                    <option value="Cameras">Cameras</option>
+                  </select>
+
+                  <label htmlFor="price" className="create-listing__label">
+                    Price:
+                  </label>
+                  <input
+                    className="create-listing__input"
+                    type="number"
+                    step="0.01"
+                    id="price"
+                    name="price"
+                    placeholder="$"
+                  />
+                </div>
+                <div className="create-listing__container-image">
+                  <label htmlFor="brand" className="create-listing__label">
+                    Brand:
+                  </label>
+                  <select
+                    className="create-listing__input"
+                    id="brand"
+                    name="brand"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Select a brand
+                    </option>
+                    {cameraBrands.map((brand) => (
+                      <option key={brand} value={brand}>
+                        {brand}
+                      </option>
+                    ))}
+                  </select>
+
+                  <label htmlFor="condition" className="create-listing__label">
+                    Condition:
+                  </label>
+                  <select
+                    className="create-listing__input"
+                    id="condition"
+                    name="condition"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Select a condition
+                    </option>
+                    {cameraConditions.map((condition) => (
+                      <option key={condition} value={condition}>
+                        {condition}
+                      </option>
+                    ))}
+                  </select>
+
+                  <label htmlFor="image_url" className="create-listing__label">
+                    Image URL:
+                  </label>
+                  <input
+                    className="create-listing__input"
+                    type="text"
+                    id="image_url"
+                    name="image_url"
+                  />
+                </div>
+              </div>
+              <div className="create-listing__container-button">
+                <button type="submit" className="create-listing__button-submit">
+                  Create Listing
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCreateListingForm(false)}
+                  className="create-listing__button-cancel"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </>
+      )}
     </section>
   );
 }
