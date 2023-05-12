@@ -128,27 +128,27 @@
         border: 0.125rem solid $primary-cta-color;
       }
       &:active {
-        box-shadow: 0 0.3125rem #666;
-        transform: translateY(0.25rem);
+        box-shadow: 0 3px #666;
+        transform: translateY(2px);
       }
     }
     &-login {
       @include Buttons;
-      background-color: $third-color;
+      background-color: transparent;
       color: $primary-cta-color;
       width: 5rem;
       height: 1.75rem;
-      border: 0.125rem solid $other-color;
-      border-radius: 0.25rem;
-      transition-duration: 0.4s;
+      border: none;
 
       &:hover {
-        background-color: $other-hover-color;
-        color: $primary-cta-color;
+        border: 0.125rem solid $other-color;
+        border-radius: 0.625rem;
+       
       }
       &:active {
-        box-shadow: 0 0.3125rem #666;
-        transform: translateY(0.25rem);
+        transition: 0.4s;
+        box-shadow: 0 3px #666;
+        transform: translateY(2px);
       }
     }
   }
@@ -280,7 +280,8 @@
       border: 0.125rem solid $other-color;
     }
     &:active {
-      box-shadow: 0 0.125rem #666;
+      transition: 0.4s;
+      box-shadow: 0 0.1875rem #666;
       transform: translateY(0.125rem);
     }
   }
