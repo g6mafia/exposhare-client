@@ -6,8 +6,9 @@ import Favorites from "../../assets/icons/likes.svg";
 import Cart from "../../assets/icons/cart.svg";
 import { useState } from "react";
 
-function Header({ isAuthenticated, setIsAuthenticated }) {
+function Header({ profileData, isAuthenticated, setIsAuthenticated }) {
   const navigate = useNavigate();
+
   //for dropdown modal on user avatar
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
@@ -44,7 +45,7 @@ function Header({ isAuthenticated, setIsAuthenticated }) {
               </button>
             </form>
             <div className="header__wrapper">
-              {isAuthenticated ? (
+              {isAuthenticated && profileData ? (
                 <>
                   <Link to="/users/favorites">
                     <img
@@ -70,7 +71,7 @@ function Header({ isAuthenticated, setIsAuthenticated }) {
                         <Link to="/users/messages">
                           <div className="header__dropdown-item">Messages</div>
                         </Link>
-                        <Link to="/users/messages">
+                        <Link to="/users/purchases">
                           <div className="header__dropdown-item">Purchases</div>
                         </Link>
                       </div>
@@ -100,6 +101,8 @@ function Header({ isAuthenticated, setIsAuthenticated }) {
           </nav>
         </div>
       </header>
+
+      {/* second nav bar */}
       <section className="nav-container">
         <nav className="nav">
           <NavLink

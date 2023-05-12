@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
 import "./ProfilePage.scss";
 
-function ProfilePage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+function ProfilePage({handleChange}) {
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
-  const [profileData, setProfileData] = useState(null);
 
+  //fetching current user profiledata
   const fetchProfileData = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -17,12 +18,9 @@ function ProfilePage() {
         },
         withCredentials: true,
       });
-      setIsAuthenticated(false);
-      setIsLoggedIn(true);
-      setProfileData(res.data);
+      handleChange(res.data);
     } catch (err) {
       if (err.response.status === 401) {
-        setIsAuthenticated(false);
         setIsLoggedIn(false);
       } else {
         console.log("Error authenticating", err);
@@ -38,18 +36,25 @@ function ProfilePage() {
     return new Date(date).toLocaleDateString("en-US");
   };
 
-  if (isAuthenticated) return null;
-
+  //validation
   if (isLoggedIn === null) {
     return <p className="loading">Loading...</p>;
   }
 
+  //handle log out function
+  const handleLogout = () => {
+    handleChange(null);
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <section className="profile-page">
       <div className="profile-page__wrapper-1">
-        <h1 className="profile-page__title">My Dashboard <button type="submit" className="profile-page__button-edit">
-          Edit Profile
-        </button></h1>
+        <h1 className="profile-page__title">
+          My Dashboard{" "}
+          <button className="profile-page__button-edit">Edit Profile</button>
+        </h1>
       </div>
       {isLoggedIn ? (
         profileData && (
@@ -58,13 +63,14 @@ function ProfilePage() {
               Hello, {profileData.first_name} {profileData.last_name}
             </p>
             <article className="profile-page__wrapper-2">
-              <img
-                className="profile-page__avatar"
-                src={profileData.avatar_url}
-                alt={`${profileData.username} avatar`}
-              />
-
-              <h2 className="profile-page__subtitle">{profileData.username}</h2>
+              <h2 className="profile-page__subtitle">
+                <img
+                  className="profile-page__avatar"
+                  src={profileData.avatar_url}
+                  alt={`${profileData.username} avatar`}
+                />{" "}
+                {profileData.username}
+              </h2>
               <h3 className="profile-page__info">
                 {" "}
                 Joined in {formatDate(profileData.updated_at)}
@@ -73,9 +79,12 @@ function ProfilePage() {
             <article className="profile-page__wrapper-3">
               <></>
             </article>
-            <button type="submit" className="profile-page__button-logout">
-          Log Out
-        </button>
+            <button
+              className="profile-page__button-logout"
+              onClick={handleLogout}
+            >
+              Log Out
+            </button>
           </>
         )
       ) : (
