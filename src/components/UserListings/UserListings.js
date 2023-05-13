@@ -36,7 +36,6 @@ function UserListings({ userListings, setCreateListingForm, handleChange }) {
           <article
             key={listing.id}
             className="user-listings__item"
-            onClick={() => handleModalOpen(listing)}
           >
             <div className="user-listings__item-container">
               <img
@@ -57,6 +56,7 @@ function UserListings({ userListings, setCreateListingForm, handleChange }) {
               <p className="user-listings__item-value">${listing.price}</p>
             </div>
           </div>
+          <button onClick={() => handleModalOpen(listing)} className="user-listings__button">View Details</button>
           </article>
         ))}
       </section>

@@ -12,7 +12,10 @@
   }
   &__button {
     &-logout {
-      @include Buttons;
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1.375rem;
+      cursor: pointer;
       background-color: $third-color;
       color: $primary-cta-color;
       width: 5rem;

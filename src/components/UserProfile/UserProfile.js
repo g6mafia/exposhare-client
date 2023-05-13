@@ -15,10 +15,13 @@ function UserProfile({ profileData, setCreateListingForm, handleChange }) {
   const fetchUserListings = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`${BASE_URL}/api/listings/user/${profileData.id}/listings`, 
-      { headers: {
-        Authorization: `Bearer ${token}`,
-      }},
+      const response = await axios.get(
+        `${BASE_URL}/api/listings/user/${profileData.id}/listings`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
       setUserListings(response.data);
@@ -74,12 +77,30 @@ function UserProfile({ profileData, setCreateListingForm, handleChange }) {
             street photography. Interested in film and digital products.
           </p>
         </div>
-        <h3 className="user-profile__bio-title">Info: </h3>
-        <p className="user-profile__info">
-          {" "}
-          Joined in {formatDate(profileData.updated_at)}
-        </p>
+        <div className="user-profile__wrapper">
+          <h3 className="user-profile__info-title">Info: </h3>
+          <div className="user-profile__info-block">
+            <div className="user-profile__info-wrapper--left">
+              <p className="user-profile__info-type">Full Name </p>
+              <p className="user-profile__info-type">Email</p>
+              <p className="user-profile__info-type">Address</p>
+              <p className="user-profile__info-type">Date Joined</p>
+            </div>
+            <div className="user-profile__info-wrapper--right">
+              <p className="user-profile__info-value">
+                {profileData.first_name} {profileData.last_name}
+              </p>
+              <p className="user-profile__info-value"> {profileData.email}</p>
+              <p className="user-profile__info-value"> {profileData.address}</p>
+              <p className="user-profile__info-value">
+                {" "}
+                {formatDate(profileData.updated_at)}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div className="user-profile__wrapper-right">
         <UserListings
           setCreateListingForm={setCreateListingForm}

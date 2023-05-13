@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./colors" as *;
 
 @mixin tablet {
   @media screen and (min-width: $tablet-breakpoint) {
@@ -101,6 +102,22 @@
   font-weight: 600;
   line-height: 1.375rem;
   cursor: pointer;
+  color: $third-color;
+  background-color: $primary-cta-color;
+  border: 2px solid $primary-cta-color;
+  padding: 0 1rem;
+  border-radius: 0.25rem;
+  transition-duration: 0.4s;
+
+  &:hover {
+    background-color: $hover-cta-color;
+    color: $divider-color;
+    border: 2px solid $primary-cta-color;
+  }
+  &:active {
+    box-shadow: 0 0.3125rem #666;
+    transform: translateY(4px);
+  }
 }
 
 @mixin BodyLarge {
