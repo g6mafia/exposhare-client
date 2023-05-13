@@ -1,47 +1,22 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.user-listings {
-  position: relative;
-  &__title {
-    display: flex;
-    justify-content: space-between;
-    @include mSubheader;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-top: 1rem;
+.listings-details {
+  position: absolute;
+  top: 8%;
+  right: 33%;
+  z-index: 20;
 
-    @include tablet {
-      @include Subheader;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-  }
-  &__button {
-    @include Buttons;
-    color: $third-color;
-    background-color: $primary-cta-color;
-    border: 2px solid $primary-cta-color;
-    padding: 0 1rem;
-    border-radius: 0.25rem;
-    transition-duration: 0.4s;
-
-    &:hover {
-      background-color: $hover-cta-color;
-      color: $divider-color;
-      border: 2px solid $primary-cta-color;
-    }
-    &:active {
-      box-shadow: 0 0.3125rem #666;
-      transform: translateY(4px);
-    }
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
   }
 
-  &__section {
-    display: flex;
-    gap: 1rem;
-    overflow-x: scroll;
-  }
   &__item {
     background-color: $background-color;
     display: flex;
@@ -52,21 +27,46 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    width: 400px;
+    width: 600px;
 
-    &-edit {
+    &-heading {
       width: 100%;
       display: flex;
+      @include mSubheader;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1rem 0;
+      border-bottom: 2px solid $primary-text-color;
+      justify-content: space-between;
+      align-items: center;
+
+      @include tablet {
+        @include Subheader;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+    }
+    &-edit {
+      display: flex;
       justify-content: flex-end;
+      @include mBodyMedium;
+      font-weight: 600;
+      gap: 4px;
+
+      @include tablet {
+        @include BodyMedium;
+        font-weight: 600;
+      }
     }
     &-icon {
       width: 1.5rem;
       margin: 0.5rem 0;
     }
     &-container {
-      width: 200px;
-      height: 200px;
+      width: 12.5rem;
+      height: 12.5rem;
       display: flex;
+      background-color: $alt-background-color;
     }
 
     &-image {
@@ -74,32 +74,34 @@
       overflow: hidden;
       border-radius: 0.625rem;
     }
+
     &-block {
       width: 100%;
       display: flex;
       flex-direction: row;
       gap: 1rem;
       margin-top: 1rem;
-      border-top: 2px solid $divider-color;
+      border-top: 2px solid $primary-text-color;
       padding: 1rem 0;
     }
     &-wrapper {
       &--left {
         display: flex;
         flex-direction: column;
+        
       }
       &--right {
         display: flex;
         flex-direction: column;
-        width: 100%;
-      }
+        width: 100%
+    }
     }
     &-type {
       @include mBodyLarge;
       font-weight: 600;
       margin: 0;
       padding-bottom: 4px;
-     
+      border-bottom: 1px solid $primary-text-color;
       @include tablet {
         @include BodyLarge;
         font-weight: 600;
@@ -110,6 +112,7 @@
       font-weight: 600;
       margin: 0;
       padding-bottom: 4px;
+      border-bottom: 1px solid $primary-text-color;
       @include tablet {
         @include BodyLarge;
       }

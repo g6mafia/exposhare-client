@@ -82,7 +82,6 @@ function UserProfile({ profileData, setCreateListingForm }) {
       </div>
       <div className="user-profile__wrapper-right">
         <UserListings
-          profileData={profileData}
           setCreateListingForm={setCreateListingForm}
           userListings={userListings}
         />
