@@ -1,6 +1,6 @@
 import "./UserListings.scss";
 
-function UserListings({profileData, setCreateListingForm}) {
+function UserListings({profileData, userListings, setCreateListingForm}) {
   return (
     <>
     <h2 className="user-listings__title">
@@ -9,7 +9,12 @@ function UserListings({profileData, setCreateListingForm}) {
         Create a New Listing
       </button>
     </h2>
-    {/* map through user data to display users listing */}
+    {userListings.map((listing) => (
+        <div key={listing.id} className="user-listings__listing">
+          <p>{listing.title}</p>
+          <p>{listing.description}</p>
+        </div>
+      ))}
     </>
 
   );

@@ -1,8 +1,32 @@
 import "./UserProfile.scss";
 import Star from "../../assets/icons/star.svg";
 import UserListings from "../UserListings/UserListings";
+import axios from "axios";
+import { BASE_URL } from "../../utils";
+import { useState, useEffect } from "react";
 
 function UserProfile({ profileData, setCreateListingForm }) {
+  const [userListings, setUserListings] = useState([]);
+
+  useEffect(() => {
+    fetchUserListings();
+  }, []);
+
+  const fetchUserListings = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(`${BASE_URL}/api/listings/user/${profileData.id}/listings`, 
+      { headers: {
+        Authorization: `Bearer ${token}`,
+      }},
+      );
+
+      setUserListings(response.data);
+    } catch (error) {
+      console.error("Error fetching user listings:", error);
+    }
+  };
+
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US");
   };
@@ -57,7 +81,11 @@ function UserProfile({ profileData, setCreateListingForm }) {
         </p>
       </div>
       <div className="user-profile__wrapper-right">
-        <UserListings profileData={profileData} setCreateListingForm={setCreateListingForm}/>
+        <UserListings
+          profileData={profileData}
+          setCreateListingForm={setCreateListingForm}
+          userListings={userListings}
+        />
       </div>
     </section>
   );
