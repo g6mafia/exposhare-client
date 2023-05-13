@@ -10,7 +10,7 @@ import { CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET } from "../../config";
 
 function ProfilePage({ handleChange, profileData }) {
   const navigate = useNavigate();
-  const [editForm, setEditForm] = useState(false);
+  const [editUserForm, setEditUserForm] = useState(false);
   const [createListingForm, setCreateListingForm] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
@@ -62,7 +62,7 @@ function ProfilePage({ handleChange, profileData }) {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
-      setEditForm(false);
+      setEditUserForm(false);
       handleChange({
         ...profileData,
         email: email.value,
@@ -145,8 +145,9 @@ function ProfilePage({ handleChange, profileData }) {
 
   return (
     <section className="profile-page">
-      <UserDashboard setEditForm={setEditForm} />
+      <UserDashboard setEditUserForm={setEditUserForm} />
       <UserProfile
+      handleChange={handleChange}
         profileData={profileData}
         setCreateListingForm={setCreateListingForm}
       />
@@ -154,7 +155,7 @@ function ProfilePage({ handleChange, profileData }) {
         handleLogout={handleLogout}
         handleDeleteUser={handleDeleteUser}
       />
-      {editForm && (
+      {editUserForm && (
         <>
           <div className="edit-user__overlay"></div>
           <div className="edit-user">
@@ -254,7 +255,7 @@ function ProfilePage({ handleChange, profileData }) {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setEditForm(false)}
+                  onClick={() => setEditUserForm(false)}
                   className="edit-user__button-cancel"
                 >
                   Cancel

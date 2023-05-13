@@ -4,7 +4,7 @@
 .listings-details {
   position: absolute;
   top: 8%;
-  right: 33%;
+  right: 32%;
   z-index: 20;
 
   &__overlay {
@@ -52,6 +52,7 @@
       @include mBodyMedium;
       font-weight: 600;
       gap: 4px;
+      cursor: pointer;
 
       @include tablet {
         @include BodyMedium;
@@ -88,13 +89,12 @@
       &--left {
         display: flex;
         flex-direction: column;
-        
       }
       &--right {
         display: flex;
         flex-direction: column;
-        width: 100%
-    }
+        width: 100%;
+      }
     }
     &-type {
       @include mBodyLarge;
@@ -115,6 +115,115 @@
       border-bottom: 1px solid $primary-text-color;
       @include tablet {
         @include BodyLarge;
+      }
+    }
+  }
+}
+
+.edit-listing {
+  position: absolute;
+  top: 8%;
+  right: 9%;
+  width: 82%;
+  max-width: 82%;
+  z-index: 20;
+
+  @include tablet {
+    top: 0%;
+    right: 32%;
+  }
+
+  &__title {
+    @include mSubheader;
+    font-weight: 600;
+
+    @include tablet {
+      @include Subheader;
+      font-weight: 600;
+    }
+  }
+  &__container {
+    display: flex;
+
+    &-left {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      padding-right: 1rem;
+      border-right: 2px solid $divider-color;
+    }
+    &-right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 1rem;
+    }
+  }
+  &__form {
+    border-radius: 4px;
+    display: flex;
+    padding: 1.25rem;
+    flex-direction: column;
+    background-color: $background-color;
+    box-shadow: 0 6px 6px -2px $shadow-color;
+    width: 50rem;
+  }
+  &__label {
+    @include mBodyMedium;
+    width: 100%;
+    padding-bottom: 0.25rem;
+    @include tablet {
+      @include BodyMedium;
+    }
+  }
+  &__input {
+    width: 100%;
+    border-radius: 3.125rem;
+    padding: 0.625rem 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid $primary-cta-color;
+  }
+  &__container-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 1rem;
+  }
+  &__button {
+    &-submit {
+      @include Buttons;
+      color: $third-color;
+      background-color: $primary-cta-color;
+      border: 0.125rem solid $primary-cta-color;
+      width: 12.5rem;
+      height: 1.75rem;
+      border-radius: 0.25rem;
+      transition-duration: 0.4s;
+      margin-top: 0.875rem;
+
+      &:hover {
+        background-color: $hover-cta-color;
+        color: $divider-color;
+        border: 0.125rem solid $primary-cta-color;
+      }
+      &:active {
+        box-shadow: 0 3px #666;
+        transform: translateY(2px);
+      }
+    }
+    &-cancel {
+      @include Buttons;
+      background-color: transparent;
+      color: $primary-cta-color;
+      width: 5rem;
+      height: 1.75rem;
+      border: none;
+      margin-top: 10px;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }

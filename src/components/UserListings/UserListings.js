@@ -2,7 +2,7 @@ import "./UserListings.scss";
 import ListingDetailsModal from "../ListingDetailsModal/ListingDetailsModal";
 import { useState } from "react";
 
-function UserListings({ userListings, setCreateListingForm }) {
+function UserListings({ userListings, setCreateListingForm, handleChange }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedListing, setSelectedListing] = useState(null);
 
@@ -24,11 +24,14 @@ function UserListings({ userListings, setCreateListingForm }) {
         </button>
       </h2>
       <section className="user-listings__section">
+      {selectedListing && (
         <ListingDetailsModal
           listing={selectedListing}
           isOpen={modalOpen}
+          handleChange={handleChange}
           closeModal={() => setModalOpen(false)}
         />
+        )}
         {userListings.map((listing) => (
           <article
             key={listing.id}

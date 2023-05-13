@@ -5,7 +5,7 @@ import axios from "axios";
 import { BASE_URL } from "../../utils";
 import { useState, useEffect } from "react";
 
-function UserProfile({ profileData, setCreateListingForm }) {
+function UserProfile({ profileData, setCreateListingForm, handleChange }) {
   const [userListings, setUserListings] = useState([]);
 
   useEffect(() => {
@@ -84,6 +84,7 @@ function UserProfile({ profileData, setCreateListingForm }) {
         <UserListings
           setCreateListingForm={setCreateListingForm}
           userListings={userListings}
+          handleChange={handleChange}
         />
       </div>
     </section>
