@@ -3,33 +3,48 @@
 
 .user-profile {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+  }
+
   &__wrapper {
     &-left {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 50%;
-      padding-right: 2rem;
-      padding-bottom: 2rem;
-      border-right: 2px solid $divider-color;
+      @include tablet {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 50%;
+        padding-right: 2rem;
+        padding-bottom: 2rem;
+        border-right: 2px solid $divider-color;
+      }
     }
     &-right {
+      @include tablet {
       display: flex;
       flex-direction: column;
       gap: 1rem;
       width: 50%;
       padding-left: 2rem;
+      }
     }
-    &-info {
-      display: flex;
-      align-items: center;
-      gap: 5rem;
+    &-stats {
+      padding: 1rem 0;
     }
     &-bio {
       border-top: 2px solid $divider-color;
       border-bottom: 2px solid $divider-color;
       padding: 1rem 0;
+    }
+    &-info {
+      padding: 1rem 0;
+      border-bottom: 2px solid $divider-color;
+
+      @include tablet {
+        border-bottom: none;
+      }
     }
   }
 
@@ -37,6 +52,7 @@
     &-data {
       display: flex;
       align-items: center;
+      justify-content: center;
     }
     &-text {
       display: flex;
@@ -49,11 +65,18 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
 
     @include tablet {
       @include Subheader;
       font-size: 1.25rem;
       font-weight: 600;
+    }
+  }
+  &__button {
+    &-edit {
+      @include Buttons;
     }
   }
   &__avatar {
@@ -63,6 +86,7 @@
     border-radius: 50%;
     background-size: cover;
     background-position: 25%;
+    object-fit: cover;
     overflow: hidden;
     cursor: pointer;
     margin-right: 1rem;

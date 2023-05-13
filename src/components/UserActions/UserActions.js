@@ -3,16 +3,9 @@ import "./UserActions.scss"
 
 
 
-function UserActions({ handleLogout, handleDeleteUser }) {
+function UserActions({ handleDeleteUser }) {
     return (
       <div className="user-actions__wrapper-button">
-        <button
-          className="user-actions__button-logout"
-          onClick={handleLogout}
-        >
-          Log Out
-        </button>
-  
         <button
           className="user-actions__button-delete"
           onClick={handleDeleteUser}

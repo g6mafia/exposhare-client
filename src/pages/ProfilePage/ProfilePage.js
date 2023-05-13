@@ -44,7 +44,6 @@ function ProfilePage({ handleChange, profileData }) {
         last_name,
         address,
         bio,
-        avatar_url,
       } = e.target.elements;
       await axios.put(
         `${BASE_URL}/users/update`,
@@ -56,7 +55,7 @@ function ProfilePage({ handleChange, profileData }) {
           last_name: last_name.value,
           address: address.value,
           bio: bio.value,
-          avatar_url: avatar_url.value,
+          avatar_url: uploadedImageUrl || profileData.avatar_url,
         },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -71,7 +70,7 @@ function ProfilePage({ handleChange, profileData }) {
         last_name: last_name.value,
         address: address.value,
         bio: bio.value,
-        avatar_url: avatar_url.value,
+        avatar_url: uploadedImageUrl || profileData.avatar_url,
       });
     } catch (error) {
       console.error("Error updating user", error);
@@ -145,14 +144,14 @@ function ProfilePage({ handleChange, profileData }) {
 
   return (
     <section className="profile-page">
-      <UserDashboard setEditUserForm={setEditUserForm} />
+      <UserDashboard handleLogout={handleLogout}/>
       <UserProfile
       handleChange={handleChange}
         profileData={profileData}
         setCreateListingForm={setCreateListingForm}
+        setEditUserForm={setEditUserForm}
       />
       <UserActions
-        handleLogout={handleLogout}
         handleDeleteUser={handleDeleteUser}
       />
       {editUserForm && (
@@ -242,10 +241,10 @@ function ProfilePage({ handleChange, profileData }) {
                   </label>
                   <input
                     className="edit-user__input"
-                    type="text"
+                    type="file"
                     id="avatar_url"
                     name="avatar_url"
-                    defaultValue={profileData.avatar_url}
+                    onChange={handleImageUpload}
                   />
                 </div>
               </div>

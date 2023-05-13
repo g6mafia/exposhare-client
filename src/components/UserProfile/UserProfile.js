@@ -5,7 +5,7 @@ import axios from "axios";
 import { BASE_URL } from "../../utils";
 import { useState, useEffect } from "react";
 
-function UserProfile({ profileData, setCreateListingForm, handleChange }) {
+function UserProfile({ profileData, setCreateListingForm, handleChange, setEditUserForm }) {
   const [userListings, setUserListings] = useState([]);
 
   useEffect(() => {
@@ -37,8 +37,10 @@ function UserProfile({ profileData, setCreateListingForm, handleChange }) {
   return (
     <section className="user-profile">
       <div className="user-profile__wrapper-left">
-        <h2 className="user-profile__title">Account Info</h2>
-        <div className="user-profile__wrapper-info">
+        <h2 className="user-profile__title">Account Info <button className="user-profile__button-edit" onClick={() => setEditUserForm(true)}>
+            Edit Profile
+          </button></h2>
+        <div className="user-profile__wrapper-stats">
           <div className="user-profile__block-data">
             <img
               className="user-profile__avatar"
@@ -73,11 +75,11 @@ function UserProfile({ profileData, setCreateListingForm, handleChange }) {
         <div className="user-profile__wrapper-bio">
           <h3 className="user-profile__bio-title">Bio: </h3>
           <p className="user-profile__bio">
-            Amateur photographer based in Brooklyn NY. Love to take portrait and
+            Amateur photographer based in Brooklyn NY. Loves to take portrait and
             street photography. Interested in film and digital products.
           </p>
         </div>
-        <div className="user-profile__wrapper">
+        <div className="user-profile__wrapper-info">
           <h3 className="user-profile__info-title">Info: </h3>
           <div className="user-profile__info-block">
             <div className="user-profile__info-wrapper--left">
