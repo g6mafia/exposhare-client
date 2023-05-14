@@ -35,18 +35,21 @@
 // mobile text styles
 
 @mixin mHeader {
+  color: $primary-text-color;
   font-size: 28px;
   font-weight: 600;
   line-height: 2.25rem;
 }
 
 @mixin mSubheader {
+  color: $primary-text-color;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.75rem;
 }
 
 @mixin mLabels {
+  color: $primary-text-color;
   font-size: 13px;
   font-weight: 600;
   line-height: 1.25rem;
@@ -60,18 +63,21 @@
 }
 
 @mixin mBodyLarge {
+  color: $primary-text-color;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.625rem;
 }
 
 @mixin mBodyMedium {
+  color: $primary-text-color;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.25rem;
 }
 
 @mixin mBodySmall {
+  color: $primary-text-color;
   font-size: 11px;
   font-weight: 400;
   line-height: 1rem;
@@ -80,18 +86,21 @@
 // tablet & desktop text styles
 
 @mixin Header {
+  color: $primary-text-color;
   font-size: 40px;
   font-weight: 600;
   line-height: 2.5rem;
 }
 
 @mixin Subheader {
+  color: $primary-text-color;
   font-size: 2rem;
   font-weight: 600;
   line-height: 2rem;
 }
 
 @mixin Labels {
+  color: $primary-text-color;
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.375rem;
@@ -121,18 +130,21 @@
 }
 
 @mixin BodyLarge {
+  color: $primary-text-color;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.75rem;
 }
 
 @mixin BodyMedium {
+  color: $primary-text-color;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.375rem;
 }
 
 @mixin BodySmall {
+  color: $primary-text-color;
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.125rem;

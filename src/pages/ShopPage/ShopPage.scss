@@ -2,10 +2,13 @@
 @use "../../styles/partials/mixins" as *;
 
 .shop-page {
-  @include componentSpacing;
-  display: flex;
-  flex-direction: column;
-  background-color: $third-color;
+  background-color: $alt-background-color;
+
+  &__container {
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+  }
 
   &__title {
     @include mHeader;
@@ -14,6 +17,7 @@
     border-bottom: 2px solid $primary-cta-color;
     align-items: flex-end;
     gap: 1rem;
+    margin-bottom: 0;
 
     @include tablet {
       @include Header;
@@ -22,20 +26,54 @@
   &__results {
     @include mBodyMedium;
 
-
     @include tablet {
       @include BodyMedium;
     }
   }
-  &__listings {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  &__content {
+  }
+  &__nav-section {
+  }
+  &__subtitle {
+    @include mBodyLarge;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+    @include tablet {
+      @include BodyLarge;
+      font-weight: 600;
+    }
   }
   &__nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  &__button {
+    &-filter {
+      @include Buttons;
+      background-color: $background-color;
+      color: $primary-text-color;
+      width: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+  &__listings {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    @include tablet {
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+  &__icon {
+    width: 24px;
   }
 }

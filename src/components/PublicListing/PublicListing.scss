@@ -2,8 +2,8 @@
 @use "../../styles/partials/mixins" as *;
 
 .public-listing {
-  margin: 1rem;
   border-radius: 0.625rem;
+  margin-bottom: 1rem;
 
   &__container {
     &-image {
@@ -12,8 +12,8 @@
       height: 12.5rem;
 
       @include tablet {
-        width: 12.5rem;
-        height: 12.5rem;
+        width: 18.75rem;
+        height: 18.75rem;
       }
     }
     &-details {
@@ -31,7 +31,7 @@
     @include BodyLarge;
     font-weight: 600;
     margin: 0;
-    padding-bottom: 4px;
+    padding: 0.25rem 0;
   }
   &__title {
     @include BodyMedium;

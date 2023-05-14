@@ -5,7 +5,7 @@ import ArrowRight from "../../assets/icons/arrow-right.svg";
 function HomeCards({ filteredBrands }) {
   return (
     <>
-      <section className="card-brands">
+      <section className="card-brands__container">
         <div className="card-brands__wrapper-1">
           <h2 className="card-brands__title">Shop by Brand</h2>
           <Link to="/shop?brand" className="card-brands__link">
@@ -27,7 +27,6 @@ function HomeCards({ filteredBrands }) {
                     alt={item.brand}
                     className="card-brands__image"
                   ></img>
-                  <h3 className="card-brands__subtitle">{item.brand}</h3>
                 </div>
               </article>
             </Link>

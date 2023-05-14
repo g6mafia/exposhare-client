@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import "./ShopPage.scss";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
+import SortIcon from "../../assets/icons/sort.svg";
+import FilterIcon from "../../assets/icons/filter.svg";
 
 import PublicListing from "../../components/PublicListing/PublicListing";
 // import queryString from 'query-string';
@@ -49,8 +51,8 @@ function ShopPage({ handleChange }) {
   };
 
   return (
-    <>
-      <section className="shop-page">
+    <div className="shop-page">
+      <section className="shop-page__container">
         <h1 className="shop-page__title">
           Shop{" "}
           <span className="shop-page__results">
@@ -59,13 +61,49 @@ function ShopPage({ handleChange }) {
           </span>
         </h1>
         <article className="shop-page__content">
-          <div className="shop-page__sidebar">
+          <div className="shop-page__nav-section">
+            <p className="shop-page__subtitle">Filters</p>
             <nav className="shop-page__nav">
-              <p>Brand</p>
-              <p>Condition</p>
-              <p>Category</p>
-              <p>Price</p>
-              <p>Sort</p>
+              <button className="shop-page__button-filter">
+                Brand{" "}
+                <img
+                  src={FilterIcon}
+                  alt="filter icon"
+                  className="shop-page__icon"
+                ></img>
+              </button>
+              <button className="shop-page__button-filter">
+                Condition{" "}
+                <img
+                  src={FilterIcon}
+                  alt="filter icon"
+                  className="shop-page__icon"
+                ></img>
+              </button>
+              <button className="shop-page__button-filter">
+                Category{" "}
+                <img
+                  src={FilterIcon}
+                  alt="filter icon"
+                  className="shop-page__icon"
+                ></img>
+              </button>
+              <button className="shop-page__button-filter">
+                Price{" "}
+                <img
+                  src={FilterIcon}
+                  alt="filter icon"
+                  className="shop-page__icon"
+                ></img>
+              </button>
+              <button className="shop-page__button-filter">
+                Sort{" "}
+                <img
+                  src={SortIcon}
+                  alt="sort icon"
+                  className="shop-page__icon"
+                ></img>
+              </button>
             </nav>
           </div>
           <div className="shop-page__listings">
@@ -75,7 +113,7 @@ function ShopPage({ handleChange }) {
           </div>
         </article>
       </section>
-    </>
+    </div>
   );
 }
 

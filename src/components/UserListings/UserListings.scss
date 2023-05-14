@@ -24,14 +24,15 @@
   &__section {
     display: flex;
     flex-direction: column;
+    background-color: $alt-background-color;
 
     @include tablet {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      height: 618px;
       gap: 1rem;
-      overflow-x: scroll;
+      overflow-y: scroll;
     }
-   
   }
   &__item {
     background-color: $background-color;
@@ -47,7 +48,7 @@
     margin: 1rem auto;
 
     @include tablet {
-    width: 400px;
+      width: 350px;
     }
 
     &-edit {
@@ -65,8 +66,8 @@
       height: 12.5rem;
 
       @include tablet {
-      width: 12.5rem;
-      height: 12.5rem;
+        width: 12.5rem;
+        height: 12.5rem;
       }
     }
 
@@ -100,15 +101,12 @@
       font-weight: 600;
       margin: 0;
       padding-bottom: 4px;
-     
-      
     }
     &-value {
       @include BodyLarge;
       font-weight: 600;
       margin: 0;
       padding-bottom: 4px;
-      
     }
   }
 }

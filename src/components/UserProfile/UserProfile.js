@@ -36,11 +36,11 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
 
   return (
     <section className="user-profile">
-      <div className="user-profile__wrapper-left">
+      <div className="user-profile__left-container">
         <h2 className="user-profile__title">Account Info <button className="user-profile__button-edit" onClick={() => setEditUserForm(true)}>
             Edit Profile
           </button></h2>
-        <div className="user-profile__wrapper-stats">
+        <div className="user-profile__stats-wrapper">
           <div className="user-profile__block-data">
             <img
               className="user-profile__avatar"
@@ -72,14 +72,14 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
             </div>
           </div>
         </div>
-        <div className="user-profile__wrapper-bio">
+        <div className="user-profile__bio-wrapper">
           <h3 className="user-profile__bio-title">Bio: </h3>
           <p className="user-profile__bio">
             Amateur photographer based in Brooklyn NY. Loves to take portrait and
             street photography. Interested in film and digital products.
           </p>
         </div>
-        <div className="user-profile__wrapper-info">
+        <div className="user-profile__info-wrapper">
           <h3 className="user-profile__info-title">Info: </h3>
           <div className="user-profile__info-block">
             <div className="user-profile__info-wrapper--left">
@@ -103,7 +103,7 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
         </div>
       </div>
 
-      <div className="user-profile__wrapper-right">
+      <div className="user-profile__right-container">
         <UserListings
           setCreateListingForm={setCreateListingForm}
           userListings={userListings}

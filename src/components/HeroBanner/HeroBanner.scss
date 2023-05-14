@@ -24,28 +24,28 @@
     align-items: center;
     text-align: center;
     color: $background-color;
-    z-index: 3;
+    z-index: 30;
   }
 
   &__title {
-    @include mHeader;
+    font-size: 2rem;
+    color: $background-color;
 
     @include tablet {
-      @include Header;
+      font-size: 4rem;
     }
   }
 
   &__slogan {
     @include componentSpacing;
-    @include mSubheader;
+    font-size: 20px;
     font-weight: 400;
+    color: $background-color;
 
     @include tablet {
-      @include Subheader;
-      font-weight: 400;
+      font-size: 32px;
     }
   }
-
 
   &__item {
     position: absolute;
@@ -57,7 +57,6 @@
     transition: opacity 1s;
     z-index: 1;
   }
-  
 
   &__image {
     width: 100%;
