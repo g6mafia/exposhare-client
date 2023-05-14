@@ -12,7 +12,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function ShopPage({ handleChange }) {
+function ShopPage() {
   const [listings, setListings] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState({
     search: "",
@@ -34,7 +34,7 @@ function ShopPage({ handleChange }) {
 
   useEffect(() => {
     getAllListings();
-  }, [selectedFilters, handleChange]);
+  }, [selectedFilters]);
 
   //function get listings
   const getAllListings = async () => {
