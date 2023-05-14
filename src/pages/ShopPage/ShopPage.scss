@@ -25,11 +25,35 @@
   }
   &__results {
     @include mBodyMedium;
-    color: $other-color;
+    color: $primary-cta-color;
 
     @include tablet {
       @include BodyMedium;
-      color: $other-color;
+      color: $primary-cta-color;
     }
+  }
+  &__validation {
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 31.25rem;
+  }
+  &__validation-title {
+    @include mBodyLarge;
+    color: $primary-cta-color;
+
+    @include tablet {
+      @include BodyLarge;
+      font-size: 1.5rem;
+      color: $primary-cta-color;
+    }
+    
+  }
+  &__validation-art {
+    margin: 0;
+    color: $primary-cta-color;
+    font-size: 3.75rem;
   }
 }

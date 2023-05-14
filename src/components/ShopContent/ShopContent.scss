@@ -3,6 +3,10 @@
 
 .shop-content {
   &__navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
   }
   &__subtitle {
     @include mBodyLarge;
@@ -10,13 +14,30 @@
     font-weight: 600;
     margin: 1rem 0 0.5rem;
     cursor: pointer;
+    gap: 3px;
 
     @include tablet {
       @include BodyLarge;
-      font-weight: 600;
+      font-weight: 400;
     }
     &:hover {
-      text-decoration: 1px underline $primary-cta-color;
+        font-weight: 600;
+    }
+  }
+  &__sort {
+    @include mBodyLarge;
+    display: flex;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+    cursor: pointer;
+    gap: 3px;
+
+    @include tablet {
+      @include BodyLarge;
+      font-weight: 400;
+    }
+    &:hover {
+        font-weight: 600;
     }
   }
   &__listings {
@@ -32,6 +53,48 @@
     }
   }
   &__icon {
-    width: 1.25rem;
+    width: 20px;
+
+    &:hover {
+      animation: moveUpDown2px 1s infinite;
+    }
+
+    @keyframes moveUpDown2px {
+      50% {
+        transform: translateY(2px);
+      }
+      50% {
+        transform: translateY(-2px);
+      }
+    }
   }
+  
+  &__icon-down {
+    width: 1.25rem;
+
+    &:hover {
+        animation: moveDown2px 1s infinite;
+      }
+
+      @keyframes moveDown2px {
+        100% {
+          transform: translateY(2px);
+        }
+      }
+    }
+     
+  
+  &__icon-up {
+    width: 1.25rem;
+
+    &:hover {
+        animation: moveUp2px 1s infinite;
+      }
+
+      @keyframes moveUp2px {
+        100% {
+          transform: translateY(-2px);
+        }
+      }
+    }
 }

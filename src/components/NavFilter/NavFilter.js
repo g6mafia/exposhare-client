@@ -1,5 +1,4 @@
 import "./NavFilter.scss"
-import SortIcon from "../../assets/icons/sort.svg";
 import FilterIcon from "../../assets/icons/filter.svg";
 
 function NavFilter() {
@@ -36,10 +35,6 @@ function NavFilter() {
           alt="filter icon"
           className="nav-filter__icon"
         ></img>
-      </button>
-      <button className="nav-filter__button">
-        Sort{" "}
-        <img src={SortIcon} alt="sort icon" className="nav-filter__icon"></img>
       </button>
     </nav>
   );

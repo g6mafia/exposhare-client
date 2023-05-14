@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./ShopPage.scss";
 import axios from "axios";
@@ -17,7 +17,6 @@ function ShopPage() {
     search: query.get("search") || "",
     brand: query.get("brand") || "",
   });
-
 
   useEffect(() => {
     // Setting the brand filter from the query parameter
@@ -56,8 +55,21 @@ function ShopPage() {
       console.error("Error fetching Listings:", error);
     }
   };
-
-
+  //validation if no listings match
+  if ( listings.length === 0) {
+    return (
+      <>
+        <div className="shop-page__validation">
+          <p className="shop-page__validation-title">
+            Sorry, there are no listings to match your search. 
+          </p>
+          <p className="shop-page__validation-art">
+          (っ◞‸◟ c)
+          </p>
+        </div>
+      </>
+    );
+  }
 
   return (
     <div className="shop-page">
@@ -69,7 +81,7 @@ function ShopPage() {
             ({listings.length} {listings.length === 1 ? "result" : "results"})
           </span>
         </h1>
-        <ShopContent listings = {listings}/>
+        <ShopContent listings={listings} />
       </section>
     </div>
   );
