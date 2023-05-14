@@ -3,10 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./ShopPage.scss";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
-import SortIcon from "../../assets/icons/sort.svg";
-import FilterIcon from "../../assets/icons/filter.svg";
-
-import PublicListing from "../../components/PublicListing/PublicListing";
+import ShopContent from "../../components/ShopContent/ShopContent";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -60,6 +57,8 @@ function ShopPage() {
     }
   };
 
+
+
   return (
     <div className="shop-page">
       <section className="shop-page__container">
@@ -70,58 +69,7 @@ function ShopPage() {
             ({listings.length} {listings.length === 1 ? "result" : "results"})
           </span>
         </h1>
-        <article className="shop-page__content">
-          <div className="shop-page__nav-section">
-            <p className="shop-page__subtitle">Filters</p>
-            <nav className="shop-page__nav">
-              <button className="shop-page__button-filter">
-                Brand{" "}
-                <img
-                  src={FilterIcon}
-                  alt="filter icon"
-                  className="shop-page__icon"
-                ></img>
-              </button>
-              <button className="shop-page__button-filter">
-                Condition{" "}
-                <img
-                  src={FilterIcon}
-                  alt="filter icon"
-                  className="shop-page__icon"
-                ></img>
-              </button>
-              <button className="shop-page__button-filter">
-                Category{" "}
-                <img
-                  src={FilterIcon}
-                  alt="filter icon"
-                  className="shop-page__icon"
-                ></img>
-              </button>
-              <button className="shop-page__button-filter">
-                Price{" "}
-                <img
-                  src={FilterIcon}
-                  alt="filter icon"
-                  className="shop-page__icon"
-                ></img>
-              </button>
-              <button className="shop-page__button-filter">
-                Sort{" "}
-                <img
-                  src={SortIcon}
-                  alt="sort icon"
-                  className="shop-page__icon"
-                ></img>
-              </button>
-            </nav>
-          </div>
-          <div className="shop-page__listings">
-            {listings.map((listing) => (
-              <PublicListing key={listing.id} listing={listing} />
-            ))}
-          </div>
-        </article>
+        <ShopContent listings = {listings}/>
       </section>
     </div>
   );

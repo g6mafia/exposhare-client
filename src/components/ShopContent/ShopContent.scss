@@ -1,0 +1,37 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.shop-content {
+  &__navbar {
+  }
+  &__subtitle {
+    @include mBodyLarge;
+    display: flex;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+    cursor: pointer;
+
+    @include tablet {
+      @include BodyLarge;
+      font-weight: 600;
+    }
+    &:hover {
+      text-decoration: 1px underline $primary-cta-color;
+    }
+  }
+  &__listings {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    @include tablet {
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+  &__icon {
+    width: 1.25rem;
+  }
+}

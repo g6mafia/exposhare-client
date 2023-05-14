@@ -1,0 +1,43 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.nav-filter {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include tablet {
+    justify-content: space-between;
+  }
+  &__button {
+    @include Buttons;
+    font-size: 0.75rem;
+    background-color: $background-color;
+    color: $primary-text-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.25rem;
+    width: 60%;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      font-size: 0.8125rem;
+      width: 7.25rem;
+      padding: 0 0.625rem;
+    }
+    @include desktop {
+      justify-content: space-between;
+      width: 8.25rem;
+    }
+  }
+  &__icon {
+    width: 1.25rem;
+    @include tablet {
+      width: 1.5rem;
+    }
+  }
+}
+

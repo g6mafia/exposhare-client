@@ -25,77 +25,11 @@
   }
   &__results {
     @include mBodyMedium;
+    color: $other-color;
 
     @include tablet {
       @include BodyMedium;
-    }
-  }
-  &__content {
-  }
-  &__nav-section {
-  }
-  &__subtitle {
-    @include mBodyLarge;
-    font-weight: 600;
-    margin: 1rem 0 0.5rem;
-    @include tablet {
-      @include BodyLarge;
-      font-weight: 600;
-    }
-  }
-  &__nav {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    @include tablet {
-      justify-content: space-between;
-    }
-  }
-  &__button {
-    &-filter {
-      @include Buttons;
-      font-size: 12px;
-      background-color: $background-color;
-      color: $primary-text-color;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 4px;
-   
-      width: 60%;
-      margin-bottom: 1rem;
-
-      @include tablet {
-        font-size: 0.8125rem;
-        width: 7.25rem;
-        padding: 0 10px;
-      }
-      @include desktop {
-        justify-content: space-between;
-        width: 8.25rem;
-    
-      }
-    }
-  }
-  &__listings {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-
-    @include tablet {
-      justify-content: space-between;
-      gap: 0;
-    }
-  }
-  &__icon {
-    width: 20px;
-    @include tablet {
-      width: 24px;
+      color: $other-color;
     }
   }
 }
