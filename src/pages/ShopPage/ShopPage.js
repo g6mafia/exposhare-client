@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { useLocation } from "react-router-dom";
 import "./ShopPage.scss";
 import axios from "axios";
@@ -13,24 +13,23 @@ function useQuery() {
 }
 
 function ShopPage() {
+  const location = useLocation();
+  const query = useQuery();
   const [listings, setListings] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState({
-    search: "",
-    brand: "",
+    search: query.get("search") || "",
+    brand: query.get("brand") || "",
   });
 
-  const query = useQuery();
-  const brandFilter = query.get("brand");
-  const searchFilter = query.get("search");
 
   useEffect(() => {
     // Setting the brand filter from the query parameter
     setSelectedFilters((prevFilters) => ({
       ...prevFilters,
-      brand: brandFilter,
-      search: searchFilter,
+      brand: query.get("brand"),
+      search: query.get("search"),
     }));
-  }, [brandFilter, searchFilter]);
+  }, [location]);
 
   useEffect(() => {
     getAllListings();

@@ -50,6 +50,10 @@ function App() {
     setProfileData(newProfileData);
     setIsAuthenticated(isAuthenticated);
   }
+
+
+
+  
   return (
     <div className="app">
       <BrowserRouter>
