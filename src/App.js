@@ -12,15 +12,13 @@ import ShopPage from "./pages/ShopPage/ShopPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
-
+import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     () => !!localStorage.getItem("token")
   );
   const [profileData, setProfileData] = useState(null);
-
-
 
   useEffect(() => {
     console.log("Initial isAuthenticated:", isAuthenticated);
@@ -44,16 +42,12 @@ function App() {
     fetchProfileData();
   }, [isAuthenticated]);
 
-
   //handlechange function for changes in the user's authentication status or profileData
-  function handleChange(isAuthenticated, newProfileData= null) {
+  function handleChange(isAuthenticated, newProfileData = null) {
     setProfileData(newProfileData);
     setIsAuthenticated(isAuthenticated);
   }
 
-
-
-  
   return (
     <div className="app">
       <BrowserRouter>
@@ -64,7 +58,10 @@ function App() {
         />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/shop" element={<ShopPage handleChange={handleChange}/>} />
+          <Route
+            path="/shop"
+            element={<ShopPage handleChange={handleChange} />}
+          />
           <Route
             path="/users/my-profile"
             element={
@@ -81,6 +78,15 @@ function App() {
           <Route
             path="/signup"
             element={<SignUpPage handleChange={handleChange} />}
+          />
+          <Route
+            path="/users/favorites"
+            element={
+              <FavoritesPage
+                handleChange={handleChange}
+                profileData={profileData}
+              />
+            }
           />
         </Routes>
         <Footer />

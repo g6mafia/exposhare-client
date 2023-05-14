@@ -2,42 +2,59 @@
 @use "../../styles/partials/mixins" as *;
 
 .login-container {
-    background-color: $alt-background-color;
+  background-color: $alt-background-color;
 }
 
 .login {
-    @include componentSpacing;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    &__title {
-      @include  mSubheader;
-  
-      @include tablet {
-          @include  Subheader;
-      }
-  
+  @include componentSpacing;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    @include PageTitle;
+    margin-bottom: 1rem;
+  }
+  &__button {
+    @include mButtons;
+    background-color: $third-color;
+    color: $primary-cta-color;
+    margin-bottom: 0.25rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    transition-duration: 0.4s;
+    margin: 2rem 0;
+    padding: 0.125rem 0.625rem;
+
+    &:hover {
+      background-color: $other-hover-color;
+      color: $primary-cta-color;
     }
-    &__button {
-        @include Buttons;
-        background-color: $third-color;
+    &:active {
+      box-shadow: 0 0.3125rem #666;
+      transform: translateY(4px);
+    }
+
+    @include tablet {
+      @include Buttons;
+      background-color: $third-color;
+      color: $primary-cta-color;
+      width: 6rem;
+
+      &:hover {
+        background-color: $other-hover-color;
         color: $primary-cta-color;
-        margin-bottom: 0.25rem;
-        width: 100%;
-        border: 0.125rem solid $other-color;
-        border-radius: 0.25rem;
-        transition-duration: 0.4s;
-        margin: 2rem 0;
-  
-        &:hover {
-          background-color: $other-hover-color;
-          color: $primary-cta-color;
-          border: 0.125rem solid $primary-cta-color;
-        }
-        &:active {
-          box-shadow: 0 0.3125rem #666;
-          transform: translateY(4px);
-        }
       }
+      &:active {
+        box-shadow: 0 0.3125rem #666;
+        transform: translateY(4px);
+      }
+    }
+  }
+  &__text {
+    @include mBodyMedium;
+
+    @include tablet {
+      @include BodyMedium;
+    }
+  }
 }

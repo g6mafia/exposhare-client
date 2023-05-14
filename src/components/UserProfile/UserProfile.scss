@@ -4,6 +4,7 @@
 .user-profile {
   display: flex;
   flex-direction: column;
+  margin: 2rem 0;
 
   @include tablet {
     flex-direction: row;

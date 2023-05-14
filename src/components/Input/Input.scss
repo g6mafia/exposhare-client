@@ -3,16 +3,17 @@
 
 .input {
   display: flex;
-  margin: 1rem 0;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
   width: 100%;
+  align-items: center;
 
   &__label {
-    @include Labels;
+    @include mLabels;
     width: 6.25rem;
   }
   &__field {
+    font-size: 0.75rem;
     border-radius: 0.25rem;
     padding: 0.375rem 0.75rem;
     border: 2px solid $other-color;

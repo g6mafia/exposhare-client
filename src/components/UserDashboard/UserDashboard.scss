@@ -7,16 +7,7 @@
   flex-direction: column;
   justify-content: center;
   &__title {
-    @include mSubheader;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
-    border-bottom: 0.125rem solid $divider-color;
-    margin-bottom: 0;
-
-    @include tablet {
-      @include Subheader;
-    }
+    @include PageTitle;
   }
   &__button {
     &-logout {

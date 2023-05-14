@@ -45,7 +45,7 @@ function LoginPage({ handleChange }) {
 
                 {error && <div className="login__message">{error.message}</div>}
             </form>
-            <p>
+            <p className='login__text'>
                 Need an account? <Link to="/signup">Sign Up Here</Link>
             </p>
         </section>

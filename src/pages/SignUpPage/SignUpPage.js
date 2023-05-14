@@ -80,7 +80,7 @@ function SignUpPage({ handleChange }) {
         )}
         {error && <div className="signup__error-message">{error.message}</div>}
       </form>
-      <p className="signup__login-link">
+      <p className="signup__text">
         Already have an account? <Link to="/login">Log in</Link>
       </p>
     </section>

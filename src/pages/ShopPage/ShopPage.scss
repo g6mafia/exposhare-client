@@ -11,17 +11,8 @@
   }
 
   &__title {
-    @include mHeader;
-    display: flex;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid $primary-cta-color;
-    align-items: flex-end;
-    gap: 1rem;
-    margin-bottom: 0;
-
-    @include tablet {
-      @include Header;
-    }
+    @include PageTitle;
+    
   }
   &__results {
     @include mBodyMedium;

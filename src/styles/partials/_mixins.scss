@@ -149,3 +149,20 @@
   font-weight: 400;
   line-height: 1.125rem;
 }
+
+//extra
+
+@mixin PageTitle {
+  @include mHeader;
+  display: flex;
+  padding-bottom: 1rem;
+  border-bottom: 0.125rem solid $primary-cta-color;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0;
+
+  @include tablet {
+    @include Header;
+  }
+}
