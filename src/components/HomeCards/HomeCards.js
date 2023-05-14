@@ -17,7 +17,7 @@ function HomeCards({ filteredBrands }) {
         <div className="card-brands__wrapper-2">
           {filteredBrands.map((item) => (
             <Link
-              to={`/shop?brand=${encodeURIComponent(item.brand)}`}
+              to={`/shop?search=${encodeURIComponent(item.brand)}`}
               key={item.id}
             >
               <article key={item.id} className="card-brands__article">

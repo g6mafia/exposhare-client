@@ -15,10 +15,10 @@
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
-    padding: 1rem 2.5rem 2.5rem;
+    padding: 16px 24px 24px;
   }
   @include desktop {
-    padding: 1.5rem 7.5rem 2.5rem;
+    padding: 24px 120px 24px;
   }
   &__logo {
     height: 3.75rem;
@@ -71,25 +71,25 @@
     }
   }
   &__subtitle {
-    @include mBodyMedium;
+    @include mBodySmall;
     color: $third-color!important;
     font-weight: 600;
 
     @include tablet {
-      @include BodyMedium;
+      @include BodySmall;
       margin: 0.75rem 0 0.5rem;
     }
     @include desktop {
-      @include BodyLarge;
+      @include BodyMedium;
       margin: 0.5rem 0 1rem;
     }
   }
   &__link {
-    @include mBodyMedium;
+    @include mBodySmall;
     color: $third-color!important;
 
     @include tablet {
-      @include BodyLarge;
+      @include BodyMedium;
     }
   }
   &__form {

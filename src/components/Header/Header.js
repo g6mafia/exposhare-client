@@ -14,6 +14,9 @@ function Header({ profileData, isAuthenticated, handleChange }) {
   //for dropdown modal on user avatar
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
+  //state storing search query
+  const [searchQuery, setSearchQuery] = useState("");
+
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
@@ -45,11 +48,18 @@ function Header({ profileData, isAuthenticated, handleChange }) {
             <img className="header__logo" src={Logo} alt="exposhare logo" />
           </Link>
           <nav className="header__nav-bar">
-            <form className="header__label">
+            <form
+              className="header__label"
+              onSubmit={(e) => {
+                e.preventDefault();
+                navigate(`/shop?search=${searchQuery}`);
+              }}
+            >
               <input
-                type="search"
+                type="text"
                 className="header__search header__search--active"
-                placeholder="Search"
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search..."
               ></input>
               <button type="submit" className="header__button">
                 <img
@@ -62,7 +72,6 @@ function Header({ profileData, isAuthenticated, handleChange }) {
             <div className="header__wrapper">
               {isAuthenticated && profileData ? (
                 <>
-                
                   <Link to="/users/messages">
                     <img
                       src={Messages}
@@ -85,7 +94,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
                       alt="cart icon"
                     />
                   </Link>
-                 
+
                   <div onClick={toggleDropdown}>
                     <img
                       className="header__avatar"

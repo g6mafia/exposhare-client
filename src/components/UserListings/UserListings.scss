@@ -24,7 +24,6 @@
   &__section {
     display: flex;
     flex-direction: column;
-    background-color: $alt-background-color;
 
     @include tablet {
       display: flex;

@@ -7,10 +7,6 @@ import SortIcon from "../../assets/icons/sort.svg";
 import FilterIcon from "../../assets/icons/filter.svg";
 
 import PublicListing from "../../components/PublicListing/PublicListing";
-// import queryString from 'query-string';
-// import FilterSidebar from './FilterSidebar';
-// import ListingGrid from './ListingGrid';
-// import Pagination from './Pagination';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -18,32 +14,47 @@ function useQuery() {
 
 function ShopPage({ handleChange }) {
   const [listings, setListings] = useState([]);
-  const [selectedFilters, setSelectedFilters] = useState({});
-  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedFilters, setSelectedFilters] = useState({
+    search: "",
+    brand: "",
+  });
 
   const query = useQuery();
   const brandFilter = query.get("brand");
+  const searchFilter = query.get("search");
 
   useEffect(() => {
     // Setting the brand filter from the query parameter
     setSelectedFilters((prevFilters) => ({
       ...prevFilters,
       brand: brandFilter,
+      search: searchFilter,
     }));
-  }, [brandFilter]);
-
-  useEffect(() => {
-    // Fetching listings based on selected filters and current page
-  }, [selectedFilters, currentPage]);
+  }, [brandFilter, searchFilter]);
 
   useEffect(() => {
     getAllListings();
-  }, [handleChange]);
+  }, [selectedFilters, handleChange]);
 
   //function get listings
   const getAllListings = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/api/listings`);
+      let requestUrl = `${BASE_URL}/api/listings`;
+
+      const queryParams = [];
+      const filterKeys = ["search", "brand"];
+
+      filterKeys.forEach((key) => {
+        selectedFilters[key] &&
+          queryParams.push(
+            `${key}=${encodeURIComponent(selectedFilters[key].toLowerCase())}`
+          );
+      });
+
+      if (queryParams.length > 0) {
+        requestUrl += `?${queryParams.join("&")}`;
+      }
+      const response = await axios.get(requestUrl);
       setListings(response.data);
     } catch (error) {
       console.error("Error fetching Listings:", error);

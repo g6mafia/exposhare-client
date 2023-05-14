@@ -46,19 +46,38 @@
   &__nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include tablet {
+      justify-content: space-between;
+    }
   }
   &__button {
     &-filter {
       @include Buttons;
+      font-size: 12px;
       background-color: $background-color;
       color: $primary-text-color;
-      width: 10%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      padding: 0 4px;
+   
+      width: 60%;
+      margin-bottom: 1rem;
+
+      @include tablet {
+        font-size: 0.8125rem;
+        width: 7.25rem;
+        padding: 0 10px;
+      }
+      @include desktop {
+        justify-content: space-between;
+        width: 8.25rem;
+    
+      }
     }
   }
   &__listings {
@@ -74,6 +93,9 @@
     }
   }
   &__icon {
-    width: 24px;
+    width: 20px;
+    @include tablet {
+      width: 24px;
+    }
   }
 }
