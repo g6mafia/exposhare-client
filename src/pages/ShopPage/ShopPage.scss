@@ -1,18 +1,41 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
+.shop-page {
+  @include componentSpacing;
+  display: flex;
+  flex-direction: column;
+  background-color: $third-color;
 
-.shop {
-    @include componentSpacing;
+  &__title {
+    @include mHeader;
     display: flex;
-    flex-direction: column;
-    
-    &__title {
-      @include  mSubheader;
-  
-      @include tablet {
-          @include  Subheader;
-      }
-  
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $primary-cta-color;
+    align-items: flex-end;
+    gap: 1rem;
+
+    @include tablet {
+      @include Header;
     }
+  }
+  &__results {
+    @include mBodyMedium;
+
+
+    @include tablet {
+      @include BodyMedium;
+    }
+  }
+  &__listings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

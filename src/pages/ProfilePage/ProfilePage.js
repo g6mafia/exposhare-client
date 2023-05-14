@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import "./ProfilePage.scss";
 import axios from "axios";
@@ -36,15 +36,8 @@ function ProfilePage({ handleChange, profileData }) {
   const handleEditUser = async (e) => {
     e.preventDefault();
     try {
-      const {
-        email,
-        username,
-        password,
-        first_name,
-        last_name,
-        address,
-        bio,
-      } = e.target.elements;
+      const { email, username, password, first_name, last_name, address, bio } =
+        e.target.elements;
       await axios.put(
         `${BASE_URL}/users/update`,
         {
@@ -99,7 +92,7 @@ function ProfilePage({ handleChange, profileData }) {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
-      console.log('Request data:', response);
+      console.log("Request data:", response);
       handleChange(response);
       setCreateListingForm(false);
     } catch (error) {
@@ -138,22 +131,40 @@ function ProfilePage({ handleChange, profileData }) {
   //validation if profile data is not available
   if (!profileData) {
     return (
-      <p className="profile-page__auth">This page requires authentication.</p>
+      <>
+      <div className="profile-page__auth-overlay"></div>
+      <div className="profile-page__auth">
+        <div className="profile-page__auth-wrapper">
+        <p className="profile-page__title">
+          Sorry, this page requires authentication.
+        </p>
+        <p className="profile-page__text">
+          Please{" "}
+          <Link to="/login" className="profile-page__link">
+            Login
+          </Link>{" "}
+          or{" "}
+          <Link to="/signup" className="profile-page__link">
+            Sign Up 
+          </Link>{" "}
+           first.
+        </p>
+        </div>
+      </div>
+      </>
     );
   }
 
   return (
     <section className="profile-page">
-      <UserDashboard handleLogout={handleLogout}/>
+      <UserDashboard handleLogout={handleLogout} />
       <UserProfile
-      handleChange={handleChange}
+        handleChange={handleChange}
         profileData={profileData}
         setCreateListingForm={setCreateListingForm}
         setEditUserForm={setEditUserForm}
       />
-      <UserActions
-        handleDeleteUser={handleDeleteUser}
-      />
+      <UserActions handleDeleteUser={handleDeleteUser} />
       {editUserForm && (
         <>
           <div className="edit-user__overlay"></div>

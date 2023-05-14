@@ -109,7 +109,7 @@ function ListingDetailsModal({ listing, isOpen, closeModal, handleChange }) {
               <p className="listings-details__item-value">
                 {listing.condition}
               </p>
-              <p className="listings-details__item-value">${listing.price}</p>
+              <p className="listings-details__item-value">${listing.price.toFixed(2)}</p>
             </div>
           </div>
           <button

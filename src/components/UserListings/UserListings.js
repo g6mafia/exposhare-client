@@ -53,7 +53,7 @@ function UserListings({ userListings, setCreateListingForm, handleChange }) {
             </div>
             <div className="user-listings__item-wrapper--right">
               <p className="user-listings__item-value">{listing.title}</p>
-              <p className="user-listings__item-value">${listing.price}</p>
+              <p className="user-listings__item-value">${listing.price.toFixed(2)}</p>
             </div>
           </div>
           <button onClick={() => handleModalOpen(listing)} className="user-listings__button">View Details</button>

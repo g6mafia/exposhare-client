@@ -6,10 +6,62 @@
 }
 .profile-page {
   @include componentSpacing;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  &__auth {
+    background-image: url(../../assets/images/banner-img-5.jpg);
+    background-position: center;
+    background-size: cover;
+    @include componentSpacing;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-  position: relative;
+    height: 31.25rem;
+
+    &-overlay {
+      position: fixed;
+      @include componentSpacing;
+      top: 8.375rem;
+      left: 0;
+      right: 0;
+      bottom: 1.5625rem;
+      background-color: rgba(0, 0, 0, 0.342);
+      height: 31.25rem;
+      z-index: 10;
+    }
+    &-wrapper {
+      z-index: 100;
+    }
+  }
+  &__title {
+    @include mSubheader;
+    color: $alt-background-color;
+    font-weight: 600;
+
+    @include tablet {
+      @include Subheader;
+      font-weight: 600;
+    }
+  }
+  &__text {
+    @include mBodyMedium;
+    color: $alt-background-color;
+
+    @include tablet {
+      @include BodyMedium;
+    }
+  }
+  &__link {
+    color: $logo-color;
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .edit-user {
@@ -57,7 +109,7 @@
       display: flex;
       flex-direction: column;
       padding-right: 1rem;
-      border-right: 2px solid $divider-color
+      border-right: 2px solid $divider-color;
     }
     &-2 {
       width: 50%;
@@ -169,7 +221,7 @@
   }
   &__container {
     display: flex;
-    
+
     &-input {
       width: 50%;
       display: flex;
@@ -191,7 +243,7 @@
       margin: 0.625rem 0;
     }
   }
-  
+
   &__form {
     border-radius: 0.25rem;
     display: flex;
@@ -203,7 +255,7 @@
   &__label {
     @include mBodyMedium;
     margin-bottom: 0.25rem;
-    
+
     @include tablet {
       @include BodyMedium;
       margin-bottom: 0.25rem;
@@ -216,7 +268,7 @@
     margin-bottom: 1rem;
     border: 2px solid $primary-cta-color;
   }
-  
+
   &__button {
     &-submit {
       @include Buttons;

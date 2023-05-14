@@ -1,0 +1,41 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.public-listing {
+  margin: 1rem;
+  border-radius: 0.625rem;
+
+  &__container {
+    &-image {
+      display: flex;
+      width: 100%;
+      height: 12.5rem;
+
+      @include tablet {
+        width: 12.5rem;
+        height: 12.5rem;
+      }
+    }
+    &-details {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+  }
+  &__image {
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 0.625rem;
+  }
+  &__price {
+    @include BodyLarge;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 4px;
+  }
+  &__title {
+    @include BodyMedium;
+    margin: 0;
+    padding-bottom: 4px;
+  }
+}
