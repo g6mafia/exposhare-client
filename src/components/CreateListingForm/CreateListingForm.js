@@ -1,18 +1,83 @@
+import { useState } from "react";
 import "./CreateListingForm.scss";
+import { CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET } from "../../config";
+import axios from "axios";
+
 
 function CreateListingForm({
-  cameraCategory,
-  cameraBrands,
-  cameraConditions,
   setCreateListingForm,
   handleCreateListing,
-  handleImageUpload,
+  setUploadedImageUrl,
 }) {
+  // form submission state variable
+  const [formSubmit, setFormSubmit] = useState(false);
+
+  // form field state variables
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [brand, setBrand] = useState("");
+  const [condition, setCondition] = useState("");
+  const [image, setImage] = useState("");
+
+  // form submit handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      !title ||
+      !description ||
+      !category ||
+      !price ||
+      !brand ||
+      !condition ||
+      !image
+    ) {
+      setFormSubmit(true);
+      return;
+    }
+
+    handleCreateListing(e);
+  };
+
+  const handleImageUpload = async (e) => {
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+    try {
+      const response = await axios.post(CLOUDINARY_UPLOAD_URL, formData);
+      setImage(response.data.secure_url);
+      setUploadedImageUrl(response.data.secure_url);
+    } catch (error) {
+      console.error("Error uploading image", error);
+    }
+  };
+
+
+  const cameraBrands = [
+    "Canon",
+    "Nikon",
+    "Sony",
+    "FujiFilm",
+    "Panasonic",
+    "Olympus",
+    "Pentax",
+  ];
+  const cameraConditions = ["New", "Used", "Refurbished"];
+
+  const cameraCategory = [
+    "Film Cameras",
+    "Digital Cameras",
+    "Lens",
+    "Accessories",
+  ];
   return (
     <>
       <div className="create-listing__overlay"></div>
       <div className="create-listing">
-        <form className="create-listing__form" onSubmit={handleCreateListing}>
+        <form className="create-listing__form" onSubmit={handleSubmit}>
           <p className="create-listing__title">Create New Listing: </p>
           <div className="create-listing__container">
             <div className="create-listing__container-left">
@@ -20,34 +85,54 @@ function CreateListingForm({
                 Title:
               </label>
               <input
-                className="create-listing__input"
+                className={`create-listing__input ${
+                  !title && formSubmit ? "create-listing__input--invalid" : ""
+                }`}
                 type="text"
                 id="title"
                 name="title"
                 placeholder="Title"
-                required
+                onChange={(e) => setTitle(e.target.value)}
               />
+              {!title && formSubmit && (
+                <div className="form__error-message">
+                  This field is required
+                </div>
+              )}
 
               <label htmlFor="description" className="create-listing__label">
                 Description:
               </label>
               <input
-                className="create-listing__input"
+                className={`create-listing__input ${
+                  !description && formSubmit
+                    ? "create-listing__input--invalid"
+                    : ""
+                }`}
                 type="text"
                 id="description"
                 name="description"
                 placeholder="Description"
-                required
+                onChange={(e) => setDescription(e.target.value)}
               />
+              {!description && formSubmit && (
+                <div className="form__error-message">
+                  This field is required
+                </div>
+              )}
 
               <label htmlFor="category" className="create-listing__label">
                 Category:
               </label>
               <select
-                className="create-listing__input"
+                className={`create-listing__input ${
+                  !category && formSubmit
+                    ? "create-listing__input--invalid"
+                    : ""
+                }`}
                 id="category"
                 name="category"
-                required
+                onChange={(e) => setCategory(e.target.value)}
               >
                 <option value="" disabled selected>
                   Select a category
@@ -58,28 +143,41 @@ function CreateListingForm({
                   </option>
                 ))}
               </select>
+              {!category && formSubmit && (
+                <div className="form__error-message">
+                  This field is required
+                </div>
+              )}
 
               <label htmlFor="price" className="create-listing__label">
                 Price:
               </label>
               <input
-                className="create-listing__input"
+                className={`create-listing__input ${
+                  !price && formSubmit ? "create-listing__input--invalid" : ""
+                }`}
                 type="number"
                 step="0.01"
                 id="price"
                 name="price"
                 placeholder="$"
+                onChange={(e) => setPrice(e.target.value)}
               />
             </div>
+            {!price && formSubmit && (
+              <div className="form__error-message">This field is required</div>
+            )}
             <div className="create-listing__container-right">
               <label htmlFor="brand" className="create-listing__label">
                 Brand:
               </label>
               <select
-                className="create-listing__input"
+                className={`create-listing__input ${
+                  !brand && formSubmit ? "create-listing__input--invalid" : ""
+                }`}
                 id="brand"
                 name="brand"
-                required
+                onChange={(e) => setBrand(e.target.value)}
               >
                 <option value="" disabled selected>
                   Select a brand
@@ -90,15 +188,24 @@ function CreateListingForm({
                   </option>
                 ))}
               </select>
+              {!brand && formSubmit && (
+                <div className="form__error-message">
+                  This field is required
+                </div>
+              )}
 
               <label htmlFor="condition" className="create-listing__label">
                 Condition:
               </label>
               <select
-                className="create-listing__input"
+                className={`create-listing__input ${
+                  !condition && formSubmit
+                    ? "create-listing__input--invalid"
+                    : ""
+                }`}
                 id="condition"
                 name="condition"
-                required
+                onChange={(e) => setCondition(e.target.value)}
               >
                 <option value="" disabled selected>
                   Select a condition
@@ -109,17 +216,29 @@ function CreateListingForm({
                   </option>
                 ))}
               </select>
+              {!condition && formSubmit && (
+                <div className="form__error-message">
+                  This field is required
+                </div>
+              )}
 
               <label htmlFor="image" className="create-listing__label">
                 Image URL:
               </label>
               <input
-                className="create-listing__input"
+                className={`create-listing__input ${
+                  !image && formSubmit ? "create-listing__input--invalid" : ""
+                }`}
                 type="file"
                 id="image"
                 name="image"
                 onChange={handleImageUpload}
               />
+              {!image && formSubmit && (
+                <div className="form__error-message">
+                  This field is required
+                </div>
+              )}
             </div>
           </div>
           <div className="create-listing__container-button">

@@ -1,12 +1,20 @@
 import "./EditUserForm.scss";
 
-function EditUserForm({ profileData, handleEditUser, setEditUserForm, handleImageUpload }) {
+function EditUserForm({
+  profileData,
+  handleEditUser,
+  setEditUserForm,
+  handleImageUpload,
+}) {
+  
   return (
     <>
       <div className="edit-user__overlay"></div>
       <div className="edit-user">
         <form className="edit-user__form" onSubmit={handleEditUser}>
-          <p className="edit-user__title">Edit Your Information: </p>
+          <p className="edit-user__title">
+            Edit Your Information:{" "}
+          </p>
           <div className="edit-user__container-input">
             <div className="edit-user__wrapper-1">
               <label htmlFor="username" className="edit-user__label">

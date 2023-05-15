@@ -144,7 +144,7 @@ function UserListings({
             <p className="user-listings__art">༼ ◔ ͜ʖ ◔ ༽</p>
           </div>
         ) : (
-          userListings.map((listing) => (
+          userListings.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((listing) => (
             <article key={listing.id} className="user-listings__item">
               <div className="user-listings__container">
                 <img
