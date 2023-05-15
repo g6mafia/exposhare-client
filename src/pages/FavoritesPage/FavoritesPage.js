@@ -8,6 +8,7 @@ import "./FavoritesPage.scss";
 function FavoritesPage({ profileData }) {
   const [favorites, setFavorites] = useState([]);
 
+//fetching favorite listings data
   useEffect(() => {
     async function fetchFavorites() {
       try {
@@ -26,6 +27,23 @@ function FavoritesPage({ profileData }) {
     fetchFavorites();
   }, []);
 
+  //handlefavoriteclick function to delete listing
+  async function handleFavoriteClick(listingId) {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.delete(`${BASE_URL}/users/favorites/${listingId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        withCredentials: true,
+      });
+  
+      // Remove the listing from the local favorites state
+      setFavorites(favorites.filter((favorite) => favorite.id !== listingId));
+    } catch (err) {
+      console.log("Error removing favorite listing", err);
+    }
+  }
   //validation if profile data is not available
   if (!profileData) {
     return (
@@ -76,7 +94,7 @@ function FavoritesPage({ profileData }) {
       <div className="favorites-page__listings">
         {favorites.map((listing) => {
           if (listing && listing.id) {
-            return <UserFavorites key={listing.id} listing={listing} />;
+            return <UserFavorites key={listing.id} listing={listing} onFavoriteClick={() => handleFavoriteClick(listing.id)}/>;
           } else {
             return null;
           }

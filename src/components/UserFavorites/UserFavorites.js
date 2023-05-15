@@ -2,10 +2,14 @@ import "./UserFavorites.scss";
 import LikesIcon from "../../assets/icons/likes.svg";
 import EmptyLikesIcon from "../../assets/icons/likes-nofill.svg";
 import { useState, useEffect } from "react";
-import axios from "axios";
-import { BASE_URL } from "../../utils";
 
-function UserFavorites({ listing }) {
+function UserFavorites({ listing, onFavoriteClick }) {
+  const [favorited, setFavorited] = useState(true);
+
+  const handleFavoriteClick = () => {
+    onFavoriteClick();
+    setFavorited(!favorited);
+  };
   return (
     <>
       <article className="user-favorites">
@@ -17,27 +21,27 @@ function UserFavorites({ listing }) {
             className="user-favorites__image"
           />
         </div>
-        <div className="user-favorites__container-details">
-          {/* {!favorited ? (
-            <img
-              src={EmptyLikesIcon}
-              alt="Add to favorites"
-              className="public-listing__icon-likes--nofill"
-              onClick={handleFavoriteClick}
-            />
-          ) : (
-            <img
-              src={LikesIcon}
-              alt="Added to favorites"
-              className="public-listing__icon-likes--fill"
-              onClick={handleFavoriteClick}
-            />
-          )} */}
-        </div>
 
         {/* make this a modal */}
         <div className="user-favorites__wrapper">
-          <h3 className="user-favorites__info-title">Listing Details: </h3>
+          <h3 className="user-favorites__info-title">
+            Listing Details:{" "}
+            {favorited ? (
+              <img
+                src={LikesIcon}
+                alt="Added to favorites"
+                className="public-listing__icon-likes--fill"
+                onClick={handleFavoriteClick}
+              />
+            ) : (
+              <img
+                src={EmptyLikesIcon}
+                alt="Add to favorites"
+                className="public-listing__icon-likes--nofill"
+                onClick={handleFavoriteClick}
+              />
+            )}
+          </h3>
           <div className="user-favorites__block">
             <p className="user-favorites__title">
               Price:{" "}
@@ -45,7 +49,7 @@ function UserFavorites({ listing }) {
                 ${listing.price.toFixed(2)}{" "}
               </span>
             </p>
-            <p className="user-favorites__title">
+            <p className="user-favorites__title user-favorites__title--align">
               Title:{" "}
               <span className="user-favorites__details">{listing.title}</span>
             </p>

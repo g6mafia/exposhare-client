@@ -1,5 +1,5 @@
 import "./PublicListing.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LikesIcon from "../../assets/icons/likes.svg";
 import EmptyLikesIcon from "../../assets/icons/likes-nofill.svg";
 
@@ -10,6 +10,12 @@ function PublicListing({
   removeFromFavorites,
 }) {
   const [favorited, setFavorited] = useState(isFavorited);
+
+    //use effect to maintain the filled icon state
+    useEffect(() => {
+      setFavorited(isFavorited);
+    }, [isFavorited]);
+  
 
   const handleFavoriteClick = () => {
     if (favorited) {
