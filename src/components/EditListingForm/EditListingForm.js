@@ -1,17 +1,39 @@
 import "./EditListingForm.scss";
+import axios from "axios";
+import { CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET } from "../../config";
+import { useState } from "react";
 
 function EditListingForm({
-    cameraCategory,
+  cameraCategory,
   cameraBrands,
   cameraConditions,
   listing,
-  handleImageUpload,
   handleEditListing,
   onCancel,
 }) {
+  const [imageUrl, setImageUrl] = useState(listing ? listing.image_url : '');
+
+  //handle image edit upload function
+  const handleImageUpload = async (e) => {
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+    try {
+      const response = await axios.post(CLOUDINARY_UPLOAD_URL, formData);
+      setImageUrl(response.data.secure_url);
+    } catch (error) {
+      console.error("Error uploading image", error);
+    }
+  };
   return (
+    <>
+    <div className="edit-listing__overlay"></div>
     <div className="edit-listing">
-      <form className="edit-listing__form" onSubmit={handleEditListing}>
+      <form
+        className="edit-listing__form"
+        onSubmit={(e) => handleEditListing(e, imageUrl)}
+      >
         <p className="edit-listing__title">Edit Listing: </p>
         <div className="edit-listing__container">
           <div className="edit-listing__container-left">
@@ -32,9 +54,9 @@ function EditListingForm({
               className="edit-listing__input"
               id="category"
               name="category"
-              defaultValue={listing.category}
+              defaultValue={listing.category || ""}
             >
-              <option value="" selected>
+              <option value="" disabled>
                 Select a category
               </option>
               {cameraCategory.map((category) => (
@@ -76,9 +98,9 @@ function EditListingForm({
               className="edit-listing__input"
               id="brand"
               name="brand"
-              defaultValue={listing.brand}
+              defaultValue={listing.brand || ""}
             >
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Select a brand
               </option>
               {cameraBrands.map((brand) => (
@@ -95,9 +117,9 @@ function EditListingForm({
               className="edit-listing__input"
               id="condition"
               name="condition"
-              defaultValue={listing.condition}
+              defaultValue={listing.condition || ""}
             >
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Select a condition
               </option>
               {cameraConditions.map((condition) => (
@@ -133,6 +155,7 @@ function EditListingForm({
         </div>
       </form>
     </div>
+    </>
   );
 }
 

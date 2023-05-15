@@ -25,6 +25,13 @@ function ProfilePage({ handleChange, profileData }) {
   ];
   const cameraConditions = ["New", "Used", "Refurbished"];
 
+  const cameraCategory = [
+    "Film Cameras",
+    "Digital Cameras",
+    "Lens",
+    "Accessories",
+  ];
+
   //handle log out function
   const handleLogout = () => {
     handleChange(null);
@@ -132,25 +139,25 @@ function ProfilePage({ handleChange, profileData }) {
   if (!profileData) {
     return (
       <>
-      <div className="profile-page__auth-overlay"></div>
-      <div className="profile-page__auth">
-        <div className="profile-page__auth-wrapper">
-        <p className="profile-page__title">
-          Sorry, this page requires authentication.
-        </p>
-        <p className="profile-page__text">
-          Please{" "}
-          <Link to="/login" className="profile-page__link">
-            Login
-          </Link>{" "}
-          or{" "}
-          <Link to="/signup" className="profile-page__link">
-            Sign Up 
-          </Link>{" "}
-           first.
-        </p>
+        <div className="profile-page__auth-overlay"></div>
+        <div className="profile-page__auth">
+          <div className="profile-page__auth-wrapper">
+            <p className="profile-page__title">
+              Sorry, this page requires authentication.
+            </p>
+            <p className="profile-page__text">
+              Please{" "}
+              <Link to="/login" className="profile-page__link">
+                Login
+              </Link>{" "}
+              or{" "}
+              <Link to="/signup" className="profile-page__link">
+                Sign Up
+              </Link>{" "}
+              first.
+            </p>
+          </div>
         </div>
-      </div>
       </>
     );
   }
@@ -286,7 +293,7 @@ function ProfilePage({ handleChange, profileData }) {
             >
               <p className="create-listing__title">Create New Listing: </p>
               <div className="create-listing__container">
-                <div className="create-listing__container-input">
+                <div className="create-listing__container-left">
                   <label htmlFor="title" className="create-listing__label">
                     Title:
                   </label>
@@ -326,7 +333,11 @@ function ProfilePage({ handleChange, profileData }) {
                     <option value="" disabled selected>
                       Select a category
                     </option>
-                    <option value="Cameras">Cameras</option>
+                    {cameraCategory.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
                   </select>
 
                   <label htmlFor="price" className="create-listing__label">
@@ -341,7 +352,7 @@ function ProfilePage({ handleChange, profileData }) {
                     placeholder="$"
                   />
                 </div>
-                <div className="create-listing__container-image">
+                <div className="create-listing__container-right">
                   <label htmlFor="brand" className="create-listing__label">
                     Brand:
                   </label>

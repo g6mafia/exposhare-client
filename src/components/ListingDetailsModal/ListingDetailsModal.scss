@@ -2,10 +2,23 @@
 @use "../../styles/partials/mixins" as *;
 
 .listings-details {
-  position: absolute;
-  top: -2%;
-  right: 32%;
+  position: fixed;
   z-index: 20;
+  top: 16%;
+  right: 0%;
+  width: 100%;
+
+  @include tablet {
+    width: 60%;
+    top: 6%;
+    right: 20%;
+  }
+
+  @include desktop {
+    width: 80%;
+    top: 10%;
+    right: -14%;
+  }
 
   &__overlay {
     position: fixed;
@@ -27,7 +40,14 @@
     justify-content: center;
     align-items: center;
     padding: 1rem 2rem;
-    width: 600px;
+
+    @include desktop {
+      width: 80%;
+    }
+    @include desktop {
+      width: 37.5rem;
+    }
+    
 
     &-heading {
       width: 100%;
@@ -46,28 +66,14 @@
         font-weight: 600;
       }
     }
-    &-edit {
-      display: flex;
-      justify-content: flex-end;
-      @include mBodyMedium;
-      font-weight: 600;
-      gap: 0.25rem;
-      cursor: pointer;
-
-      @include tablet {
-        @include BodyMedium;
-        font-weight: 600;
-      }
-    }
-    &-icon {
-      width: 1.5rem;
-      margin: 0.5rem 0;
-    }
     &-container {
       width: 100%;
-      height: 400px;
       display: flex;
       background-color: $alt-background-color;
+
+      @include tablet {
+        height: 25rem;
+      }
     }
 
     &-image {
@@ -87,13 +93,17 @@
     }
     &-wrapper {
       &--left {
-        display: flex;
-        flex-direction: column;
+        @include desktop {
+          display: flex;
+          flex-direction: column;
+        }
       }
       &--right {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        @include desktop {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
       }
     }
     &-type {
@@ -101,7 +111,7 @@
       font-weight: 600;
       margin: 0;
       padding-bottom: 0.25rem;
-      
+
       @include tablet {
         @include BodyLarge;
         font-weight: 600;
@@ -112,7 +122,7 @@
       font-weight: 600;
       margin: 0;
       padding-bottom: 0.25rem;
-    
+
       @include tablet {
         @include BodyLarge;
       }
@@ -122,4 +132,3 @@
     @include Buttons;
   }
 }
-

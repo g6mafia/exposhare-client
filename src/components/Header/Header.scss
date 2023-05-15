@@ -138,6 +138,7 @@
     position: absolute;
     box-shadow: 0 3px 3px -2px $alt-text-color;
     top: 115%;
+    right: 10%;
     background-color: $background-color;
     border: 0.0625rem solid $alt-text-color;
     border-radius: 0.3125rem;
@@ -148,6 +149,11 @@
     z-index: 500;
 
     @include tablet {
+      top: 100%;
+      right: 0;
+    }
+
+    @include desktop {
       top: 100%;
       right: 0;
     }
