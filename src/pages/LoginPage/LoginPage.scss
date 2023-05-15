@@ -57,4 +57,20 @@
       @include BodyMedium;
     }
   }
+  &__success-message {
+    @include mBodyMedium;
+    color: $success-color;
+    @include tablet {
+      @include BodyMedium;
+      color: $success-color;
+    }
+  }
+  &__error-message {
+    @include mBodyMedium;
+    color: $error-color;
+    @include tablet {
+      @include BodyMedium;
+      color: $error-color;
+    }
+  }
 }

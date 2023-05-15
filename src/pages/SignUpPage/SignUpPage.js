@@ -51,7 +51,9 @@ function SignUpPage({ handleChange }) {
         e.target.reset();
         localStorage.setItem("token", response.data.token);
         handleChange(true, response.data);
-        navigate('/');
+        setTimeout(() => {
+          navigate('/');
+        }, 1000);
       })
       .catch((error) => {
         setSuccess(false);

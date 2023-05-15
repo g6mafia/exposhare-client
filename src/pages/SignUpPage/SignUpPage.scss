@@ -1,16 +1,15 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-
 .signup-container {
-    background-color: $alt-background-color;
+  background-color: $alt-background-color;
 }
 
 .signup {
   @include componentSpacing;
   display: flex;
   flex-direction: column;
- 
+
   &__title {
     @include PageTitle;
   }
@@ -27,7 +26,7 @@
   &__form {
     display: flex;
     flex-direction: column;
-    
+
     width: 100%;
   }
   &__button {
@@ -61,6 +60,22 @@
 
     @include tablet {
       @include BodyMedium;
+    }
+  }
+  &__success-message {
+    @include mBodyMedium;
+    color: $success-color;
+    @include tablet {
+      @include BodyMedium;
+      color: $success-color;
+    }
+  }
+  &__error-message {
+    @include mBodyMedium;
+    color: $error-color;
+    @include tablet {
+      @include BodyMedium;
+      color: $error-color;
     }
   }
 }

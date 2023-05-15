@@ -6,6 +6,7 @@ import axios from 'axios';
 import { BASE_URL } from "../../utils";
 
 function LoginPage({ handleChange }) {
+    const [success, setSuccess] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -21,9 +22,12 @@ function LoginPage({ handleChange }) {
         })
         .then((response) => {
             localStorage.setItem('token', response.data.token);
+            setSuccess(true);
             setError('');
             handleChange(true);
-            navigate('/');
+            setTimeout(() => {
+                navigate('/');
+              }, 1000);
         })
         .catch((error) => {
             setError(error.response.data);
@@ -42,8 +46,8 @@ function LoginPage({ handleChange }) {
                 <button className="login__button">
                     Log in
                 </button>
-
-                {error && <div className="login__message">{error.message}</div>}
+                {success && <div className="login__success-message">Successfully logged in!</div>}
+                {error && <div className="login__error-message">{error.message}</div>}
             </form>
             <p className='login__text'>
                 Need an account? <Link to="/signup">Sign Up Here</Link>
