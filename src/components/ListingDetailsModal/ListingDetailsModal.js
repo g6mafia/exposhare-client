@@ -4,6 +4,7 @@ import EditIcon from "../../assets/icons/edit-24px.svg";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
 import { CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET } from "../../config";
+import EditListingForm from "../EditListingForm/EditListingForm";
 
 function ListingDetailsModal({ listing, isOpen, closeModal, handleChange }) {
   const [editForm, setEditForm] = useState(false);
@@ -18,7 +19,34 @@ function ListingDetailsModal({ listing, isOpen, closeModal, handleChange }) {
     "Olympus",
     "Pentax",
   ];
+
+  const filmCameraBrands = [
+    "Canon",
+    "Nikon",
+    "Olympus",
+    "Pentax",
+    "Leica",
+    "Minolta",
+    "Contax",
+  ];
+
+  const lensBrands = [
+    "Canon",
+    "Nikon",
+    "Sony",
+    "FujiFilm",
+    "Panasonic",
+    "Olympus",
+    "Sigma",
+  ];
   const cameraConditions = ["New", "Used", "Refurbished"];
+
+  const cameraCategory = [
+    "Film Cameras",
+    "Digital Cameras",
+    "Lens",
+    "Accessories",
+  ];
 
   if (!isOpen) {
     return null;
@@ -109,7 +137,9 @@ function ListingDetailsModal({ listing, isOpen, closeModal, handleChange }) {
               <p className="listings-details__item-value">
                 {listing.condition}
               </p>
-              <p className="listings-details__item-value">${listing.price.toFixed(2)}</p>
+              <p className="listings-details__item-value">
+                ${listing.price.toFixed(2)}
+              </p>
             </div>
           </div>
           <button
@@ -121,129 +151,15 @@ function ListingDetailsModal({ listing, isOpen, closeModal, handleChange }) {
         </article>
         {editForm && (
           <>
-            <div className="edit-listing">
-              <form className="edit-listing__form" onSubmit={handleEditListing}>
-                <p className="edit-listing__title">Edit Listing: </p>
-                <div className="edit-listing__container">
-                  <div className="edit-listing__container-left">
-                    <label htmlFor="title" className="create-listing__label">
-                      Title:
-                    </label>
-                    <input
-                      className="edit-listing__input"
-                      type="text"
-                      id="title"
-                      name="title"
-                      defaultValue={listing.title}
-                    />
-                    <label htmlFor="category" className="edit-listing__label">
-                      Category:
-                    </label>
-                    <select
-                      className="edit-listing__input"
-                      id="category"
-                      name="category"
-                      disabled
-                      defaultValue={listing.category}
-                    >
-                      <option value="" disabled selected>
-                        Select a category
-                      </option>
-                      <option value="Cameras">Cameras</option>
-                    </select>
-                    <label
-                      htmlFor="description"
-                      className="edit-listing__label"
-                    >
-                      Description:
-                    </label>
-                    <input
-                      className="edit-listing__input"
-                      type="text"
-                      id="description"
-                      name="description"
-                      defaultValue={listing.description}
-                    />
-
-                    <label htmlFor="price" className="edit-listing__label">
-                      Price:
-                    </label>
-
-                    <input
-                      className="edit-listing__input"
-                      type="number"
-                      step="0.01"
-                      id="price"
-                      name="price"
-                      defaultValue={listing.price}
-                      placeholder="$"
-                    />
-                  </div>
-                  <div className="edit-listing__container-right">
-                    <label htmlFor="brand" className="edit-listing__label">
-                      Brand:
-                    </label>
-                    <select
-                      className="edit-listing__input"
-                      id="brand"
-                      name="brand"
-                      defaultValue={listing.brand}
-                    >
-                      <option value="" disabled selected>
-                        Select a brand
-                      </option>
-                      {cameraBrands.map((brand) => (
-                        <option key={brand} value={brand}>
-                          {brand}
-                        </option>
-                      ))}
-                    </select>
-
-                    <label htmlFor="condition" className="edit-listing__label">
-                      Condition:
-                    </label>
-                    <select
-                      className="edit-listing__input"
-                      id="condition"
-                      name="condition"
-                      defaultValue={listing.condition}
-                    >
-                      <option value="" disabled selected>
-                        Select a condition
-                      </option>
-                      {cameraConditions.map((condition) => (
-                        <option key={condition} value={condition}>
-                          {condition}
-                        </option>
-                      ))}
-                    </select>
-
-                    <label htmlFor="image" className="edit-listing__label">
-                      Image URL:
-                    </label>
-                    <input
-                      className="edit-listing__input"
-                      type="file"
-                      id="image"
-                      name="image"
-                      onChange={handleImageUpload}
-                    />
-                  </div>
-                </div>
-                <div className="edit-listing__container-button">
-                  <button type="submit" className="edit-listing__button-submit">
-                    Save Changes
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setEditForm(false)}
-                    className="edit-listing__button-cancel"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </form>
-            </div>
+            <EditListingForm
+              listing={listing}
+              handleImageUpload={handleImageUpload}
+              handleEditListing={handleEditListing}
+              cameraBrands={cameraBrands}
+              cameraConditions={cameraConditions}
+              cameraCategory={cameraCategory}
+              onCancel={() => setEditForm(false)}
+            />
           </>
         )}
       </div>

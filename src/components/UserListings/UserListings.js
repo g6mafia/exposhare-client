@@ -1,14 +1,42 @@
 import "./UserListings.scss";
 import ListingDetailsModal from "../ListingDetailsModal/ListingDetailsModal";
 import { useState } from "react";
+import DeleteIcon from "../../assets/icons/delete.svg";
+import { BASE_URL } from "../../utils";
+import axios from "axios";
 
-function UserListings({ userListings, setCreateListingForm, handleChange }) {
+function UserListings({
+  userListings,
+  setCreateListingForm,
+  handleChange,
+  setUserListings,
+}) {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedListing, setSelectedListing] = useState(null);
 
   const handleModalOpen = (listing) => {
     setModalOpen(true);
     setSelectedListing(listing);
+  };
+
+  //delete listing function
+  const deleteListing = async (listingId) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.delete(
+        `${BASE_URL}/api/listings/${listingId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setUserListings(
+        userListings.filter((listing) => listing.id !== listingId)
+      );
+    } catch (error) {
+      console.error("Error deleting listing:", error);
+    }
   };
 
   return (
@@ -24,41 +52,61 @@ function UserListings({ userListings, setCreateListingForm, handleChange }) {
         </button>
       </h2>
       <section className="user-listings__section">
-      {selectedListing && (
-        <ListingDetailsModal
-          listing={selectedListing}
-          isOpen={modalOpen}
-          handleChange={handleChange}
-          closeModal={() => setModalOpen(false)}
-        />
+        {selectedListing && (
+          <ListingDetailsModal
+            listing={selectedListing}
+            isOpen={modalOpen}
+            handleChange={handleChange}
+            closeModal={() => setModalOpen(false)}
+          />
         )}
-        {userListings.map((listing) => (
-          <article
-            key={listing.id}
-            className="user-listings__item"
-          >
-            <div className="user-listings__item-container">
-              <img
-                src={listing.image_url}
-                alt={listing.title}
-                className="user-listings__item-image"
-              ></img>
-            </div>
-            <div className="user-listings__item-block">
-            <div className="user-listings__item-wrapper--left">
-              <p className="user-listings__item-type">Title </p>
-           
-              <p className="user-listings__item-type">Price </p>
-          
-            </div>
-            <div className="user-listings__item-wrapper--right">
-              <p className="user-listings__item-value">{listing.title}</p>
-              <p className="user-listings__item-value">${listing.price.toFixed(2)}</p>
-            </div>
+        {userListings.length === 0 ? (
+          <div className="user-listings__wrapper">
+            <p className="user-listings__subtitle">
+              Want to sell an item? Create a new listing!
+            </p>
+            <p className="user-listings__art">༼ ◔ ͜ʖ ◔ ༽</p>
           </div>
-          <button onClick={() => handleModalOpen(listing)} className="user-listings__button">View Details</button>
-          </article>
-        ))}
+        ) : (
+          userListings.map((listing) => (
+            <article key={listing.id} className="user-listings__item">
+              <div className="user-listings__container">
+                <img
+                  src={listing.image_url}
+                  alt={listing.title}
+                  className="user-listings__image"
+                ></img>
+              </div>
+              <div className="user-listings__block">
+                <p className="user-listings__info-title">
+                  Title:{" "}
+                  <span className="user-listings__details">
+                    {listing.title}
+                  </span>
+                </p>
+
+                <p className="user-listings__info-title">
+                  Price:{" "}
+                  <span className="user-listings__details user-listings__details--spacing">
+                    ${listing.price.toFixed(2)}
+                  </span>
+                </p>
+              </div>
+              <button
+                onClick={() => handleModalOpen(listing)}
+                className="user-listings__button"
+              >
+                View Details
+              </button>
+              <img
+                src={DeleteIcon}
+                alt="delete icon"
+                onClick={() => deleteListing(listing.id)}
+                className="user-listings__button-icon"
+              ></img>
+            </article>
+          ))
+        )}
       </section>
     </>
   );

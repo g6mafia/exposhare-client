@@ -109,6 +109,7 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
           setCreateListingForm={setCreateListingForm}
           userListings={userListings}
           handleChange={handleChange}
+          setUserListings={setUserListings}
         />
       </div>
     </section>

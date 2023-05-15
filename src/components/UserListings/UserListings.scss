@@ -33,6 +33,32 @@
       overflow-y: scroll;
     }
   }
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    align-items: center;
+  }
+  &__subtitle {
+    @include mBodyLarge;
+    display: flex;
+    font-weight: 400;
+    margin: 0;
+    align-items: center;
+    &--spacing {
+      padding-right: 0.75rem;
+    }
+    @include tablet {
+      @include BodyLarge;
+      font-weight: 400;
+    }
+  }
+  &__art {
+    font-size: 40px;
+  }
   &__item {
     background-color: $background-color;
     display: flex;
@@ -49,73 +75,63 @@
     @include tablet {
       width: 350px;
     }
-
-    &-edit {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-    }
-    &-icon {
-      width: 1.5rem;
-      margin: 0.5rem 0;
-    }
-    &-container {
-      display: flex;
-      width: 100%;
-      height: 12.5rem;
-
-      @include tablet {
-        width: 12.5rem;
-        height: 12.5rem;
-      }
-    }
-
-    &-image {
-      object-fit: cover;
-      overflow: hidden;
-      border-radius: 0.625rem;
-    }
-    &-block {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      margin-top: 1rem;
-      border-top: 2px solid $divider-color;
-      padding: 1rem 0;
-    }
-    &-wrapper {
-      &--left {
-        display: flex;
-        flex-direction: column;
-      }
-      &--right {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-    }
-    &-type {
-      @include mBodyMedium;
-    font-weight: 600;
-    margin: 0;
-    padding-bottom: 4px;
+  }
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 0.625rem;
+  }
+  &__container {
+    display: flex;
+    width: 100%;
+    height: 12.5rem;
 
     @include tablet {
-      @include BodyMedium;
+      width: 100%;
+      height: 12.5rem;
+    }
+  }
+  &__block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 0.125rem solid $divider-color;
+    align-items: center;
+  }
+
+  &__info-title {
+    @include mBodyLarge;
+    font-weight: 600;
+    padding-bottom: 0.25rem;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5rem;
+    align-items: center;
+
+    @include tablet {
+      @include BodyLarge;
       font-weight: 600;
     }
-    }
-    &-value {
-      @include mBodyMedium;
-      font-weight: 400;
-      margin: 0;
-      padding-bottom: 4px;
-  
-      @include tablet {
-        @include BodyMedium;
-        font-weight: 400;
-      }
   }
-}
+  &__details {
+    @include mBodyLarge;
+    display: flex;
+    font-weight: 400;
+    margin: 0;
+    align-items: center;
+    &--spacing {
+      padding-right: 0.75rem;
+    }
+    @include tablet {
+      @include BodyLarge;
+      font-weight: 400;
+    }
+  }
+
 }
