@@ -7,6 +7,10 @@ import UserDashboard from "../../components/UserDashboard/UserDashboard";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import UserActions from "../../components/UserActions/UserActions";
 import { CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET } from "../../config";
+import EditUserForm from "../../components/EditUserForm/EditUserForm";
+import CreateListingForm from "../../components/CreateListingForm/CreateListingForm";
+
+
 
 function ProfilePage({ handleChange, profileData }) {
   const navigate = useNavigate();
@@ -174,118 +178,26 @@ function ProfilePage({ handleChange, profileData }) {
       <UserActions handleDeleteUser={handleDeleteUser} />
       {editUserForm && (
         <>
-          <div className="edit-user__overlay"></div>
-          <div className="edit-user">
-            <form className="edit-user__form" onSubmit={handleEditUser}>
-              <p className="edit-user__title">Edit Your Information: </p>
-              <div className="edit-user__container-input">
-                <div className="edit-user__wrapper-1">
-                  <label htmlFor="username" className="edit-user__label">
-                    Username:
-                  </label>
-                  <input
-                    className="edit-user__input"
-                    type="text"
-                    id="username"
-                    name="username"
-                    defaultValue={profileData.username}
-                  />
-
-                  <label htmlFor="password" className="edit-user__label">
-                    Password (optional):
-                  </label>
-                  <input
-                    className="edit-user__input"
-                    type="password"
-                    id="password"
-                    name="password"
-                  />
-
-                  <label htmlFor="first_name" className="edit-user__label">
-                    First Name:
-                  </label>
-                  <input
-                    className="edit-user__input"
-                    type="text"
-                    id="first_name"
-                    name="first_name"
-                    defaultValue={profileData.first_name}
-                  />
-
-                  <label htmlFor="last_name" className="edit-user__label">
-                    Last Name:
-                  </label>
-                  <input
-                    className="edit-user__input"
-                    type="text"
-                    id="last_name"
-                    name="last_name"
-                    defaultValue={profileData.last_name}
-                  />
-                </div>
-                <div className="edit-user__wrapper-2">
-                  <label htmlFor="email" className="edit-user__label">
-                    Email:
-                  </label>
-                  <input
-                    className="edit-user__input"
-                    type="email"
-                    id="email"
-                    name="email"
-                    defaultValue={profileData.email}
-                  />
-                  <label htmlFor="address" className="edit-user__label">
-                    Address:
-                  </label>
-                  <input
-                    className="edit-user__input"
-                    type="text"
-                    id="address"
-                    name="address"
-                    defaultValue={profileData.address}
-                  />
-                  <label htmlFor="bio" className="edit-user__label">
-                    Bio:
-                  </label>
-                  <input
-                    className="edit-user__input"
-                    type="textarea"
-                    id="bio"
-                    name="bio"
-                    defaultValue={profileData.bio}
-                  />
-                  <label htmlFor="avatar_url" className="edit-user__label">
-                    Avatar URL:
-                  </label>
-                  <input
-                    className="edit-user__input"
-                    type="file"
-                    id="avatar_url"
-                    name="avatar_url"
-                    onChange={handleImageUpload}
-                  />
-                </div>
-              </div>
-              <div className="edit-user__container-button">
-                <button type="submit" className="edit-user__button-submit">
-                  Save Changes
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setEditUserForm(false)}
-                  className="edit-user__button-cancel"
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
-          </div>
+          <EditUserForm
+            profileData={profileData}
+            setEditUserForm={setEditUserForm}
+            handleEditUser={handleEditUser}
+            handleImageUpload={handleImageUpload}
+          />
         </>
       )}
 
       {createListingForm && (
         <>
-          <div className="create-listing__overlay"></div>
+          <CreateListingForm
+            cameraCategory={cameraCategory}
+            cameraBrands={cameraBrands}
+            cameraConditions={cameraConditions}
+            setCreateListingForm={setCreateListingForm}
+            handleCreateListing={handleCreateListing}
+            handleImageUpload={handleImageUpload}
+          />
+          {/* <div className="create-listing__overlay"></div>
           <div className="create-listing">
             <form
               className="create-listing__form"
@@ -416,7 +328,7 @@ function ProfilePage({ handleChange, profileData }) {
                 </button>
               </div>
             </form>
-          </div>
+          </div> */}
         </>
       )}
     </section>

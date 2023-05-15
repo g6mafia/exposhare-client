@@ -54,15 +54,15 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
           <div className="user-profile__block-data">
             <div className="user-profile__block-text">
               <p className="user-profile__text">Transactions</p>
-              <span className="user-profile__data">30</span>
+              <span className="user-profile__data">0</span>
             </div>
             <div className="user-profile__block-text">
               <p className="user-profile__text">Followers</p>
-              <span className="user-profile__data">100</span>
+              <span className="user-profile__data">0</span>
             </div>
             <div className="user-profile__block-text">
               <p className="user-profile__text user-profile__text--spacing">
-                Reviews (3)
+               No Reviews Yet
               </p>
               <div className="user-profile__block-stars">
                 <img src={Star} className="user-profile__icon-star"></img>
@@ -77,7 +77,7 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
         <div className="user-profile__bio-wrapper">
           <h3 className="user-profile__bio-title">Bio: </h3>
           <p className="user-profile__bio">
-          {profileData || profileData.bio === '' ? "Tell us about yourself!" : profileData.bio}
+          {profileData && profileData.bio !== '' ? profileData.bio : "Tell us about yourself!"}
           </p>
         </div>
         <div className="user-profile__info-wrapper">
