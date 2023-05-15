@@ -91,7 +91,7 @@
     border-radius: 3.125rem;
     padding: 0.625rem 1rem;
     margin-bottom: 1rem;
-    border: 2px solid $primary-cta-color;
+    @include InputStyling;
   }
   &__container-button {
     display: flex;

@@ -105,10 +105,9 @@
   &__input {
     height: 40px;
     border-radius: 3.125rem;
-    border: 2px solid $logo-color;
     padding: 10px;
-    background: $third-color;
     flex: 1;
+    @include InputStyling;
   }
   &__button {
     border: none;

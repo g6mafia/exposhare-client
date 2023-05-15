@@ -1,135 +1,153 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-
 .create-listing {
-    position: fixed;
-    top: 18%;
-    right: 9%;
-    width: 82%;
-    max-width: 82%;
-    z-index: 20;
-  
+  position: fixed;
+  top: 18%;
+  right: 9%;
+  width: 82%;
+  max-width: 82%;
+  z-index: 20;
+
+  @include tablet {
+    top: 20%;
+    right: 15%;
+    width: 50.5rem;
+    max-width: 70%;
+  }
+  @include desktop {
+    top: 20%;
+    right: 28.5%;
+    width: 50.5rem;
+    max-width: 70%;
+  }
+  &__overlay {
+    @include Overlay;
+  }
+  &__title {
+    @include mSubheader;
+    font-weight: 600;
+
     @include tablet {
-      top: 20%;
-      right: 15%;
-      width: 50.5rem;
-      max-width: 70%;
-    }
-    @include desktop {
-      top: 20%;
-      right: 28.5%;
-      width: 50.5rem;
-      max-width: 70%;
-    }
-    &__overlay {
-      @include Overlay;
-    }
-    &__title {
-      @include mSubheader;
+      @include Subheader;
       font-weight: 600;
-  
-      @include tablet {
-        @include Subheader;
-        font-weight: 600;
-      }
     }
-    &__container {
-      display: flex;
-      flex-direction: column;
-  
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+    }
+
+    &-left {
       @include desktop {
-        flex-direction: row;
-      }
-  
-      &-left{
-        @include desktop {
-          width: 50%;
-          display: flex;
-          flex-direction: column;
-          padding-right: 1rem;
-          border-right: 2px solid $divider-color;
-        }
-      }
-      &-right{
-        @include desktop {
-          display: flex;
-          flex-direction: column;
-          padding-left: 1rem;
-          width: 50%;
-        }
-      }
-      &-button {
+        width: 50%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0.625rem 0;
+        padding-right: 1rem;
+        border-right: 2px solid $divider-color;
+        flex-wrap: wrap;
       }
     }
-  
-    &__form {
-      border-radius: 0.25rem;
+    &-right {
+      @include desktop {
+        display: flex;
+        flex-direction: column;
+        padding-left: 1rem;
+        width: 50%;
+      }
+    }
+    &-button {
       display: flex;
-      padding: 1.25rem;
       flex-direction: column;
-      background-color: $background-color;
-      box-shadow: 0 0.375rem 0.375rem -0.125rem $shadow-color;
+      justify-content: center;
+      align-items: center;
+      margin: 0.625rem 0;
     }
-    &__label {
-      @include mBodyMedium;
+  }
+
+  &__form {
+    border-radius: 0.25rem;
+    display: flex;
+    padding: 1.25rem;
+    flex-direction: column;
+    background-color: $background-color;
+    box-shadow: 0 0.375rem 0.375rem -0.125rem $shadow-color;
+  }
+  &__label {
+    @include mBodyMedium;
+    margin-bottom: 0.25rem;
+
+    @include tablet {
+      @include BodyMedium;
       margin-bottom: 0.25rem;
-  
-      @include tablet {
-        @include BodyMedium;
-        margin-bottom: 0.25rem;
-      }
     }
-    &__input {
-      width: 100%;
-      border-radius: 3.125rem;
-      padding: 10px 2rem 10px 1rem;
-      margin-bottom: 1rem;
-      border: 2px solid $primary-cta-color;
+  }
+  &__input {
+    width: 100%;
+    border-radius: 3.125rem;
+    padding: 10px 2rem 10px 1rem;
+    margin-bottom: 0.5rem;
+    @include InputStyling;
+
+    &--invalid {
+      border: 2px solid $error-color;
     }
-  
-    &__button {
-      &-submit {
-        @include Buttons;
-        color: $third-color;
-        background-color: $primary-cta-color;
+  }
+
+  &__button {
+    &-submit {
+      @include Buttons;
+      color: $third-color;
+      background-color: $primary-cta-color;
+      border: 0.125rem solid $primary-cta-color;
+      width: 12.5rem;
+      height: 1.75rem;
+      border-radius: 0.25rem;
+      transition-duration: 0.4s;
+      margin-top: 0.875rem;
+
+      &:hover {
+        background-color: $hover-cta-color;
+        color: $divider-color;
         border: 0.125rem solid $primary-cta-color;
-        width: 12.5rem;
-        height: 1.75rem;
-        border-radius: 0.25rem;
-        transition-duration: 0.4s;
-        margin-top: 0.875rem;
-  
-        &:hover {
-          background-color: $hover-cta-color;
-          color: $divider-color;
-          border: 0.125rem solid $primary-cta-color;
-        }
-        &:active {
-          box-shadow: 0 3px #666;
-          transform: translateY(2px);
-        }
       }
-      &-cancel {
-        @include Buttons;
-        background-color: transparent;
-        color: $primary-cta-color;
-        width: 5rem;
-        height: 1.75rem;
-        border: none;
-        margin-top: 10px;
-  
-        &:hover {
-          border: none;
-          color: $primary-cta-color;
-          background-color: transparent;
-          text-decoration: underline;
-        }
+      &:active {
+        box-shadow: 0 3px #666;
+        transform: translateY(2px);
       }
     }
-  }  
+    &-cancel {
+      @include Buttons;
+      background-color: transparent;
+      color: $primary-cta-color;
+      width: 5rem;
+      height: 1.75rem;
+      border: none;
+      margin-top: 10px;
+
+      &:hover {
+        border: none;
+        color: $primary-cta-color;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+    }
+  }
+  &__error {
+    &-message {
+      @include mBodySmall;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color: $error-color;
+      gap: 6px;
+    }
+
+    &-icon {
+      height: 1rem;
+    }
+  }
+}

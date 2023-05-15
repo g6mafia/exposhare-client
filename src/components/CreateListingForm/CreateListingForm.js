@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./CreateListingForm.scss";
 import { CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET } from "../../config";
+import error from "../../assets/icons/error.svg"
 import axios from "axios";
-
 
 function CreateListingForm({
   setCreateListingForm,
@@ -55,7 +55,6 @@ function CreateListingForm({
     }
   };
 
-
   const cameraBrands = [
     "Canon",
     "Nikon",
@@ -80,6 +79,9 @@ function CreateListingForm({
         <form className="create-listing__form" onSubmit={handleSubmit}>
           <p className="create-listing__title">Create New Listing: </p>
           <div className="create-listing__container">
+
+
+            {/* left container */}
             <div className="create-listing__container-left">
               <label htmlFor="title" className="create-listing__label">
                 Title:
@@ -95,9 +97,16 @@ function CreateListingForm({
                 onChange={(e) => setTitle(e.target.value)}
               />
               {!title && formSubmit && (
-                <div className="form__error-message">
-                  This field is required
-                </div>
+                <>
+                  <div className="create-listing__error-message">
+                  <img
+                    src={error}
+                    alt="error icon"
+                    className="create-listing__error-icon"
+                  />
+                    This field is required
+                  </div>
+                </>
               )}
 
               <label htmlFor="description" className="create-listing__label">
@@ -116,9 +125,17 @@ function CreateListingForm({
                 onChange={(e) => setDescription(e.target.value)}
               />
               {!description && formSubmit && (
-                <div className="form__error-message">
+                <>
+                <div className="create-listing__error-message">
+                <img
+                  src={error}
+                  alt="error icon"
+                  className="create-listing__error-icon"
+                />
                   This field is required
                 </div>
+              </>
+              
               )}
 
               <label htmlFor="category" className="create-listing__label">
@@ -144,9 +161,16 @@ function CreateListingForm({
                 ))}
               </select>
               {!category && formSubmit && (
-                <div className="form__error-message">
+                <>
+                <div className="create-listing__error-message">
+                <img
+                  src={error}
+                  alt="error icon"
+                  className="create-listing__error-icon"
+                />
                   This field is required
                 </div>
+              </>
               )}
 
               <label htmlFor="price" className="create-listing__label">
@@ -163,10 +187,24 @@ function CreateListingForm({
                 placeholder="$"
                 onChange={(e) => setPrice(e.target.value)}
               />
-            </div>
-            {!price && formSubmit && (
-              <div className="form__error-message">This field is required</div>
+              {!price && formSubmit && (
+              <>
+              <div className="create-listing__error-message">
+              <img
+                src={error}
+                alt="error icon"
+                className="create-listing__error-icon"
+              />
+                This field is required
+              </div>
+            </>
             )}
+
+            </div>
+            
+
+
+            {/* right container */}
             <div className="create-listing__container-right">
               <label htmlFor="brand" className="create-listing__label">
                 Brand:
@@ -189,9 +227,16 @@ function CreateListingForm({
                 ))}
               </select>
               {!brand && formSubmit && (
-                <div className="form__error-message">
+                <>
+                <div className="create-listing__error-message">
+                <img
+                  src={error}
+                  alt="error icon"
+                  className="create-listing__error-icon"
+                />
                   This field is required
                 </div>
+              </>
               )}
 
               <label htmlFor="condition" className="create-listing__label">
@@ -217,9 +262,16 @@ function CreateListingForm({
                 ))}
               </select>
               {!condition && formSubmit && (
-                <div className="form__error-message">
+                <>
+                <div className="create-listing__error-message">
+                <img
+                  src={error}
+                  alt="error icon"
+                  className="create-listing__error-icon"
+                />
                   This field is required
                 </div>
+              </>
               )}
 
               <label htmlFor="image" className="create-listing__label">
@@ -235,9 +287,16 @@ function CreateListingForm({
                 onChange={handleImageUpload}
               />
               {!image && formSubmit && (
-                <div className="form__error-message">
+                <>
+                <div className="create-listing__error-message">
+                <img
+                  src={error}
+                  alt="error icon"
+                  className="create-listing__error-icon"
+                />
                   This field is required
                 </div>
+              </>
               )}
             </div>
           </div>

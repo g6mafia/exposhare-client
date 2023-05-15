@@ -177,3 +177,20 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
+
+@mixin InputStyling {
+  border: 2px solid $primary-cta-color;
+  background-color: $alt-background-color;
+    &:active {
+      border: 2px solid $logo-color;
+      box-shadow: 0 0 4px $logo-color;
+    }
+    &:focus {
+      outline: none;
+      border: 2px solid $logo-color;
+      box-shadow: 0 0 4px $logo-color;
+    }
+    &::placeholder {
+      color: $primary-text-color;
+    }
+}
