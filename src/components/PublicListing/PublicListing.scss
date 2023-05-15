@@ -6,6 +6,8 @@
   margin-bottom: 1rem;
 
   &__container {
+    position: relative;
+
     &-image {
       display: flex;
       width: 100%;
@@ -27,8 +29,33 @@
     overflow: hidden;
     border-radius: 0.625rem;
   }
+
+  &__icon-likes {
+    &--fill {
+      width: 1.5rem;
+      cursor: pointer;
+      transition: width 0.4s, height 0.4s;
+
+      &:hover {
+        width: 1.7rem;
+      }
+    }
+
+    &--nofill {
+      width: 1.5rem;
+      cursor: pointer;
+      transition: width 0.4s, height 0.4s;
+
+      &:hover {
+        width: 1.675rem;
+      }
+    }
+  }
   &__price {
     @include BodyLarge;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-weight: 600;
     margin: 0;
     padding: 0.25rem 0;

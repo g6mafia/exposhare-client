@@ -95,4 +95,16 @@
         text-decoration: underline;
       }
     }
+    &__listings {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+  
+      @include tablet {
+        justify-content: space-between;
+        gap: 0;
+      }
+    }
   }

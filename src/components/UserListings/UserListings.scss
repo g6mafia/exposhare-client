@@ -96,16 +96,26 @@
       }
     }
     &-type {
-      @include BodyLarge;
+      @include mBodyMedium;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 4px;
+
+    @include tablet {
+      @include BodyMedium;
       font-weight: 600;
-      margin: 0;
-      padding-bottom: 4px;
+    }
     }
     &-value {
-      @include BodyLarge;
-      font-weight: 600;
+      @include mBodyMedium;
+      font-weight: 400;
       margin: 0;
       padding-bottom: 4px;
-    }
+  
+      @include tablet {
+        @include BodyMedium;
+        font-weight: 400;
+      }
   }
+}
 }

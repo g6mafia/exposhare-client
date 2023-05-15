@@ -5,10 +5,77 @@ import ArrowDown from "../../assets/icons/arrow-down.svg";
 import ArrowUp from "../../assets/icons/arrow-up.svg";
 import SortIcon from "../../assets/icons/sort.svg";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { BASE_URL } from "../../utils";
 
 function ShopContent({ listings }) {
   const [navFilterVisible, setNavFilterVisible] = useState(null);
+  const [favorites, setFavorites] = useState([]);
+
+  //add to favorites function
+  const addToFavorites = async (listingId) => {
+   
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        `${BASE_URL}/users/favorites`,
+        { listing_id: listingId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error adding to favorites:", error.response.data.message);
+    }
+  };
+  //fetching user favorites in shop page
+  useEffect(() => {
+    
+    async function fetchFavorites() {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        console.log("User not logged in");
+        return;
+      }
+      try {
+        const res = await axios.get(`${BASE_URL}/users/favorites`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        });
+        setFavorites(res.data);
+      } catch (error) {
+        console.log("Error fetching favorites", error);
+      }
+    }
+    fetchFavorites();
+  }, []);
+
+  //remove from favorites function
+  const removeFromFavorites = async (listingId) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.delete(`${BASE_URL}/users/favorites/${listingId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        withCredentials: true,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error removing from favorites:", error.response.data.message);
+    }
+  };
+
+  const isFavorited = (listingId) => {
+    return favorites.some((favorite) => favorite.id === listingId);
+  };
 
   return (
     <article className="shop-content">
@@ -17,7 +84,7 @@ function ShopContent({ listings }) {
           className="shop-content__subtitle"
           onClick={() => setNavFilterVisible(!navFilterVisible)}
         >
-          Filters{" "} 
+          Filters{" "}
           {!navFilterVisible ? (
             <img
               src={ArrowDown}
@@ -44,7 +111,13 @@ function ShopContent({ listings }) {
       {navFilterVisible && <NavFilter />}
       <div className="shop-content__listings">
         {listings.map((listing) => (
-          <PublicListing key={listing.id} listing={listing} />
+          <PublicListing
+            key={listing.id}
+            listing={listing}
+            isFavorited={isFavorited(listing.id)}
+            addToFavorites={addToFavorites}
+            removeFromFavorites={removeFromFavorites}
+          />
         ))}
       </div>
     </article>

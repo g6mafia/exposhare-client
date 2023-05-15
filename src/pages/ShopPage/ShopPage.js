@@ -55,6 +55,7 @@ function ShopPage() {
       console.error("Error fetching Listings:", error);
     }
   };
+
   //validation if no listings match
   if ( listings.length === 0) {
     return (

@@ -26,7 +26,6 @@ function FavoritesPage({ profileData }) {
     fetchFavorites();
   }, []);
 
-
   //validation if profile data is not available
   if (!profileData) {
     return (
@@ -55,17 +54,17 @@ function FavoritesPage({ profileData }) {
   }
 
   //validation if no favorites yet
-  if ( favorites.length === 0) {
+  if (favorites.length === 0) {
     return (
       <>
         <div className="favorites-page__validation">
           <p className="favorites-page__validation-title">
-            Your favorite listings go here, please check out the {" "} 
-            <Link to="/shop"  className="favorites-page__validation-link">Shop!</Link>
+            Your favorite listings go here, please check out the{" "}
+            <Link to="/shop" className="favorites-page__validation-link">
+              Shop!
+            </Link>
           </p>
-          <p className="favorites-page__validation-art">
-          (˘･ᴗ･˘)
-          </p>
+          <p className="favorites-page__validation-art">(˘･ᴗ･˘)</p>
         </div>
       </>
     );
@@ -73,11 +72,15 @@ function FavoritesPage({ profileData }) {
 
   return (
     <section className="favorites-page">
-      <h1 className="favorites-page__title">Your Favorites</h1>
+      <h1 className="favorites-page__title">My Favorites</h1>
       <div className="favorites-page__listings">
-        {favorites.map((listing) => (
-          <UserFavorites key={listing.id} listing={listing} />
-        ))}
+        {favorites.map((listing) => {
+          if (listing && listing.id) {
+            return <UserFavorites key={listing.id} listing={listing} />;
+          } else {
+            return null;
+          }
+        })}
       </div>
     </section>
   );
