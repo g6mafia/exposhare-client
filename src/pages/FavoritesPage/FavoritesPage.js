@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
 import UserFavorites from "../../components/UserFavorites/UserFavorites";
-import "./FavoritesPage.scss"
+import "./FavoritesPage.scss";
 
 function FavoritesPage({ profileData }) {
   const [favorites, setFavorites] = useState([]);
@@ -36,7 +37,7 @@ function FavoritesPage({ profileData }) {
             <p className="favorites-page__auth-title">
               Sorry, this page requires authentication.
             </p>
-            <p className="favorites-page__auth-ext">
+            <p className="favorites-page__auth-text">
               Please{" "}
               <Link to="/login" className="favorites-page__auth-link">
                 Login
@@ -52,6 +53,24 @@ function FavoritesPage({ profileData }) {
       </>
     );
   }
+
+  //validation if no favorites yet
+  if ( favorites.length === 0) {
+    return (
+      <>
+        <div className="favorites-page__validation">
+          <p className="favorites-page__validation-title">
+            Your favorite listings go here, please check out the {" "} 
+            <Link to="/shop"  className="favorites-page__validation-link">Shop!</Link>
+          </p>
+          <p className="favorites-page__validation-art">
+          (˘･ᴗ･˘)
+          </p>
+        </div>
+      </>
+    );
+  }
+
   return (
     <section className="favorites-page">
       <h1 className="favorites-page__title">Your Favorites</h1>

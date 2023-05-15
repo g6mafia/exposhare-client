@@ -34,6 +34,8 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
     return new Date(date).toLocaleDateString("en-US");
   };
 
+  
+
   return (
     <section className="user-profile">
       <div className="user-profile__left-container">
@@ -75,8 +77,7 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
         <div className="user-profile__bio-wrapper">
           <h3 className="user-profile__bio-title">Bio: </h3>
           <p className="user-profile__bio">
-            Amateur photographer based in Brooklyn NY. Loves to take portrait and
-            street photography. Interested in film and digital products.
+          {profileData || profileData.bio === '' ? "Tell us about yourself!" : profileData.bio}
           </p>
         </div>
         <div className="user-profile__info-wrapper">

@@ -124,6 +124,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
                       <div
                         className="header__dropdown-logout"
                         onClick={handleLogout}
+                        
                       >
                         Log Out
                       </div>
