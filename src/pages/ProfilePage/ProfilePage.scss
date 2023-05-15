@@ -45,6 +45,7 @@
     @include tablet {
       @include Subheader;
       font-weight: 600;
+      color: $alt-background-color;
     }
   }
   &__text {
@@ -53,6 +54,7 @@
 
     @include tablet {
       @include BodyMedium;
+      color: $alt-background-color;
     }
   }
   &__link {

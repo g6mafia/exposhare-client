@@ -157,6 +157,16 @@
       top: 100%;
       right: 0;
     }
+    &-overlay {
+      @include Overlay;
+      top: 12.5rem;
+      @include tablet {
+        top: 4.5625rem;
+      }
+      @include desktop {
+        top: 4.5625rem;
+      }
+    }
 
     &-wrapper {
       border-top: 0.0625rem solid $divider-color;

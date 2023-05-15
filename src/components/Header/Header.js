@@ -1,6 +1,6 @@
 import "./Header.scss";
 import SearchIcon from "../../assets/icons/search.svg";
-import { useNavigate, Link, NavLink } from "react-router-dom";
+import { useNavigate, Link, NavLink, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo/exposhare-logo.png";
 import Favorites from "../../assets/icons/likes.svg";
 import Cart from "../../assets/icons/cart.svg";
@@ -9,6 +9,7 @@ import { useState, useRef, useEffect } from "react";
 
 function Header({ profileData, isAuthenticated, handleChange }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const dropdownRef = useRef(null);
 
   //for dropdown modal on user avatar
@@ -39,6 +40,10 @@ function Header({ profileData, isAuthenticated, handleChange }) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    setIsDropdownVisible(false);
+  }, [location]); 
 
   return (
     <>
@@ -104,6 +109,8 @@ function Header({ profileData, isAuthenticated, handleChange }) {
                   </div>
 
                   {isDropdownVisible && (
+                    <>
+                    <div className="header__dropdown-overlay"></div>
                     <div ref={dropdownRef} className="header__dropdown">
                       <Link to="/users/my-profile">
                         <div className="header__dropdown-account">
@@ -124,11 +131,11 @@ function Header({ profileData, isAuthenticated, handleChange }) {
                       <div
                         className="header__dropdown-logout"
                         onClick={handleLogout}
-                        
                       >
                         Log Out
                       </div>
                     </div>
+                    </>
                   )}
                 </>
               ) : (
