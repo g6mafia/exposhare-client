@@ -13,6 +13,9 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import FAQPage from "./pages/FAQPage/FAQPage";
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -88,6 +91,8 @@ function App() {
               />
             }
           />
+          <Route path="/about" element={<AboutPage />}></Route>
+          <Route path="/faq" element={<FAQPage />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

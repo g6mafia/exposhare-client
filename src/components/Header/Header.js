@@ -184,13 +184,13 @@ function Header({ profileData, isAuthenticated, handleChange }) {
             TRADE
           </NavLink>
           <NavLink
-            to="/Forum"
+            to="/about"
             exact="true"
             className={(navData) =>
               navData.isActive ? "nav__link nav__link--current" : "nav__link"
             }
           >
-            FORUM
+            ABOUT
           </NavLink>
           <NavLink
             to="/News"

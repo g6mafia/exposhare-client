@@ -32,12 +32,12 @@ function Footer() {
               ABOUT
             </p>
             <div className="footer__wrapper">
-              <a href="" className="footer__link">
+              <Link to="/about" className="footer__link">
                 Our Story
-              </a>
-              <a href="" className="footer__link">
+              </Link>
+              <Link to="/faq" className="footer__link">
                 FAQ
-              </a>
+              </Link>
               <a href="" className="footer__link">
                 Team
               </a>
@@ -51,9 +51,9 @@ function Footer() {
               SERVICES
             </p>
             <div className="footer__wrapper">
-              <a href="" className="footer__link">
+              <Link to="/shop" className="footer__link">
                 Shop
-              </a>
+              </Link>
               <a href="" className="footer__link">
                 Sell
               </a>

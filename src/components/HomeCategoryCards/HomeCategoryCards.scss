@@ -1,7 +1,7 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.card-brands {
+.card-category {
   background-color: $alt-background-color;
 
   &__container {
@@ -105,6 +105,7 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    position: relative;
 
     @include tablet {
       padding: 0 1rem;
@@ -120,15 +121,32 @@
     width: 15rem;
     border-radius: 0.25rem;
     box-shadow: 0.5rem 0.5rem 0.5rem 0rem $shadow-color;
+    
     &:hover {
       box-shadow: 12px 12px 8px 0rem $shadow-color;
     }
-
 
     @include tablet {
       height: auto;
       object-fit: cover;
       margin-bottom: 1rem;
     }
+  }
+  &__text{
+    @include mBodyLarge;
+    position: absolute;
+    font-weight: 600;
+    bottom: 4%;
+    right: 10%;
+    left: 40%;
+   
+
+    @include tablet {
+      @include BodyLarge;
+      font-weight: 600;
+      bottom: 4%;
+    right: 14%;
+    }
+    
   }
 }

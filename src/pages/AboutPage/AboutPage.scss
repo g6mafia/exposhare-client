@@ -1,0 +1,55 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.about-page {
+  background-color: $alt-background-color;
+
+  &__wrapper {
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+  }
+  &__container-left {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+    width: 60%;
+    margin-bottom: 6.25rem;
+  }
+  &__container-right {
+    display: flex;
+    flex-direction: column;
+  
+    width: 40%;
+    margin-bottom: 6.25rem;
+  }
+  &__title {
+    @include PageTitle;
+    margin-bottom: 0;
+  }
+  &__image {
+    background-color: $background-color;
+    box-shadow: 0 14px 14px -4px $alt-text-color; 
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  &__text {
+    @include mBodyLarge;
+    margin: 1rem 0;
+
+    @include tablet {
+      @include BodyLarge;
+    }
+  }
+  &__brand-name {
+    font-weight: 600;
+    color: $primary-cta-color;
+  }
+}
