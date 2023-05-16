@@ -2,20 +2,28 @@ import "./PublicListing.scss";
 import { useState, useEffect } from "react";
 import LikesIcon from "../../assets/icons/likes.svg";
 import EmptyLikesIcon from "../../assets/icons/likes-nofill.svg";
+import ListingDetailsModal from "../ListingDetailsModal/ListingDetailsModal";
 
 function PublicListing({
   listing,
   addToFavorites,
   isFavorited,
   removeFromFavorites,
+  handleChange
 }) {
   const [favorited, setFavorited] = useState(isFavorited);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedListing, setSelectedListing] = useState(null);
 
-    //use effect to maintain the filled icon state
-    useEffect(() => {
-      setFavorited(isFavorited);
-    }, [isFavorited]);
-  
+  const handleModalOpen = (listing) => {
+    setModalOpen(true);
+    setSelectedListing(listing);
+  };
+
+  //use effect to maintain the filled icon state
+  useEffect(() => {
+    setFavorited(isFavorited);
+  }, [isFavorited]);
 
   const handleFavoriteClick = () => {
     if (favorited) {
@@ -56,12 +64,21 @@ function PublicListing({
           )}
         </h3>
         <p className="public-listing__title">{listing.title}</p>
-        {/* <p className="public-listing__details">{listing.description}</p>
-        <p className="public-listing__details">Brand: {listing.brand}</p>
-        <p className="public-listing__details">
-          Condition: {listing.condition}
-        </p> */}
+        <button
+          onClick={() => handleModalOpen(listing)}
+          className="public-listing__button-view"
+        >
+          View Details
+        </button>
       </div>
+      {selectedListing && (
+          <ListingDetailsModal
+            listing={selectedListing}
+            isOpen={modalOpen}
+            handleChange={handleChange}
+            closeModal={() => setModalOpen(false)}
+          />
+        )}
     </article>
   );
 }

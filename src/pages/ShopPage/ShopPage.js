@@ -9,7 +9,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function ShopPage() {
+function ShopPage({handleChange}) {
   const location = useLocation();
   const query = useQuery();
   const [listings, setListings] = useState([]);
@@ -82,7 +82,7 @@ function ShopPage() {
             ({listings.length} {listings.length === 1 ? "result" : "results"})
           </span>
         </h1>
-        <ShopContent listings={listings} />
+        <ShopContent listings={listings} handleChange={handleChange}/>
       </section>
     </div>
   );

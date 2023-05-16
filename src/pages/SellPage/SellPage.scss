@@ -3,6 +3,7 @@
 
 .sell-page {
     background-color: $alt-background-color;
+    padding-bottom: 8rem;
   
     &__container {
       @include componentSpacing;

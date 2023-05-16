@@ -1,16 +1,16 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.profile__container {
-  background-color: $alt-background-color;
-}
 .profile-page {
+  background-color: $alt-background-color;
+
+  &__container {
   @include componentSpacing;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-
+  }
   &__auth {
     background-image: url(../../assets/images/banner-img-5.jpg);
     background-position: center;

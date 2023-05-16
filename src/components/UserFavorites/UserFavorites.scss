@@ -2,10 +2,8 @@
 @use "../../styles/partials/mixins" as *;
 
 .user-favorites {
-  background-color: $background-color;
-  border: 0.125rem solid $divider-color;
+  background-color: $third-color;
   border-radius: 0.375rem;
-  box-shadow: 0rem 0.1875rem 0.1875rem -0.125rem $primary-text-color;
   padding: 1rem;
   margin: 1rem auto;
   width: 17.1875rem;

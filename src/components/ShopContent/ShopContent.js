@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
 
-function ShopContent({ listings }) {
+function ShopContent({ listings, handleChange }) {
   const [navFilterVisible, setNavFilterVisible] = useState(null);
   const [favorites, setFavorites] = useState([]);
 
@@ -117,6 +117,7 @@ function ShopContent({ listings }) {
             isFavorited={isFavorited(listing.id)}
             addToFavorites={addToFavorites}
             removeFromFavorites={removeFromFavorites}
+            handleChange={handleChange}
           />
         ))}
       </div>

@@ -148,6 +148,7 @@ function ProfilePage({ handleChange, profileData }) {
 
   return (
     <section className="profile-page">
+      <div className="profile-page__container">
       <UserDashboard handleLogout={handleLogout} />
       <UserProfile
         handleChange={handleChange}
@@ -176,6 +177,7 @@ function ProfilePage({ handleChange, profileData }) {
           />
         </>
       )}
+      </div>
     </section>
   );
 }

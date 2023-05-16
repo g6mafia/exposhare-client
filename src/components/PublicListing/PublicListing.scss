@@ -3,7 +3,8 @@
 
 .public-listing {
   border-radius: 0.625rem;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
+  background-color: $third-color;
 
   &__container {
     position: relative;
@@ -19,12 +20,16 @@
       }
     }
     &-details {
+      margin: 1rem 1rem 0;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 1rem;
     }
   }
   &__image {
+    margin: 1rem 1rem 0;
     object-fit: cover;
     overflow: hidden;
     border-radius: 0.625rem;
@@ -59,10 +64,16 @@
     font-weight: 600;
     margin: 0;
     padding: 0.25rem 0;
+    width: 100%;
   }
   &__title {
-    @include BodyMedium;
-    margin: 0;
+    @include BodyLarge;
+    margin: 1rem 0;
     padding-bottom: 0.25rem;
+    font-weight: 600
+  }
+  &__button-view {
+    @include Buttons;
+    width: 9rem;
   }
 }
