@@ -19,9 +19,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1rem 0;
+
     @include desktop {
       align-items: flex-start;
       justify-content: space-between;
+      padding: 2rem 0;
       width: 50%;
       padding-bottom: 1.6875rem;
     }

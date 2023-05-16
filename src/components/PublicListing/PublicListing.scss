@@ -5,6 +5,7 @@
   border-radius: 0.625rem;
   margin-bottom: 4rem;
   background-color: $third-color;
+  width: 17.1875rem;
 
   &__container {
     position: relative;
@@ -33,6 +34,7 @@
     object-fit: cover;
     overflow: hidden;
     border-radius: 0.625rem;
+    width: 100%;
   }
 
   &__icon-likes {
@@ -70,7 +72,7 @@
     @include BodyLarge;
     margin: 1rem 0;
     padding-bottom: 0.25rem;
-    font-weight: 600
+    font-weight: 600;
   }
   &__button-view {
     @include Buttons;

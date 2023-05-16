@@ -121,10 +121,10 @@ function Header({ profileData, isAuthenticated, handleChange }) {
                         <Link to="/users/favorites">
                           <div className="header__dropdown-item">Favorites</div>
                         </Link>
-                        <Link to="/users/messages">
+                        <Link to="#">
                           <div className="header__dropdown-item">Messages</div>
                         </Link>
-                        <Link to="/users/purchases">
+                        <Link to="#">
                           <div className="header__dropdown-item">Purchases</div>
                         </Link>
                       </div>

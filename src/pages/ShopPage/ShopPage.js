@@ -9,13 +9,15 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function ShopPage({handleChange}) {
+function ShopPage({ handleChange }) {
   const location = useLocation();
   const query = useQuery();
   const [listings, setListings] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState({
     search: query.get("search") || "",
     brand: query.get("brand") || "",
+    condition: query.get("condition") || "",
+    category: query.get("category") || "",
   });
 
   useEffect(() => {
@@ -37,7 +39,7 @@ function ShopPage({handleChange}) {
       let requestUrl = `${BASE_URL}/api/listings`;
 
       const queryParams = [];
-      const filterKeys = ["search", "brand"];
+      const filterKeys = ["search", "brand", "condition", "category"];
 
       filterKeys.forEach((key) => {
         selectedFilters[key] &&
@@ -57,16 +59,14 @@ function ShopPage({handleChange}) {
   };
 
   //validation if no listings match
-  if ( listings.length === 0) {
+  if (listings.length === 0) {
     return (
       <>
         <div className="shop-page__validation">
           <p className="shop-page__validation-title">
-            Sorry, there are no listings to match your search. 
+            Sorry, there are no listings to match your search.
           </p>
-          <p className="shop-page__validation-art">
-          (っ◞‸◟ c)
-          </p>
+          <p className="shop-page__validation-art">(っ◞‸◟ c)</p>
         </div>
       </>
     );
