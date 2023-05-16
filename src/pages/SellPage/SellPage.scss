@@ -3,11 +3,10 @@
 
 .sell-page {
     background-color: $alt-background-color;
-    padding-bottom: 8rem;
+    padding-bottom: 13rem;
   
     &__container {
       @include componentSpacing;
-      padding: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;

@@ -16,7 +16,7 @@ import DigitalImage from "../../assets/images/digital-image.png";
 import FilmImage from "../../assets/images/film-image.png";
 
 
-function HomePage() {
+function HomePage({profileData}) {
   const [listings, setListings] = useState([]);
 
   const specificBrands = ["FujiFilm", "Sony", "Nikon", "Canon"];
@@ -91,6 +91,8 @@ if (!listings.length || filteredBrands.length === 0) {
     <>
       <HeroBanner />
       <AboutArticle />
+      {/* passed profiledata down to conditionally render the user's favorites */}
+      {/* if no favorites, then show ternary text */}
       <HomeCards filteredBrands={filteredBrands} />
       <HomeCategoryCards filteredCategories={filteredCategories}/>
     </>

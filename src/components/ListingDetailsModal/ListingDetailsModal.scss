@@ -16,7 +16,7 @@
 
   @include desktop {
     width: 80%;
-    top: 10%;
+    top: 6%;
     right: -14%;
   }
 
@@ -37,8 +37,6 @@
 
     @include desktop {
       width: 80%;
-    }
-    @include desktop {
       width: 37.5rem;
     }
     
@@ -71,6 +69,7 @@
     }
 
     &-image {
+      width: 100%;
       object-fit: cover;
       overflow: hidden;
       border-radius: 0.625rem;
@@ -105,6 +104,13 @@
       font-weight: 600;
       margin: 0;
       padding-bottom: 0.25rem;
+
+      // &--align {
+      //   @include desktop {
+      //     padding-top: 29px;
+      //   }
+        
+      // }
 
       @include tablet {
         @include BodyLarge;

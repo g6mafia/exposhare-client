@@ -7,6 +7,10 @@
   background-color: $third-color;
   width: 17.1875rem;
 
+  @include desktop {
+    width: 19rem;
+  }
+
   &__container {
     position: relative;
 
@@ -15,10 +19,6 @@
       width: 100%;
       height: 12.5rem;
 
-      @include tablet {
-        width: 18.75rem;
-        height: 18.75rem;
-      }
     }
     &-details {
       margin: 1rem 1rem 0;
@@ -58,7 +58,7 @@
       }
     }
   }
-  &__price {
+  &__title {
     @include BodyLarge;
     display: flex;
     justify-content: space-between;
@@ -68,7 +68,7 @@
     padding: 0.25rem 0;
     width: 100%;
   }
-  &__title {
+  &__price {
     @include BodyLarge;
     margin: 1rem 0;
     padding-bottom: 0.25rem;

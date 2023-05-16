@@ -71,11 +71,13 @@ function FavoritesPage({ profileData }) {
     );
   }
 
-  //validation if no favorites yet
-  if (favorites.length === 0) {
-    return (
-      <>
-        <div className="favorites-page__validation">
+  return (
+    <section className="favorites-page">
+      <div className="favorites-page__container">
+      <h1 className="favorites-page__title">My Favorites</h1>
+      <div className="favorites-page__listings">
+      {favorites.length === 0? (
+          <div className="favorites-page__validation">
           <p className="favorites-page__validation-title">
             Your favorite listings go here, please check out the{" "}
             <Link to="/shop" className="favorites-page__validation-link">
@@ -84,21 +86,16 @@ function FavoritesPage({ profileData }) {
           </p>
           <p className="favorites-page__validation-art">(˘･ᴗ･˘)</p>
         </div>
-      </>
-    );
-  }
-
-  return (
-    <section className="favorites-page">
-      <h1 className="favorites-page__title">My Favorites</h1>
-      <div className="favorites-page__listings">
-        {favorites.map((listing) => {
+        ) : (
+        favorites.map((listing) => {
           if (listing && listing.id) {
             return <UserFavorites key={listing.id} listing={listing} onFavoriteClick={() => handleFavoriteClick(listing.id)}/>;
           } else {
             return null;
           }
-        })}
+        })
+      )}
+      </div>
       </div>
     </section>
   );

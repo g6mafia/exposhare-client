@@ -1,0 +1,44 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.faq {
+  background-color: $alt-background-color;
+
+  &__container {
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    @include PageTitle;
+  }
+  &__list {
+    list-style-type: none;
+    padding: 1rem;
+  }
+  &__question {
+    @include mBodyLarge;
+    color: $primary-text-color;
+    font-weight: 600;
+
+    @include tablet {
+      @include BodyLarge;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $primary-text-color;
+    }
+  }
+  &__answer {
+    @include mBodyMedium;
+    color: $primary-cta-color;
+    padding-left: 2rem;
+
+    @include tablet {
+      @include BodyMedium;
+      font-size: 1.5rem;
+      color: $primary-cta-color;
+      padding-bottom: 3rem;
+    }
+  }
+}

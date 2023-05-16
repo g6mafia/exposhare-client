@@ -9,7 +9,7 @@ function PublicListing({
   addToFavorites,
   isFavorited,
   removeFromFavorites,
-  handleChange
+  handleChange,
 }) {
   const [favorited, setFavorited] = useState(isFavorited);
   const [modalOpen, setModalOpen] = useState(false);
@@ -45,8 +45,8 @@ function PublicListing({
         />
       </div>
       <div className="public-listing__container-details">
-        <h3 className="public-listing__price">
-          ${listing.price.toFixed(2)}{" "}
+        <p className="public-listing__title">
+          {listing.title}{" "}
           {!favorited ? (
             <img
               src={EmptyLikesIcon}
@@ -62,8 +62,8 @@ function PublicListing({
               onClick={handleFavoriteClick}
             />
           )}
-        </h3>
-        <p className="public-listing__title">{listing.title}</p>
+        </p>
+        <p className="public-listing__price">${listing.price.toFixed(2)}</p>
         <button
           onClick={() => handleModalOpen(listing)}
           className="public-listing__button-view"
@@ -72,13 +72,13 @@ function PublicListing({
         </button>
       </div>
       {selectedListing && (
-          <ListingDetailsModal
-            listing={selectedListing}
-            isOpen={modalOpen}
-            handleChange={handleChange}
-            closeModal={() => setModalOpen(false)}
-          />
-        )}
+        <ListingDetailsModal
+          listing={selectedListing}
+          isOpen={modalOpen}
+          handleChange={handleChange}
+          closeModal={() => setModalOpen(false)}
+        />
+      )}
     </article>
   );
 }

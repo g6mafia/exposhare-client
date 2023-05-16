@@ -43,7 +43,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
 
   useEffect(() => {
     setIsDropdownVisible(false);
-  }, [location]); 
+  }, [location]);
 
   return (
     <>
@@ -110,31 +110,37 @@ function Header({ profileData, isAuthenticated, handleChange }) {
 
                   {isDropdownVisible && (
                     <>
-                    <div className="header__dropdown-overlay"></div>
-                    <div ref={dropdownRef} className="header__dropdown">
-                      <Link to="/users/my-profile">
-                        <div className="header__dropdown-account">
-                          My Account
+                      <div className="header__dropdown-overlay"></div>
+                      <div ref={dropdownRef} className="header__dropdown">
+                        <Link to="/users/my-profile">
+                          <div className="header__dropdown-account">
+                            My Account
+                          </div>
+                        </Link>
+                        <div className="header__dropdown-wrapper">
+                          <Link to="/users/favorites">
+                            <div className="header__dropdown-item">
+                              Favorites
+                            </div>
+                          </Link>
+                          <Link to="#">
+                            <div className="header__dropdown-item">
+                              Messages
+                            </div>
+                          </Link>
+                          <Link to="#">
+                            <div className="header__dropdown-item">
+                              Purchases
+                            </div>
+                          </Link>
                         </div>
-                      </Link>
-                      <div className="header__dropdown-wrapper">
-                        <Link to="/users/favorites">
-                          <div className="header__dropdown-item">Favorites</div>
-                        </Link>
-                        <Link to="#">
-                          <div className="header__dropdown-item">Messages</div>
-                        </Link>
-                        <Link to="#">
-                          <div className="header__dropdown-item">Purchases</div>
-                        </Link>
+                        <div
+                          className="header__dropdown-logout"
+                          onClick={handleLogout}
+                        >
+                          Log Out
+                        </div>
                       </div>
-                      <div
-                        className="header__dropdown-logout"
-                        onClick={handleLogout}
-                      >
-                        Log Out
-                      </div>
-                    </div>
                     </>
                   )}
                 </>
@@ -191,6 +197,15 @@ function Header({ profileData, isAuthenticated, handleChange }) {
             }
           >
             ABOUT
+          </NavLink>
+          <NavLink
+            to="/HUB"
+            exact="true"
+            className={(navData) =>
+              navData.isActive ? "nav__link nav__link--current" : "nav__link"
+            }
+          >
+            FORUM
           </NavLink>
           <NavLink
             to="/news"

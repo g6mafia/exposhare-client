@@ -60,7 +60,7 @@ function App() {
           handleChange={handleChange}
         />
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/" element={<HomePage profileData={profileData}/>} />
           <Route
             path="/shop"
             element={<ShopPage handleChange={handleChange} />}

@@ -139,7 +139,7 @@ function UserListings({
         )}
         {userListings.length === 0 ? (
           <div className="user-listings__wrapper">
-            <p className="user-listings__subtitle">
+            <p className="user-listings__validation-title">
               Want to sell an item? Create a new listing!
             </p>
             <p className="user-listings__art">༼ ◔ ͜ʖ ◔ ༽</p>

@@ -1,110 +1,112 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-
 .favorites-page {
+  background-color: $alt-background-color;
+  &__container {
     @include componentSpacing;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-  
-    &__auth {
-      background-image: url(../../assets/images/banner-img-4.jpg);
-      background-position: center;
-      background-size: cover;
-      @include componentSpacing;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 31.25rem;
-  
-      &-overlay {
-        position: fixed;
-        @include componentSpacing;
-        top: 8.375rem;
-        left: 0;
-        right: 0;
-        bottom: 1.5625rem;
-        background-color: rgba(0, 0, 0, 0.342);
-        height: 31.25rem;
-        z-index: 10;
-      }
-      &-wrapper {
-        z-index: 100;
-      }
-      &-title {
-        @include mSubheader;
-        color: $alt-background-color;
-        font-weight: 600;
     
-        @include tablet {
-          @include Subheader;
-          font-weight: 600;
-        }
-      }
-      &-text {
-        @include mBodyMedium;
-        color: $alt-background-color;
-    
-        @include tablet {
-          @include BodyMedium;
-        }
-      }
-      &-link {
-        color: $logo-color;
-        font-weight: 600;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-    &__title {
-      @include PageTitle;
-    }
-    &__validation {
+  }
+
+  &__auth {
+    background-image: url(../../assets/images/banner-img-4.jpg);
+    background-position: center;
+    background-size: cover;
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 31.25rem;
+
+    &-overlay {
+      position: fixed;
       @include componentSpacing;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      top: 8.375rem;
+      left: 0;
+      right: 0;
+      bottom: 1.5625rem;
+      background-color: rgba(0, 0, 0, 0.342);
       height: 31.25rem;
+      z-index: 10;
     }
-    &__validation-title {
-      @include mBodyLarge;
-      color: $primary-cta-color;
-  
+    &-wrapper {
+      z-index: 100;
+    }
+    &-title {
+      @include mSubheader;
+      color: $alt-background-color;
+      font-weight: 600;
+
       @include tablet {
-        @include BodyLarge;
-        font-size: 1.5rem;
-        color: $primary-cta-color;
+        @include Subheader;
+        font-weight: 600;
       }
-      
     }
-    &__validation-art {
-      margin: 0;
-      color: $primary-cta-color;
-      font-size: 3.75rem;
+    &-text {
+      @include mBodyMedium;
+      color: $alt-background-color;
+
+      @include tablet {
+        @include BodyMedium;
+      }
     }
-    &__validation-link {
-      margin: 0;
-      color: $primary-cta-color;
+    &-link {
+      color: $logo-color;
       font-weight: 600;
       &:hover {
         text-decoration: underline;
       }
     }
-    &__listings {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-  
-      @include tablet {
-        justify-content: space-between;
-        gap: 0;
-      }
+  }
+  &__title {
+    @include PageTitle;
+  }
+  &__validation {
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 31rem;
+  }
+  &__validation-title {
+    @include mBodyLarge;
+    color: $primary-cta-color;
+
+    @include tablet {
+      @include BodyLarge;
+      font-size: 1.5rem;
+      color: $primary-cta-color;
     }
   }
+  &__validation-art {
+    margin: 0;
+    color: $primary-cta-color;
+    font-size: 3.75rem;
+  }
+  &__validation-link {
+    margin: 0;
+    color: $primary-cta-color;
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__listings {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    @include tablet {
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+}

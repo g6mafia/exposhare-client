@@ -1,7 +1,7 @@
 import "./UserFavorites.scss";
 import LikesIcon from "../../assets/icons/likes.svg";
 import EmptyLikesIcon from "../../assets/icons/likes-nofill.svg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function UserFavorites({ listing, onFavoriteClick }) {
   const [favorited, setFavorited] = useState(true);
@@ -21,8 +21,6 @@ function UserFavorites({ listing, onFavoriteClick }) {
             className="user-favorites__image"
           />
         </div>
-
-        {/* make this a modal */}
         <div className="user-favorites__wrapper">
           <h3 className="user-favorites__info-title">
             Listing Details:{" "}
