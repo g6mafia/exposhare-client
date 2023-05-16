@@ -199,7 +199,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
             ABOUT
           </NavLink>
           <NavLink
-            to="/HUB"
+            to="/forum"
             exact="true"
             className={(navData) =>
               navData.isActive ? "nav__link nav__link--current" : "nav__link"

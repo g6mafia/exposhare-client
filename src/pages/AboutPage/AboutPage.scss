@@ -16,6 +16,7 @@
   &__container {
     display: flex;
     flex-direction: column;
+
     @include desktop {
       flex-direction: row;
     }
@@ -23,13 +24,13 @@
   &__container-left {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+
     @include desktop {
-      justify-content: space-between;
       padding-right: 1rem;
       width: 60%;
       margin-bottom: 6.25rem;
+      gap: 1rem;
     }
   }
   &__container-right {

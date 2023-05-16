@@ -58,6 +58,7 @@
   &__divider {
     padding-top: 1rem;
 
+    
     @include tablet {
       padding: 0 2rem;
     }
@@ -142,5 +143,26 @@
   &__copyright {
     @include mBodySmall;
     color: $third-color!important;
+    margin-top: 1rem;
+  }
+  &__libraries {
+    margin-top: 2rem;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+  &__image {
+    width: 60px;
+    margin-right: 1rem;
+  }
+  &__author {
+    @include mBodyMedium;
+    color: $third-color!important;
+    margin-top: 2rem;
+
+    @include tablet {
+      @include BodyMedium;
+    }
   }
 }

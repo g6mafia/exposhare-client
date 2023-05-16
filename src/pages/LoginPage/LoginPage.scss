@@ -9,10 +9,12 @@
   @include componentSpacing;
   display: flex;
   flex-direction: column;
+  
 
   &__title {
     @include PageTitle;
     margin-bottom: 1rem;
+    
   }
   &__button {
     @include mButtons;
@@ -52,6 +54,7 @@
   }
   &__text {
     @include mBodyMedium;
+    padding-bottom: 8rem;
 
     @include tablet {
       @include BodyMedium;

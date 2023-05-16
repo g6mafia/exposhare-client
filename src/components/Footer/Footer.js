@@ -5,6 +5,8 @@ import FacebookIcon from "../../assets/icons/facebook.svg";
 import TwitterIcon from "../../assets/icons/twitter.svg";
 import InstaIcon from "../../assets/icons/instagram.svg";
 import ArrowRight from "../../assets/icons/arrow-right.svg";
+import UnsplashLogo from "../../assets/images/unsplash-image.png";
+import CloudinaryLogo from "../../assets/images/cloudinary-image.png";
 
 function Footer() {
   return (
@@ -14,21 +16,22 @@ function Footer() {
           <Link to="/">
             <img className="footer__logo" src={AltLogo} alt="exposhare logo" />
           </Link>
+          {/* visible on in mobile */}
           <section className="footer__block-1">
-            <a href="https://www.facebook.com/" target="_blank">
-              <img src={FacebookIcon} className="footer__icon-social"></img>
+            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+              <img src={FacebookIcon} className="footer__icon-social" alt="facebook icon"></img>
             </a>
-            <a href="https://twitter.com/" target="_blank">
-              <img src={TwitterIcon} className="footer__icon-social"></img>
+            <a href="https://twitter.com/" target="_blank" rel="noreferrer">
+              <img src={TwitterIcon} className="footer__icon-social" alt="twitter icon"></img>
             </a>
-            <a href="https://www.instagram.com/" target="_blank">
-              <img src={InstaIcon} className="footer__icon-social"></img>
+            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+              <img src={InstaIcon} className="footer__icon-social" alt="instagram icon"></img>
             </a>
           </section>
         </div>
         <section className="footer__block-2">
           <div className="footer__divider">
-            <p href="#" className="footer__subtitle">
+            <p className="footer__subtitle">
               ABOUT
             </p>
             <div className="footer__wrapper">
@@ -47,7 +50,7 @@ function Footer() {
             </div>
           </div>
           <div className="footer__divider">
-            <p href="#" className="footer__subtitle">
+            <p className="footer__subtitle">
               SERVICES
             </p>
             <div className="footer__wrapper">
@@ -66,7 +69,7 @@ function Footer() {
             </div>
           </div>
           <div className="footer__divider">
-            <p href="#" className="footer__subtitle">
+            <p className="footer__subtitle">
               LEGAL
             </p>
             <div className="footer__wrapper">
@@ -83,7 +86,7 @@ function Footer() {
           </div>
 
           <div className="footer__divider">
-            <p href="#" className="footer__subtitle">
+            <p className="footer__subtitle">
               STAY CONNECTED
             </p>
             <form className="footer__form">
@@ -103,17 +106,26 @@ function Footer() {
         </section>
 
         <section className="footer__block-3">
-          <a href="https://www.facebook.com/" target="_blank">
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" >
             <img src={FacebookIcon} className="footer__icon-social"></img>
           </a>
-          <a href="https://twitter.com/" target="_blank">
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer" >
             <img src={TwitterIcon} className="footer__icon-social"></img>
           </a>
-          <a href="https://www.instagram.com/" target="_blank">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" >
             <img src={InstaIcon} className="footer__icon-social"></img>
           </a>
         </section>
-        <p className="footer__copyright">Copyright © 2023</p>
+
+        <section className="footer__libraries footer__libraries--relative">
+          <p className="footer__subtitle">POWERED BY </p>
+          <a href="https://unsplash.com/" target="_blank" rel="noreferrer" >
+            <img src={UnsplashLogo} className="footer__image"></img>
+          </a>
+          <a href="https://cloudinary.com/"target="_blank" rel="noreferrer" ><img src={CloudinaryLogo} className="footer__image"></img></a>
+          <p className="footer__author">Made by Gerik Castillo</p>
+          <p className="footer__copyright">Copyright © 2023</p>
+        </section>
       </footer>
     </div>
   );

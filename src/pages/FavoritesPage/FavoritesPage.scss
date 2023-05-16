@@ -3,6 +3,8 @@
 
 .favorites-page {
   background-color: $alt-background-color;
+  padding-bottom: 8rem;
+  
   &__container {
     @include componentSpacing;
     display: flex;
@@ -21,35 +23,33 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 31.25rem;
+    height: 40.25rem;
 
     &-overlay {
-      position: fixed;
+      @include Overlay;
       @include componentSpacing;
+      position: absolute;
       top: 8.375rem;
-      left: 0;
-      right: 0;
       bottom: 1.5625rem;
-      background-color: rgba(0, 0, 0, 0.342);
-      height: 31.25rem;
-      z-index: 10;
+      height: 40.25rem;
+
     }
     &-wrapper {
       z-index: 100;
     }
     &-title {
-      @include mSubheader;
-      color: $alt-background-color;
+      @include mHeader;
+      color: $alt-background-color!important;
       font-weight: 600;
 
       @include tablet {
-        @include Subheader;
+        @include Header;
         font-weight: 600;
       }
     }
     &-text {
       @include mBodyMedium;
-      color: $alt-background-color;
+      color: $alt-background-color!important;
 
       @include tablet {
         @include BodyMedium;
@@ -103,6 +103,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+    margin: 2rem 0;
 
     @include tablet {
       justify-content: space-between;

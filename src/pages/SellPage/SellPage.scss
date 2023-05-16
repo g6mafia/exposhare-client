@@ -2,22 +2,71 @@
 @use "../../styles/partials/mixins" as *;
 
 .sell-page {
-    background-color: $alt-background-color;
-    padding-bottom: 13rem;
-  
-    &__container {
+  background-color: $alt-background-color;
+  padding-bottom: 8rem;
+
+  &__auth {
+    background-image: url(../../assets/images/banner-img-2.jpg);
+    background-position: center;
+    background-size: cover;
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40.25rem;
+
+    &-overlay {
+      @include Overlay;
       @include componentSpacing;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      position: absolute;
+      top: 8.375rem;
+      bottom: 1.5625rem;
+      height: 40.25rem;
     }
-    &__title {
-        @include PageTitle;
+    &-wrapper {
+      z-index: 100;
     }
-    &__user-listings {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        height: 100%;
+    &-title {
+      @include mHeader;
+      color: $alt-background-color !important;
+      font-weight: 600;
+
+      @include tablet {
+        @include Header;
+        font-weight: 600;
+      }
     }
+    &-text {
+      @include mBodyMedium;
+      color: $alt-background-color !important;
+
+      @include tablet {
+        @include BodyMedium;
+      }
+    }
+    &-link {
+      color: $logo-color;
+      font-weight: 600;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__container {
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__title {
+    @include PageTitle;
+  }
+  &__user-listings {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+  }
 }

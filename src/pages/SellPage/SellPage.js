@@ -4,12 +4,12 @@ import CreateListingForm from "../../components/CreateListingForm/CreateListingF
 import axios from "axios";
 import { BASE_URL } from "../../utils";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function SellPage({ profileData, handleChange }) {
   const [userListings, setUserListings] = useState([]);
   const [createListingForm, setCreateListingForm] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
-
 
   // handle create listing function
   const handleCreateListing = async (e) => {
@@ -65,17 +65,39 @@ function SellPage({ profileData, handleChange }) {
     }
   };
 
+  //validation if profile data is not available
   if (!profileData) {
-    return <div>Loading...</div>
+    return (
+      <>
+        <div className="sell-page__auth-overlay"></div>
+        <div className="sell-page__auth">
+          <div className="sell-page__auth-wrapper">
+            <p className="sell-page__auth-title">
+              Want to sell your gear?
+            </p>
+            <p className="sell-page__auth-text">
+              Please{" "}
+              <Link to="/login" className="sell-page__auth-link">
+                Login
+              </Link>{" "}
+              or{" "}
+              <Link to="/signup" className="sell-page__auth-link">
+                Sign Up
+              </Link>{" "}
+              first.
+            </p>
+          </div>
+        </div>
+      </>
+    );
   }
-
 
   return (
     <section className="sell-page">
       <div className="sell-page__container">
         <p className="sell-page__title">Sell</p>
         <UserListings
-        className="sell-page__user-listings"
+          className="sell-page__user-listings"
           setCreateListingForm={setCreateListingForm}
           userListings={userListings}
           handleChange={handleChange}
