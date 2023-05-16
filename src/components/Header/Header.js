@@ -57,12 +57,14 @@ function Header({ profileData, isAuthenticated, handleChange }) {
               className="header__label"
               onSubmit={(e) => {
                 e.preventDefault();
-                navigate(`/shop?search=${searchQuery}`);
+                navigate(`/shop?search=${searchQuery}`)
+                setSearchQuery('');
               }}
             >
               <input
                 type="text"
                 className="header__search header__search--active"
+                value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search..."
               ></input>

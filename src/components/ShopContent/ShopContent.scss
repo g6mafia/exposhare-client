@@ -8,6 +8,23 @@
     justify-content: space-between;
     margin-bottom: 1rem;
   }
+  &__title {
+    @include mBodyLarge;
+    
+    @include tablet {
+      @include BodyLarge;
+      font-weight: 600;
+    }
+  }
+  &__results {
+    @include mBodyLarge;
+    
+    @include tablet {
+      @include BodyLarge;
+      font-weight: 600;
+      font-style: italic;
+    }
+  }
   &__subtitle {
     @include mBodyLarge;
     display: flex;
@@ -48,8 +65,8 @@
     gap: 1rem;
 
     @include tablet {
-      justify-content: space-between;
-      gap: 0;
+      justify-content: center;
+      gap: 1rem;
     }
   }
   &__icon {

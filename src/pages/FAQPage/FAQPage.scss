@@ -15,7 +15,7 @@
   }
   &__list {
     list-style-type: none;
-    padding: 1rem;
+    padding: 1rem 0;
   }
   &__question {
     @include mBodyLarge;
@@ -24,21 +24,25 @@
 
     @include tablet {
       @include BodyLarge;
-      font-size: 1.5rem;
+    
       font-weight: 600;
       color: $primary-text-color;
     }
   }
   &__answer {
-    @include mBodyMedium;
+    @include mBodyLarge;
     color: $primary-cta-color;
-    padding-left: 2rem;
+ 
 
     @include tablet {
-      @include BodyMedium;
-      font-size: 1.5rem;
+      @include BodyLarge;
+ 
       color: $primary-cta-color;
-      padding-bottom: 3rem;
+      padding-bottom: 2rem;
     }
+  }
+  &__brand-name {
+    font-weight: 600;
+    color: $primary-cta-color;
   }
 }

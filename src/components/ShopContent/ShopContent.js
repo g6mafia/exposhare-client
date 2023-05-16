@@ -7,11 +7,17 @@ import SortIcon from "../../assets/icons/sort.svg";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import { BASE_URL } from "../../utils";
 
 function ShopContent({ listings, handleChange }) {
   const [navFilterVisible, setNavFilterVisible] = useState(null);
   const [favorites, setFavorites] = useState([]);
+
+  //for displaying results by query
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get('search'); 
 
   //add to favorites function
   const addToFavorites = async (listingId) => {
@@ -79,6 +85,7 @@ function ShopContent({ listings, handleChange }) {
 
   return (
     <article className="shop-content">
+       {searchQuery && <p className="shop-content__title">Showing {listings.length} {listings.length === 1 ? "search result" : "search results"} for: <span className="shop-content__results">{searchQuery}</span></p>}
       <div className="shop-content__navbar">
         <p
           className="shop-content__subtitle"

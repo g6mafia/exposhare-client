@@ -41,6 +41,8 @@ function AboutPage() {
                 to buy your first camera, trade an old lens, or sell
                 professional gear, <span className="about-page__brand-name">exposhare</span> {" "}is your one-stop-shop.
               </p>
+
+               <p className="about-page__text">Questions? Feel free to visit our Frequently Asked Questions Page <Link to="/faq" className="about-page__link">here.</Link></p>
             </div>
             <div className="about-page__container-right">
               <img
