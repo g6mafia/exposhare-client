@@ -14,7 +14,7 @@
     font-weight: 600;
     margin: 1rem 0 0.5rem;
     cursor: pointer;
-    gap: 3px;
+    gap: 0.1875rem;
 
     @include tablet {
       @include BodyLarge;
@@ -30,7 +30,7 @@
     font-weight: 600;
     margin: 1rem 0 0.5rem;
     cursor: pointer;
-    gap: 3px;
+    gap: 0.1875rem;
 
     @include tablet {
       @include BodyLarge;
@@ -53,7 +53,7 @@
     }
   }
   &__icon {
-    width: 20px;
+    width: 1.25rem;
 
     &:hover {
       animation: moveUpDown2px 1s infinite;
@@ -61,10 +61,10 @@
 
     @keyframes moveUpDown2px {
       50% {
-        transform: translateY(2px);
+        transform: translateY(0.125rem);
       }
       50% {
-        transform: translateY(-2px);
+        transform: translateY(-0.125rem);
       }
     }
   }
@@ -78,7 +78,7 @@
 
       @keyframes moveDown2px {
         100% {
-          transform: translateY(2px);
+          transform: translateY(0.125rem);
         }
       }
     }
@@ -93,7 +93,7 @@
 
       @keyframes moveUp2px {
         100% {
-          transform: translateY(-2px);
+          transform: translateY(-0.125rem);
         }
       }
     }

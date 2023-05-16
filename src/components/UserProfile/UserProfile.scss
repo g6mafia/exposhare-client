@@ -17,7 +17,7 @@
       width: 50%;
       padding-right: 2rem;
       padding-bottom: 2rem;
-      border-right: 2px solid $divider-color;
+      border-right: 0.125rem solid $divider-color;
     }
   }
   &__right-container {
@@ -40,13 +40,13 @@
     padding: 1rem 0;
   }
   &__bio-wrapper {
-    border-top: 2px solid $divider-color;
-    border-bottom: 2px solid $divider-color;
+    border-top: 0.125rem solid $divider-color;
+    border-bottom: 0.125rem solid $divider-color;
     padding: 1rem 0;
   }
   &__info-wrapper {
     padding: 1rem 0;
-    border-bottom: 2px solid $divider-color;
+    border-bottom: 0.125rem solid $divider-color;
 
     @include tablet {
       border-bottom: none;
@@ -97,8 +97,8 @@
     margin-right: 1rem;
 
     @include tablet {
-      width: 80px;
-      height: 80px;
+      width: 5rem;
+      height: 5rem;
     }
   }
   &__subtitle {
@@ -137,7 +137,7 @@
   }
 
   &__icon-star {
-    height: 18px;
+    height: 1.125rem;
   }
   &__info {
     &-title {
@@ -173,7 +173,7 @@
       @include mBodyMedium;
       font-weight: 600;
       margin: 0;
-      padding-bottom: 4px;
+      padding-bottom: 0.25rem;
 
       @include tablet {
         @include BodyMedium;
@@ -184,7 +184,7 @@
       @include mBodyMedium;
       font-weight: 400;
       margin: 0;
-      padding-bottom: 4px;
+      padding-bottom: 0.25rem;
 
       @include tablet {
         @include BodyMedium;

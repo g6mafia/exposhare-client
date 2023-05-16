@@ -3,9 +3,9 @@
 
 .user-favorites {
   background-color: $background-color;
-  border: 2px solid $divider-color;
-  border-radius: 6px;
-  box-shadow: 0px 3px 3px -2px $primary-text-color;
+  border: 0.125rem solid $divider-color;
+  border-radius: 0.375rem;
+  box-shadow: 0rem 0.1875rem 0.1875rem -0.125rem $primary-text-color;
   padding: 1rem;
   margin: 1rem auto;
   width: 17.1875rem;
@@ -78,7 +78,7 @@
     justify-content: space-between;
     font-weight: 600;
     margin: 1rem 0;
-    border-bottom: 2px solid $divider-color;
+    border-bottom: 0.125rem solid $divider-color;
     padding-bottom: 0.5rem;
 
     @include tablet {
@@ -100,7 +100,7 @@
     @include mBodyMedium;
     font-weight: 600;
     margin: 0;
-    padding-bottom: 4px;
+    padding-bottom: 0.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

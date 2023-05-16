@@ -20,16 +20,17 @@
     justify-content: center;
     align-items: center;
     @include desktop {
+      align-items: flex-start;
       justify-content: space-between;
       width: 50%;
-      padding-bottom: 27px;
+      padding-bottom: 1.6875rem;
     }
   }
   &__container-right {
     @include desktop {
       display: flex;
 
-      padding: 27px 0;
+      padding: 1.6875rem 0;
       width: 50%;
     }
   }

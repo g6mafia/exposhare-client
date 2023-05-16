@@ -38,12 +38,12 @@
 
   &__slogan {
     @include componentSpacing;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 400;
     color: $background-color;
 
     @include tablet {
-      font-size: 32px;
+      font-size: 2rem;
     }
   }
 

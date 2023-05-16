@@ -36,27 +36,27 @@
 
 @mixin mHeader {
   color: $primary-text-color;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 600;
   line-height: 2.25rem;
 }
 
 @mixin mSubheader {
   color: $primary-text-color;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.75rem;
 }
 
 @mixin mLabels {
   color: $primary-text-color;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.25rem;
 }
 
 @mixin mButtons {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.25rem;
   cursor: pointer;
@@ -64,21 +64,21 @@
 
 @mixin mBodyLarge {
   color: $primary-text-color;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.625rem;
 }
 
 @mixin mBodyMedium {
   color: $primary-text-color;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 400;
   line-height: 1.25rem;
 }
 
 @mixin mBodySmall {
   color: $primary-text-color;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 400;
   line-height: 1rem;
 }
@@ -87,7 +87,7 @@
 
 @mixin Header {
   color: $primary-text-color;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 600;
   line-height: 2.5rem;
 }
@@ -107,13 +107,13 @@
 }
 
 @mixin Buttons {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.375rem;
   cursor: pointer;
   color: $third-color;
   background-color: $primary-cta-color;
-  border: 2px solid $primary-cta-color;
+  border: 0.125rem solid $primary-cta-color;
   padding: 0 1rem;
   border-radius: 0.25rem;
   transition-duration: 0.4s;
@@ -121,31 +121,31 @@
   &:hover {
     background-color: $hover-cta-color;
     color: $divider-color;
-    border: 2px solid $primary-cta-color;
+    border: 0.125rem solid $primary-cta-color;
   }
   &:active {
     box-shadow: 0 0.3125rem #666;
-    transform: translateY(4px);
+    transform: translateY(0.25rem);
   }
 }
 
 @mixin BodyLarge {
   color: $primary-text-color;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.75rem;
 }
 
 @mixin BodyMedium {
   color: $primary-text-color;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 400;
   line-height: 1.375rem;
 }
 
 @mixin BodySmall {
   color: $primary-text-color;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.125rem;
 }
@@ -179,16 +179,16 @@
 }
 
 @mixin InputStyling {
-  border: 2px solid $primary-cta-color;
+  border: 0.125rem solid $primary-cta-color;
   background-color: $alt-background-color;
     &:active {
-      border: 2px solid $logo-color;
-      box-shadow: 0 0 4px $logo-color;
+      border: 0.125rem solid $logo-color;
+      box-shadow: 0 0 0.25rem $logo-color;
     }
     &:focus {
       outline: none;
-      border: 2px solid $logo-color;
-      box-shadow: 0 0 4px $logo-color;
+      border: 0.125rem solid $logo-color;
+      box-shadow: 0 0 0.25rem $logo-color;
     }
     &::placeholder {
       color: $primary-text-color;
