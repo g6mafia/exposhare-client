@@ -8,26 +8,38 @@
     @include componentSpacing;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &__container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    @include desktop {
+      flex-direction: row;
+    }
   }
   &__container-left {
     display: flex;
     flex-direction: column;
-    padding-right: 1rem;
-    width: 60%;
-    margin-bottom: 6.25rem;
+    justify-content: center;
+    align-items: center;
+    @include desktop {
+      justify-content: space-between;
+      padding-right: 1rem;
+      width: 60%;
+      margin-bottom: 6.25rem;
+    }
   }
   &__container-right {
     display: flex;
     flex-direction: column;
-  
-    width: 40%;
-    margin-bottom: 6.25rem;
+    @include desktop {
+      width: 40%;
+      margin-bottom: 6.25rem;
+    }
   }
   &__title {
     @include PageTitle;
@@ -35,7 +47,7 @@
   }
   &__image {
     background-color: $background-color;
-    box-shadow: 0 14px 14px -4px $alt-text-color; 
+    box-shadow: 0 14px 14px -4px $alt-text-color;
     width: 100%;
     margin: 1rem 0;
   }

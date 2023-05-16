@@ -12,6 +12,7 @@ function UserListings({
   setCreateListingForm,
   handleChange,
   setUserListings,
+  className,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedListing, setSelectedListing] = useState(null);
@@ -127,7 +128,7 @@ function UserListings({
           Create a New Listing
         </button>
       </h2>
-      <section className="user-listings__section">
+      <section className="user-listings__section sell-page__user-listings">
         {selectedListing && (
           <ListingDetailsModal
             listing={selectedListing}

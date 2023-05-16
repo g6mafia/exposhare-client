@@ -15,7 +15,7 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import FAQPage from "./pages/FAQPage/FAQPage";
-
+import SellPage from "./pages/SellPage/SellPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -93,6 +93,12 @@ function App() {
           />
           <Route path="/about" element={<AboutPage />}></Route>
           <Route path="/faq" element={<FAQPage />}></Route>
+          <Route
+            path="/sell"
+            element={
+              <SellPage handleChange={handleChange} profileData={profileData} />
+            }
+          ></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

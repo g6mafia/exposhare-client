@@ -53,9 +53,7 @@
     @include tablet {
       display: flex;
       flex-direction: column;
-      height: 618px;
       gap: 1rem;
-      overflow-y: scroll;
     }
   }
   &__wrapper {

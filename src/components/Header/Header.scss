@@ -164,6 +164,7 @@
     }
     &-overlay {
       @include Overlay;
+      z-index: 200;
       top: 12.5rem;
       @include tablet {
         top: 4.5625rem;

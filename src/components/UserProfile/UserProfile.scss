@@ -27,6 +27,12 @@
       gap: 1rem;
       width: 50%;
       padding-left: 2rem;
+      height: 40.625rem;
+      overflow-y: scroll;
+      scrollbar-width: none; 
+      &::-webkit-scrollbar { 
+        display: none; 
+      }
     }
   }
 

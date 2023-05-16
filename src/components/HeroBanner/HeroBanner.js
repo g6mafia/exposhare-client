@@ -26,7 +26,7 @@ function HeroBanner() {
       updateImages();
     };
 
-    const intervalId = setInterval(advanceCarousel, 10000);
+    const intervalId = setInterval(advanceCarousel, 5000);
     updateImages();
 
     return () => {

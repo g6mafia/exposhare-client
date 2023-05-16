@@ -77,7 +77,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
             <div className="header__wrapper">
               {isAuthenticated && profileData ? (
                 <>
-                  <Link to="/users/messages">
+                  <Link to="#">
                     <img
                       src={Messages}
                       className="header__icon-messages"
@@ -92,7 +92,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
                     />
                   </Link>
 
-                  <Link to="/users/cart">
+                  <Link to="#">
                     <img
                       src={Cart}
                       className="header__icon-cart"
@@ -193,7 +193,7 @@ function Header({ profileData, isAuthenticated, handleChange }) {
             ABOUT
           </NavLink>
           <NavLink
-            to="/News"
+            to="/news"
             exact="true"
             className={(navData) =>
               navData.isActive ? "nav__link nav__link--current" : "nav__link"

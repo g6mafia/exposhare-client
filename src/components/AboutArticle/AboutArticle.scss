@@ -7,23 +7,31 @@
   &__wrapper {
     @include componentSpacing;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &__container-left {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 50%;
-    padding-bottom: 27px;
+    justify-content: center;
+    align-items: center;
+    @include desktop {
+      justify-content: space-between;
+      width: 50%;
+      padding-bottom: 27px;
+    }
   }
   &__container-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 27px 0;
-    width: 50%;
+    @include desktop {
+      display: flex;
+
+      padding: 27px 0;
+      width: 50%;
+    }
   }
 
   &__title {
@@ -32,24 +40,38 @@
 
     @include tablet {
       @include Subheader;
+      margin: 1rem 0;
     }
   }
   &__image {
     background-color: $background-color;
+    object-fit: cover;
     width: 100%;
-    
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+
+    @include desktop {
+      margin-bottom: 0;
+    }
   }
 
   &__bio {
     @include mBodyLarge;
-    margin: 0;
+    margin: 1rem;
 
     @include tablet {
       @include BodyLarge;
+      margin: 1rem 2rem 1rem 0;
     }
   }
   &__button {
     @include Buttons;
+    margin: 1rem 0;
+    width: 100%;
+
+    @include desktop {
+      margin: 1rem 0;
+    }
   }
   &__brand-name {
     font-weight: 600;
