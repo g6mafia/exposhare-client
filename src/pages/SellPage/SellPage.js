@@ -5,11 +5,17 @@ import axios from "axios";
 import { BASE_URL } from "../../utils";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import NavFilter from "../../components/NavFilter/NavFilter";
+import ArrowDown from "../../assets/icons/arrow-down.svg";
+import ArrowUp from "../../assets/icons/arrow-up.svg";
+import SortIcon from "../../assets/icons/sort.svg";
+
 
 function SellPage({ profileData, handleChange }) {
   const [userListings, setUserListings] = useState([]);
   const [createListingForm, setCreateListingForm] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+  const [navFilterVisible, setNavFilterVisible] = useState(null);
 
   // handle create listing function
   const handleCreateListing = async (e) => {
@@ -96,6 +102,36 @@ function SellPage({ profileData, handleChange }) {
     <section className="sell-page">
       <div className="sell-page__container">
         <p className="sell-page__title">Sell</p>
+        <div className="shop-content__navbar">
+        <p
+          className="shop-content__subtitle"
+          onClick={() => setNavFilterVisible(!navFilterVisible)}
+        >
+          Filters{" "}
+          {!navFilterVisible ? (
+            <img
+              src={ArrowDown}
+              alt="arrow down"
+              className="shop-content__icon-down"
+            ></img>
+          ) : (
+            <img
+              src={ArrowUp}
+              alt="arrow up"
+              className="shop-content__icon-up"
+            ></img>
+          )}
+        </p>
+        <p className="shop-content__sort">
+          Sort{" "}
+          <img
+            src={SortIcon}
+            alt="sort icon"
+            className="shop-content__icon"
+          ></img>
+        </p>
+      </div>
+      {navFilterVisible && <NavFilter />}
         <UserListings
           className="sell-page__user-listings"
           setCreateListingForm={setCreateListingForm}

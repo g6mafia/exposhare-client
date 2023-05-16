@@ -4,10 +4,14 @@ import axios from "axios";
 import { BASE_URL } from "../../utils";
 import UserFavorites from "../../components/UserFavorites/UserFavorites";
 import "./FavoritesPage.scss";
+import NavFilter from "../../components/NavFilter/NavFilter";
+import ArrowDown from "../../assets/icons/arrow-down.svg";
+import ArrowUp from "../../assets/icons/arrow-up.svg";
+import SortIcon from "../../assets/icons/sort.svg";
 
-function FavoritesPage({ profileData }) {
+function FavoritesPage({ profileData, handleChange}) {
   const [favorites, setFavorites] = useState([]);
-
+  const [navFilterVisible, setNavFilterVisible] = useState(null);
 //fetching favorite listings data
   useEffect(() => {
     async function fetchFavorites() {
@@ -75,6 +79,36 @@ function FavoritesPage({ profileData }) {
     <section className="favorites-page">
       <div className="favorites-page__container">
       <h1 className="favorites-page__title">My Favorites</h1>
+      <div className="shop-content__navbar">
+        <p
+          className="shop-content__subtitle"
+          onClick={() => setNavFilterVisible(!navFilterVisible)}
+        >
+          Filters{" "}
+          {!navFilterVisible ? (
+            <img
+              src={ArrowDown}
+              alt="arrow down"
+              className="shop-content__icon-down"
+            ></img>
+          ) : (
+            <img
+              src={ArrowUp}
+              alt="arrow up"
+              className="shop-content__icon-up"
+            ></img>
+          )}
+        </p>
+        <p className="shop-content__sort">
+          Sort{" "}
+          <img
+            src={SortIcon}
+            alt="sort icon"
+            className="shop-content__icon"
+          ></img>
+        </p>
+      </div>
+      {navFilterVisible && <NavFilter />}
       <div className="favorites-page__listings">
       {favorites.length === 0? (
           <div className="favorites-page__validation">
@@ -89,7 +123,7 @@ function FavoritesPage({ profileData }) {
         ) : (
         favorites.map((listing) => {
           if (listing && listing.id) {
-            return <UserFavorites key={listing.id} listing={listing} onFavoriteClick={() => handleFavoriteClick(listing.id)}/>;
+            return <UserFavorites handleChange={handleChange} key={listing.id} listing={listing} onFavoriteClick={() => handleFavoriteClick(listing.id)}/>;
           } else {
             return null;
           }

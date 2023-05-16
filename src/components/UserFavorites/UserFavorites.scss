@@ -63,6 +63,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   &__info-title {
@@ -83,12 +85,12 @@
   &__price {
     @include BodyLarge;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-weight: 600;
     margin: 0;
     padding: 0.25rem 0;
-    width: 60%;
+    width: 100%;
   }
   &__title {
     @include mBodyMedium;
@@ -103,22 +105,10 @@
       @include BodyMedium;
       font-weight: 600;
     }
-    &--align {
-      align-items: flex-start;
-    }
+    
   }
-  &__details {
-    @include mBodyMedium;
-    display: flex;
-    font-weight: 400;
-    margin: 0;
-    width: 60%;
-    align-items: center;
-
-    @include tablet {
-      @include BodyMedium;
-      font-weight: 400;
-    }
+  &__button-view {
+    @include Buttons;
+    width: 9rem;
   }
-
 }

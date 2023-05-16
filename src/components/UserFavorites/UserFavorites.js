@@ -2,14 +2,25 @@ import "./UserFavorites.scss";
 import LikesIcon from "../../assets/icons/likes.svg";
 import EmptyLikesIcon from "../../assets/icons/likes-nofill.svg";
 import { useState } from "react";
+import ListingDetailsModal from "../ListingDetailsModal/ListingDetailsModal";
 
-function UserFavorites({ listing, onFavoriteClick }) {
+
+
+function UserFavorites({ listing, onFavoriteClick, handleChange }) {
   const [favorited, setFavorited] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedListing, setSelectedListing] = useState(null);
+
+  const handleModalOpen = (listing) => {
+    setModalOpen(true);
+    setSelectedListing(listing);
+  };
 
   const handleFavoriteClick = () => {
     onFavoriteClick();
     setFavorited(!favorited);
   };
+
   return (
     <>
       <article className="user-favorites">
@@ -23,7 +34,7 @@ function UserFavorites({ listing, onFavoriteClick }) {
         </div>
         <div className="user-favorites__wrapper">
           <h3 className="user-favorites__info-title">
-            Listing Details:{" "}
+          {listing.title}{" "}
             {favorited ? (
               <img
                 src={LikesIcon}
@@ -42,39 +53,26 @@ function UserFavorites({ listing, onFavoriteClick }) {
           </h3>
           <div className="user-favorites__block">
             <p className="user-favorites__title">
-              Price:{" "}
               <span className="user-favorites__price">
                 ${listing.price.toFixed(2)}{" "}
               </span>
             </p>
-            <p className="user-favorites__title user-favorites__title--align">
-              Title:{" "}
-              <span className="user-favorites__details">{listing.title}</span>
-            </p>
-            <p className="user-favorites__title user-favorites__title--align">
-              Description:{" "}
-              <span className="user-favorites__details">
-                {listing.description}
-              </span>
-            </p>
-            <p className="user-favorites__title">
-              Category:{" "}
-              <span className="user-favorites__details">
-                {listing.category}
-              </span>
-            </p>
-            <p className="user-favorites__title">
-              Brand:{" "}
-              <span className="user-favorites__details">{listing.brand}</span>
-            </p>
-            <p className="user-favorites__title">
-              Condition:{" "}
-              <span className="user-favorites__details">
-                {listing.condition}
-              </span>
-            </p>
+            <button
+          onClick={() => handleModalOpen(listing)}
+          className="user-favorites__button-view"
+        >
+          View Details
+        </button>
           </div>
         </div>
+        {selectedListing && (
+        <ListingDetailsModal
+          listing={selectedListing}
+          isOpen={modalOpen}
+          handleChange={handleChange}
+          closeModal={() => setModalOpen(false)}
+        />
+      )}
       </article>
     </>
   );
