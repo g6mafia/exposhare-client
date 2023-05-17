@@ -17,11 +17,10 @@ function ShopContent({ listings, handleChange }) {
   //for displaying results by query
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const searchQuery = searchParams.get('search'); 
+  const searchQuery = searchParams.get("search");
 
   //add to favorites function
   const addToFavorites = async (listingId) => {
-   
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
@@ -41,7 +40,6 @@ function ShopContent({ listings, handleChange }) {
   };
   //fetching user favorites in shop page
   useEffect(() => {
-    
     async function fetchFavorites() {
       const token = localStorage.getItem("token");
       if (!token) {
@@ -67,15 +65,21 @@ function ShopContent({ listings, handleChange }) {
   const removeFromFavorites = async (listingId) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.delete(`${BASE_URL}/users/favorites/${listingId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      });
+      const response = await axios.delete(
+        `${BASE_URL}/users/favorites/${listingId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
       console.log(response.data);
     } catch (error) {
-      console.error("Error removing from favorites:", error.response.data.message);
+      console.error(
+        "Error removing from favorites:",
+        error.response.data.message
+      );
     }
   };
 
@@ -85,7 +89,13 @@ function ShopContent({ listings, handleChange }) {
 
   return (
     <article className="shop-content">
-       {searchQuery && <p className="shop-content__title">Showing {listings.length} {listings.length === 1 ? "search result" : "search results"} for: <span className="shop-content__results">{searchQuery}</span></p>}
+      {searchQuery && (
+        <p className="shop-content__title">
+          Showing {listings.length}{" "}
+          {listings.length === 1 ? "search result" : "search results"} for:{" "}
+          <span className="shop-content__results">{searchQuery}</span>
+        </p>
+      )}
       <div className="shop-content__navbar">
         <p
           className="shop-content__subtitle"

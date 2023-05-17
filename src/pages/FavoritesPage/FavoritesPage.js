@@ -9,10 +9,10 @@ import ArrowDown from "../../assets/icons/arrow-down.svg";
 import ArrowUp from "../../assets/icons/arrow-up.svg";
 import SortIcon from "../../assets/icons/sort.svg";
 
-function FavoritesPage({ profileData, handleChange}) {
+function FavoritesPage({ profileData, handleChange }) {
   const [favorites, setFavorites] = useState([]);
   const [navFilterVisible, setNavFilterVisible] = useState(null);
-//fetching favorite listings data
+  //fetching favorite listings data
   useEffect(() => {
     async function fetchFavorites() {
       try {
@@ -41,7 +41,7 @@ function FavoritesPage({ profileData, handleChange}) {
         },
         withCredentials: true,
       });
-  
+
       // Remove the listing from the local favorites state
       setFavorites(favorites.filter((favorite) => favorite.id !== listingId));
     } catch (err) {
@@ -78,58 +78,65 @@ function FavoritesPage({ profileData, handleChange}) {
   return (
     <section className="favorites-page">
       <div className="favorites-page__container">
-      <h1 className="favorites-page__title">My Favorites</h1>
-      <div className="shop-content__navbar">
-        <p
-          className="shop-content__subtitle"
-          onClick={() => setNavFilterVisible(!navFilterVisible)}
-        >
-          Filters{" "}
-          {!navFilterVisible ? (
-            <img
-              src={ArrowDown}
-              alt="arrow down"
-              className="shop-content__icon-down"
-            ></img>
-          ) : (
-            <img
-              src={ArrowUp}
-              alt="arrow up"
-              className="shop-content__icon-up"
-            ></img>
-          )}
-        </p>
-        <p className="shop-content__sort">
-          Sort{" "}
-          <img
-            src={SortIcon}
-            alt="sort icon"
-            className="shop-content__icon"
-          ></img>
-        </p>
-      </div>
-      {navFilterVisible && <NavFilter />}
-      <div className="favorites-page__listings">
-      {favorites.length === 0? (
-          <div className="favorites-page__validation">
-          <p className="favorites-page__validation-title">
-            Your favorite listings go here, please check out the{" "}
-            <Link to="/shop" className="favorites-page__validation-link">
-              Shop!
-            </Link>
+        <h1 className="favorites-page__title">My Favorites</h1>
+        <div className="shop-content__navbar">
+          <p
+            className="shop-content__subtitle"
+            onClick={() => setNavFilterVisible(!navFilterVisible)}
+          >
+            Filters{" "}
+            {!navFilterVisible ? (
+              <img
+                src={ArrowDown}
+                alt="arrow down"
+                className="shop-content__icon-down"
+              ></img>
+            ) : (
+              <img
+                src={ArrowUp}
+                alt="arrow up"
+                className="shop-content__icon-up"
+              ></img>
+            )}
           </p>
-          <p className="favorites-page__validation-art">(˘･ᴗ･˘)</p>
+          <p className="shop-content__sort">
+            Sort{" "}
+            <img
+              src={SortIcon}
+              alt="sort icon"
+              className="shop-content__icon"
+            ></img>
+          </p>
         </div>
-        ) : (
-        favorites.map((listing) => {
-          if (listing && listing.id) {
-            return <UserFavorites handleChange={handleChange} key={listing.id} listing={listing} onFavoriteClick={() => handleFavoriteClick(listing.id)}/>;
-          } else {
-            return null;
-          }
-        })
-      )}
-      </div>
+        {navFilterVisible && <NavFilter />}
+        <div className="favorites-page__listings">
+          {favorites.length === 0 ? (
+            <div className="favorites-page__validation">
+              <p className="favorites-page__validation-title">
+                Your favorite listings go here, please check out the{" "}
+                <Link to="/shop" className="favorites-page__validation-link">
+                  Shop!
+                </Link>
+              </p>
+              <p className="favorites-page__validation-art">(˘･ᴗ･˘)</p>
+            </div>
+          ) : (
+            favorites.map((listing) => {
+              if (listing && listing.id) {
+                return (
+                  <UserFavorites
+                    handleChange={handleChange}
+                    key={listing.id}
+                    listing={listing}
+                    onFavoriteClick={() => handleFavoriteClick(listing.id)}
+                  />
+                );
+              } else {
+                return null;
+              }
+            })
+          )}
+        </div>
       </div>
     </section>
   );

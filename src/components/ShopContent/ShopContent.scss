@@ -10,7 +10,7 @@
   }
   &__title {
     @include mBodyLarge;
-    
+
     @include tablet {
       @include BodyLarge;
       font-weight: 600;
@@ -18,7 +18,7 @@
   }
   &__results {
     @include mBodyLarge;
-    
+
     @include tablet {
       @include BodyLarge;
       font-weight: 600;
@@ -38,7 +38,7 @@
       font-weight: 400;
     }
     &:hover {
-        font-weight: 600;
+      font-weight: 600;
     }
   }
   &__sort {
@@ -54,7 +54,7 @@
       font-weight: 400;
     }
     &:hover {
-        font-weight: 600;
+      font-weight: 600;
     }
   }
   &__listings {
@@ -85,33 +85,32 @@
       }
     }
   }
-  
+
   &__icon-down {
     width: 1.25rem;
 
     &:hover {
-        animation: moveDown2px 1s infinite;
-      }
+      animation: moveDown2px 1s infinite;
+    }
 
-      @keyframes moveDown2px {
-        100% {
-          transform: translateY(0.125rem);
-        }
+    @keyframes moveDown2px {
+      100% {
+        transform: translateY(0.125rem);
       }
     }
-     
-  
+  }
+
   &__icon-up {
     width: 1.25rem;
 
     &:hover {
-        animation: moveUp2px 1s infinite;
-      }
+      animation: moveUp2px 1s infinite;
+    }
 
-      @keyframes moveUp2px {
-        100% {
-          transform: translateY(-0.125rem);
-        }
+    @keyframes moveUp2px {
+      100% {
+        transform: translateY(-0.125rem);
       }
     }
+  }
 }

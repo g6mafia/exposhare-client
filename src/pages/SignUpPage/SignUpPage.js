@@ -1,5 +1,5 @@
 import "./SignUpPage.scss";
-import {  useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import axios from "axios";
 import { useState } from "react";
@@ -51,7 +51,7 @@ function SignUpPage({ handleChange }) {
         e.target.reset();
         localStorage.setItem("token", response.data.token);
         handleChange(true, response.data);
-        navigate('/');
+        navigate("/");
       })
       .catch((error) => {
         setSuccess(false);
@@ -60,30 +60,37 @@ function SignUpPage({ handleChange }) {
   };
 
   return (
-    <div className='signup-container'>
-    <section className="signup">
-      <form className="signup__form" onSubmit={handleSubmit}>
-        <h1 className="signup__title">Create an Account</h1>
-        <p className="signup__subtitle">By creating an account with us, you'll be able to buy, sell, comment, and more.</p>
+    <div className="signup-container">
+      <section className="signup">
+        <form className="signup__form" onSubmit={handleSubmit}>
+          <h1 className="signup__title">Create an Account</h1>
+          <p className="signup__subtitle">
+            By creating an account with us, you'll be able to buy, sell,
+            comment, and more.
+          </p>
 
-        <Input type="text" name="first_name" label="First Name" />
-        <Input type="text" name="last_name" label="Last Name" />
-        <Input type="text" name="username" label="Username" />
-        <Input type="text" name="address" label="Address" />
-        <Input type="text" name="email" label="Email" />
-        <Input type="password" name="password" label="Password" />
+          <Input type="text" name="first_name" label="First Name" />
+          <Input type="text" name="last_name" label="Last Name" />
+          <Input type="text" name="username" label="Username" />
+          <Input type="text" name="address" label="Address" />
+          <Input type="text" name="email" label="Email" />
+          <Input type="password" name="password" label="Password" />
 
-        <button className="signup__button">Sign Up</button>
+          <button className="signup__button">Sign Up</button>
 
-        {success && (
-          <div className="signup__success-message">Successfully Signed Up!</div>
-        )}
-        {error && <div className="signup__error-message">{error.message}</div>}
-      </form>
-      <p className="signup__text">
-        Already have an account? <Link to="/login">Log in</Link>
-      </p>
-    </section>
+          {success && (
+            <div className="signup__success-message">
+              Successfully Signed Up!
+            </div>
+          )}
+          {error && (
+            <div className="signup__error-message">{error.message}</div>
+          )}
+        </form>
+        <p className="signup__text">
+          Already have an account? <Link to="/login">Log in</Link>
+        </p>
+      </section>
     </div>
   );
 }

@@ -84,7 +84,7 @@ function ShopPage({ handleChange }) {
             ({listings.length} {listings.length === 1 ? "result" : "results"})
           </span>
         </h1>
-        <ShopContent listings={listings} handleChange={handleChange}/>
+        <ShopContent listings={listings} handleChange={handleChange} />
       </section>
     </div>
   );

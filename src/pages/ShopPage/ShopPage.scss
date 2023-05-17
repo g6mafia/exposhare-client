@@ -12,7 +12,6 @@
 
   &__title {
     @include PageTitle;
-    
   }
   &__results {
     @include mBodyMedium;
@@ -40,7 +39,6 @@
       font-size: 1.5rem;
       color: $primary-cta-color;
     }
-    
   }
   &__validation-art {
     margin: 0;

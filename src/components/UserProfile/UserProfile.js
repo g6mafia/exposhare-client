@@ -5,7 +5,12 @@ import axios from "axios";
 import { BASE_URL } from "../../utils";
 import { useState, useEffect } from "react";
 
-function UserProfile({ profileData, setCreateListingForm, handleChange, setEditUserForm }) {
+function UserProfile({
+  profileData,
+  setCreateListingForm,
+  handleChange,
+  setEditUserForm,
+}) {
   const [userListings, setUserListings] = useState([]);
 
   useEffect(() => {
@@ -34,14 +39,18 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
     return new Date(date).toLocaleDateString("en-US");
   };
 
-  
-
   return (
     <section className="user-profile">
       <div className="user-profile__left-container">
-        <h2 className="user-profile__title">Account Info <button className="user-profile__button-edit" onClick={() => setEditUserForm(true)}>
+        <h2 className="user-profile__title">
+          Account Info{" "}
+          <button
+            className="user-profile__button-edit"
+            onClick={() => setEditUserForm(true)}
+          >
             Edit Profile
-          </button></h2>
+          </button>
+        </h2>
         <div className="user-profile__stats-wrapper">
           <div className="user-profile__block-data">
             <img
@@ -62,7 +71,7 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
             </div>
             <div className="user-profile__block-text">
               <p className="user-profile__text user-profile__text--spacing">
-               No Reviews Yet
+                No Reviews Yet
               </p>
               <div className="user-profile__block-stars">
                 <img src={Star} className="user-profile__icon-star"></img>
@@ -77,7 +86,9 @@ function UserProfile({ profileData, setCreateListingForm, handleChange, setEditU
         <div className="user-profile__bio-wrapper">
           <h3 className="user-profile__bio-title">Bio: </h3>
           <p className="user-profile__bio">
-          {profileData && profileData.bio !== '' ? profileData.bio : "Tell us about yourself!"}
+            {profileData && profileData.bio !== ""
+              ? profileData.bio
+              : "Tell us about yourself!"}
           </p>
         </div>
         <div className="user-profile__info-wrapper">

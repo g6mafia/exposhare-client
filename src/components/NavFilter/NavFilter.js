@@ -1,4 +1,4 @@
-import "./NavFilter.scss"
+import "./NavFilter.scss";
 import FilterIcon from "../../assets/icons/filter.svg";
 
 function NavFilter() {

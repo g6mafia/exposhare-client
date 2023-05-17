@@ -8,14 +8,17 @@ function FAQPage() {
           <p className="faq__title">FAQs</p>
           <ul className="faq__list">
             <li className="faq__question">
-              What types of photography equipment can I buy/sell on <span className="faq__brand-name">exposhare</span>?{" "}
+              What types of photography equipment can I buy/sell on{" "}
+              <span className="faq__brand-name">exposhare</span>?{" "}
               <p className="faq__answer">
                 You can buy, sell, or trade cameras, lenses, and other
-                photography gear on <span className="faq__brand-name">exposhare</span>.
+                photography gear on{" "}
+                <span className="faq__brand-name">exposhare</span>.
               </p>
             </li>
             <li className="faq__question">
-              How does <span className="faq__brand-name">exposhare</span> ensure the authenticity of listed equipment?
+              How does <span className="faq__brand-name">exposhare</span> ensure
+              the authenticity of listed equipment?
               <p className="faq__answer">
                 We have a robust verification process in place to ensure the
                 authenticity and accuracy of the products listed on our
@@ -23,7 +26,8 @@ function FAQPage() {
               </p>
             </li>
             <li className="faq__question">
-              Can I trust the sellers on <span className="faq__brand-name">exposhare</span>?{" "}
+              Can I trust the sellers on{" "}
+              <span className="faq__brand-name">exposhare</span>?{" "}
               <p className="faq__answer">
                 Yes, we focus on fostering a reliable and trustworthy
                 environment. Each seller's credibility is established through a
@@ -63,7 +67,8 @@ function FAQPage() {
               </p>
             </li>
             <li className="faq__question">
-              Are there any fees associated with selling on <span className="faq__brand-name">exposhare</span>?{" "}
+              Are there any fees associated with selling on{" "}
+              <span className="faq__brand-name">exposhare</span>?{" "}
               <p className="faq__answer">
                 Please refer to our "Seller Fees" section for detailed
                 information about any associated fees.
@@ -72,13 +77,13 @@ function FAQPage() {
             <li className="faq__question">
               Can I trade my equipment instead of selling?{" "}
               <p className="faq__answer">
-                Yes, <span className="faq__brand-name">exposhare</span> supports the trading of photography gear between
-                users.
+                Yes, <span className="faq__brand-name">exposhare</span> supports
+                the trading of photography gear between users.
               </p>
             </li>
             <li className="faq__question">
-              What steps does <span className="faq__brand-name">exposhare</span>take to maintain a safe and secure
-              platform?
+              What steps does <span className="faq__brand-name">exposhare</span>
+              take to maintain a safe and secure platform?
               <p className="faq__answer">
                 We implement stringent security measures, including secure
                 payment methods and a robust verification process, to ensure the

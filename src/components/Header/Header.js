@@ -47,8 +47,8 @@ function Header({ profileData, isAuthenticated, handleChange }) {
 
   return (
     <>
-      <header className="header-container">
-        <div className="header">
+      <header className="header">
+        <div className="header__container">
           <Link to="/">
             <img className="header__logo" src={Logo} alt="exposhare logo" />
           </Link>
@@ -57,8 +57,8 @@ function Header({ profileData, isAuthenticated, handleChange }) {
               className="header__label"
               onSubmit={(e) => {
                 e.preventDefault();
-                navigate(`/shop?search=${searchQuery}`)
-                setSearchQuery('');
+                navigate(`/shop?search=${searchQuery}`);
+                setSearchQuery("");
               }}
             >
               <input

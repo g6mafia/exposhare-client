@@ -10,7 +10,6 @@ import ArrowDown from "../../assets/icons/arrow-down.svg";
 import ArrowUp from "../../assets/icons/arrow-up.svg";
 import SortIcon from "../../assets/icons/sort.svg";
 
-
 function SellPage({ profileData, handleChange }) {
   const [userListings, setUserListings] = useState([]);
   const [createListingForm, setCreateListingForm] = useState(false);
@@ -78,9 +77,7 @@ function SellPage({ profileData, handleChange }) {
         <div className="sell-page__auth-overlay"></div>
         <div className="sell-page__auth">
           <div className="sell-page__auth-wrapper">
-            <p className="sell-page__auth-title">
-              Want to sell your gear?
-            </p>
+            <p className="sell-page__auth-title">Want to sell your gear?</p>
             <p className="sell-page__auth-text">
               Please{" "}
               <Link to="/login" className="sell-page__auth-link">
@@ -103,35 +100,35 @@ function SellPage({ profileData, handleChange }) {
       <div className="sell-page__container">
         <p className="sell-page__title">Sell</p>
         <div className="shop-content__navbar">
-        <p
-          className="shop-content__subtitle"
-          onClick={() => setNavFilterVisible(!navFilterVisible)}
-        >
-          Filters{" "}
-          {!navFilterVisible ? (
+          <p
+            className="shop-content__subtitle"
+            onClick={() => setNavFilterVisible(!navFilterVisible)}
+          >
+            Filters{" "}
+            {!navFilterVisible ? (
+              <img
+                src={ArrowDown}
+                alt="arrow down"
+                className="shop-content__icon-down"
+              ></img>
+            ) : (
+              <img
+                src={ArrowUp}
+                alt="arrow up"
+                className="shop-content__icon-up"
+              ></img>
+            )}
+          </p>
+          <p className="shop-content__sort">
+            Sort{" "}
             <img
-              src={ArrowDown}
-              alt="arrow down"
-              className="shop-content__icon-down"
+              src={SortIcon}
+              alt="sort icon"
+              className="shop-content__icon"
             ></img>
-          ) : (
-            <img
-              src={ArrowUp}
-              alt="arrow up"
-              className="shop-content__icon-up"
-            ></img>
-          )}
-        </p>
-        <p className="shop-content__sort">
-          Sort{" "}
-          <img
-            src={SortIcon}
-            alt="sort icon"
-            className="shop-content__icon"
-          ></img>
-        </p>
-      </div>
-      {navFilterVisible && <NavFilter />}
+          </p>
+        </div>
+        {navFilterVisible && <NavFilter />}
         <UserListings
           className="sell-page__user-listings"
           setCreateListingForm={setCreateListingForm}

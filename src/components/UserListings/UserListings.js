@@ -27,7 +27,6 @@ function UserListings({
     "Olympus",
     "Pentax",
   ];
-  
   const cameraConditions = ["New", "Used", "Refurbished"];
 
   const cameraCategory = [

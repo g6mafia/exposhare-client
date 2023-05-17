@@ -1,22 +1,23 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.header-container {
-  border-bottom: 0.0625rem solid $divider-color;
-}
 .header {
-  @include componentSpacing;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 3.125rem;
-  padding: 1rem;
-  background: $background-color;
+  background-color: $background-color;
+  border-bottom: 0.0625rem solid $divider-color;
 
-  @include tablet {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  &__container {
+    @include componentSpacing;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 3.125rem;
+    padding: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__logo {
@@ -67,7 +68,7 @@
     outline: none;
     background-color: $alt-background-color;
     border: 0.125rem solid $primary-cta-color;
-    
+
     &:active {
       border: 0.125rem solid $logo-color;
       box-shadow: 0 0 0.25rem $logo-color;
@@ -80,7 +81,6 @@
     &::placeholder {
       color: $primary-text-color;
     }
-
 
     @include tablet {
       width: 100%;

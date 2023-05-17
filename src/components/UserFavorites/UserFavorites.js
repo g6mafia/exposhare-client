@@ -4,8 +4,6 @@ import EmptyLikesIcon from "../../assets/icons/likes-nofill.svg";
 import { useState } from "react";
 import ListingDetailsModal from "../ListingDetailsModal/ListingDetailsModal";
 
-
-
 function UserFavorites({ listing, onFavoriteClick, handleChange }) {
   const [favorited, setFavorited] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
@@ -34,7 +32,7 @@ function UserFavorites({ listing, onFavoriteClick, handleChange }) {
         </div>
         <div className="user-favorites__wrapper">
           <h3 className="user-favorites__info-title">
-          {listing.title}{" "}
+            {listing.title}{" "}
             {favorited ? (
               <img
                 src={LikesIcon}
@@ -58,21 +56,21 @@ function UserFavorites({ listing, onFavoriteClick, handleChange }) {
               </span>
             </p>
             <button
-          onClick={() => handleModalOpen(listing)}
-          className="user-favorites__button-view"
-        >
-          View Details
-        </button>
+              onClick={() => handleModalOpen(listing)}
+              className="user-favorites__button-view"
+            >
+              View Details
+            </button>
           </div>
         </div>
         {selectedListing && (
-        <ListingDetailsModal
-          listing={selectedListing}
-          isOpen={modalOpen}
-          handleChange={handleChange}
-          closeModal={() => setModalOpen(false)}
-        />
-      )}
+          <ListingDetailsModal
+            listing={selectedListing}
+            isOpen={modalOpen}
+            handleChange={handleChange}
+            closeModal={() => setModalOpen(false)}
+          />
+        )}
       </article>
     </>
   );

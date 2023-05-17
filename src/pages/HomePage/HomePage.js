@@ -15,8 +15,7 @@ import AccImage from "../../assets/images/tripod-image.png";
 import DigitalImage from "../../assets/images/digital-image.png";
 import FilmImage from "../../assets/images/film-image.png";
 
-
-function HomePage({profileData}) {
+function HomePage({ profileData }) {
   const [listings, setListings] = useState([]);
 
   const specificBrands = ["FujiFilm", "Sony", "Nikon", "Canon"];
@@ -27,12 +26,17 @@ function HomePage({profileData}) {
     Canon: CanonLogo,
   };
 
-  const specificCategories = ["Digital Cameras", "Film Cameras", "Lens", "Accessories"];
+  const specificCategories = [
+    "Digital Cameras",
+    "Film Cameras",
+    "Lens",
+    "Accessories",
+  ];
   const categoryImg = {
-    'Digital Cameras': DigitalImage,
-    'Film Cameras': FilmImage,
-    'Lens': LensImage,
-    'Accessories': AccImage,
+    "Digital Cameras": DigitalImage,
+    "Film Cameras": FilmImage,
+    Lens: LensImage,
+    Accessories: AccImage,
   };
   //fetch listings when component mounts
   useEffect(() => {
@@ -68,24 +72,26 @@ function HomePage({profileData}) {
     return <p className="loading">Loading...</p>;
   }
 
-  //array of objects with the information for each category 
+  //array of objects with the information for each category
   const filteredCategories = specificCategories
-  .map((category) => {
-    const categoryListings = listings.filter((item) => item.category === category);
-    if (categoryListings.length > 0) {
-      return {
-        category,
-        id: categoryListings[0].id,
-        image_url: categoryImg[category],
-      };
-    }
-    return null;
-  })
-  .filter((item) => item !== null);
+    .map((category) => {
+      const categoryListings = listings.filter(
+        (item) => item.category === category
+      );
+      if (categoryListings.length > 0) {
+        return {
+          category,
+          id: categoryListings[0].id,
+          image_url: categoryImg[category],
+        };
+      }
+      return null;
+    })
+    .filter((item) => item !== null);
 
-if (!listings.length || filteredBrands.length === 0) {
-  return <p className="loading">Loading...</p>;
-}
+  if (!listings.length || filteredBrands.length === 0) {
+    return <p className="loading">Loading...</p>;
+  }
 
   return (
     <>
@@ -94,7 +100,7 @@ if (!listings.length || filteredBrands.length === 0) {
       {/* passed profiledata down to conditionally render the user's favorites */}
       {/* if no favorites, then show ternary text */}
       <HomeCards filteredBrands={filteredBrands} />
-      <HomeCategoryCards filteredCategories={filteredCategories}/>
+      <HomeCategoryCards filteredCategories={filteredCategories} />
     </>
   );
 }

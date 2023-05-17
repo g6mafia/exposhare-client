@@ -39,33 +39,53 @@ function HeroBanner() {
       <div className="hero-banner__container">
         <h1 className="hero-banner__title">exposhare</h1>
         <p className="hero-banner__slogan">
-       Discover the Perfect Gear for Every Shot.
+          Discover the Perfect Gear for Every Shot.
         </p>
       </div>
-      
+
       <div className="hero-banner__item">
-      <div className="hero-banner__overlay"></div>
-        <img src={banner1} alt="banner image 1" className="hero-banner__image" />
-      </div>
-     
-      <div className="hero-banner__item">
-      <div className="hero-banner__overlay"></div>
-        <img src={banner2} alt="banner image 2" className="hero-banner__image" />
-      </div>
-  
-      <div className="hero-banner__item">
-      <div className="hero-banner__overlay"></div>
-        <img src={banner3} alt="banner image 3" className="hero-banner__image" />
+        <div className="hero-banner__overlay"></div>
+        <img
+          src={banner1}
+          alt="banner image 1"
+          className="hero-banner__image"
+        />
       </div>
 
       <div className="hero-banner__item">
-      <div className="hero-banner__overlay"></div>
-        <img src={banner4} alt="banner image 4" className="hero-banner__image" />
+        <div className="hero-banner__overlay"></div>
+        <img
+          src={banner2}
+          alt="banner image 2"
+          className="hero-banner__image"
+        />
       </div>
 
       <div className="hero-banner__item">
-      <div className="hero-banner__overlay"></div>
-        <img src={banner5} alt="banner image 5" className="hero-banner__image" />
+        <div className="hero-banner__overlay"></div>
+        <img
+          src={banner3}
+          alt="banner image 3"
+          className="hero-banner__image"
+        />
+      </div>
+
+      <div className="hero-banner__item">
+        <div className="hero-banner__overlay"></div>
+        <img
+          src={banner4}
+          alt="banner image 4"
+          className="hero-banner__image"
+        />
+      </div>
+
+      <div className="hero-banner__item">
+        <div className="hero-banner__overlay"></div>
+        <img
+          src={banner5}
+          alt="banner image 5"
+          className="hero-banner__image"
+        />
       </div>
     </section>
   );

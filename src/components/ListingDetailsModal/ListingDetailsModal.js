@@ -26,7 +26,6 @@ function ListingDetailsModal({ listing, isOpen, closeModal }) {
               <p className="listings-details__item-type">Description </p>
               <p className="listings-details__item-type">Condition </p>
               <p className="listings-details__item-type">Price </p>
-       
             </div>
             <div className="listings-details__item-wrapper--right">
               <p className="listings-details__item-value">{listing.title}</p>

@@ -10,30 +10,48 @@ import CloudinaryLogo from "../../assets/images/cloudinary-image.png";
 
 function Footer() {
   return (
-    <div className="footer-container">
-      <footer className="footer">
+    <footer className="footer">
+      <div className="footer__container">
         <div className="footer__wrapper">
           <Link to="/">
             <img className="footer__logo" src={AltLogo} alt="exposhare logo" />
           </Link>
           {/* visible on in mobile */}
           <section className="footer__block-1">
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-              <img src={FacebookIcon} className="footer__icon-social" alt="facebook icon"></img>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={FacebookIcon}
+                className="footer__icon-social"
+                alt="facebook icon"
+              ></img>
             </a>
             <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-              <img src={TwitterIcon} className="footer__icon-social" alt="twitter icon"></img>
+              <img
+                src={TwitterIcon}
+                className="footer__icon-social"
+                alt="twitter icon"
+              ></img>
             </a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-              <img src={InstaIcon} className="footer__icon-social" alt="instagram icon"></img>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={InstaIcon}
+                className="footer__icon-social"
+                alt="instagram icon"
+              ></img>
             </a>
           </section>
         </div>
         <section className="footer__block-2">
           <div className="footer__divider">
-            <p className="footer__subtitle">
-              ABOUT
-            </p>
+            <p className="footer__subtitle">ABOUT</p>
             <div className="footer__wrapper">
               <Link to="/about" className="footer__link">
                 Our Story
@@ -50,9 +68,7 @@ function Footer() {
             </div>
           </div>
           <div className="footer__divider">
-            <p className="footer__subtitle">
-              SERVICES
-            </p>
+            <p className="footer__subtitle">SERVICES</p>
             <div className="footer__wrapper">
               <Link to="/shop" className="footer__link">
                 Shop
@@ -69,9 +85,7 @@ function Footer() {
             </div>
           </div>
           <div className="footer__divider">
-            <p className="footer__subtitle">
-              LEGAL
-            </p>
+            <p className="footer__subtitle">LEGAL</p>
             <div className="footer__wrapper">
               <a href="" className="footer__link">
                 Terms & Conditions
@@ -86,9 +100,7 @@ function Footer() {
           </div>
 
           <div className="footer__divider">
-            <p className="footer__subtitle">
-              STAY CONNECTED
-            </p>
+            <p className="footer__subtitle">STAY CONNECTED</p>
             <form className="footer__form">
               <label htmlFor="name" className="footer__label">
                 <input
@@ -106,28 +118,30 @@ function Footer() {
         </section>
 
         <section className="footer__block-3">
-          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" >
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
             <img src={FacebookIcon} className="footer__icon-social"></img>
           </a>
-          <a href="https://twitter.com/" target="_blank" rel="noreferrer" >
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer">
             <img src={TwitterIcon} className="footer__icon-social"></img>
           </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" >
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
             <img src={InstaIcon} className="footer__icon-social"></img>
           </a>
         </section>
 
         <section className="footer__libraries footer__libraries--relative">
           <p className="footer__subtitle">POWERED BY </p>
-          <a href="https://unsplash.com/" target="_blank" rel="noreferrer" >
+          <a href="https://unsplash.com/" target="_blank" rel="noreferrer">
             <img src={UnsplashLogo} className="footer__image"></img>
           </a>
-          <a href="https://cloudinary.com/"target="_blank" rel="noreferrer" ><img src={CloudinaryLogo} className="footer__image"></img></a>
+          <a href="https://cloudinary.com/" target="_blank" rel="noreferrer">
+            <img src={CloudinaryLogo} className="footer__image"></img>
+          </a>
           <p className="footer__author">Made by Gerik Castillo</p>
           <p className="footer__copyright">Copyright © 2023</p>
         </section>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 }
 

@@ -24,7 +24,7 @@
 
     @include tablet {
       @include BodyLarge;
-    
+
       font-weight: 600;
       color: $primary-text-color;
     }
@@ -32,11 +32,10 @@
   &__answer {
     @include mBodyLarge;
     color: $primary-cta-color;
- 
 
     @include tablet {
       @include BodyLarge;
- 
+
       color: $primary-cta-color;
       padding-bottom: 2rem;
     }

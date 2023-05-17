@@ -5,11 +5,11 @@
   background-color: $alt-background-color;
 
   &__container {
-  @include componentSpacing;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
+    @include componentSpacing;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
   }
   &__auth {
     background-image: url(../../assets/images/banner-img-5.jpg);

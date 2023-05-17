@@ -4,14 +4,15 @@ import ArrowRight from "../../assets/icons/arrow-right.svg";
 
 function HomeCards({ filteredBrands }) {
   return (
-    <>
-      <section className="card-brands__container">
+    <section className="card-brands">
+      <div className="card-brands__container">
         <div className="card-brands__wrapper-1">
           <h2 className="card-brands__title">Shop by Brand</h2>
           <Link to="/shop?brand" className="card-brands__link">
             SEE ALL <img src={ArrowRight} className="card-brands__icon-right" />
           </Link>
-          <Link to="/shop?brand" className="card-brands__link--mobile"><img src={ArrowRight} className="card-brands__icon-right--mobile" />
+          <Link to="/shop?brand" className="card-brands__link--mobile">
+            <img src={ArrowRight} className="card-brands__icon-right--mobile" />
           </Link>
         </div>
         <div className="card-brands__wrapper-2">
@@ -32,8 +33,8 @@ function HomeCards({ filteredBrands }) {
             </Link>
           ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 

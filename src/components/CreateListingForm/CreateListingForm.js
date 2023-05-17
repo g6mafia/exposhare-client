@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./CreateListingForm.scss";
 import { CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET } from "../../config";
-import error from "../../assets/icons/error.svg"
+import error from "../../assets/icons/error.svg";
 import axios from "axios";
 
 function CreateListingForm({
@@ -79,8 +79,6 @@ function CreateListingForm({
         <form className="create-listing__form" onSubmit={handleSubmit}>
           <p className="create-listing__title">Create New Listing: </p>
           <div className="create-listing__container">
-
-
             {/* left container */}
             <div className="create-listing__container-left">
               <label htmlFor="title" className="create-listing__label">
@@ -99,11 +97,11 @@ function CreateListingForm({
               {!title && formSubmit && (
                 <>
                   <div className="create-listing__error-message">
-                  <img
-                    src={error}
-                    alt="error icon"
-                    className="create-listing__error-icon"
-                  />
+                    <img
+                      src={error}
+                      alt="error icon"
+                      className="create-listing__error-icon"
+                    />
                     This field is required
                   </div>
                 </>
@@ -126,16 +124,15 @@ function CreateListingForm({
               />
               {!description && formSubmit && (
                 <>
-                <div className="create-listing__error-message">
-                <img
-                  src={error}
-                  alt="error icon"
-                  className="create-listing__error-icon"
-                />
-                  This field is required
-                </div>
-              </>
-              
+                  <div className="create-listing__error-message">
+                    <img
+                      src={error}
+                      alt="error icon"
+                      className="create-listing__error-icon"
+                    />
+                    This field is required
+                  </div>
+                </>
               )}
 
               <label htmlFor="category" className="create-listing__label">
@@ -152,9 +149,7 @@ function CreateListingForm({
                 defaultValue=""
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="">
-                  Select a category
-                </option>
+                <option value="">Select a category</option>
                 {cameraCategory.map((category) => (
                   <option key={category} value={category}>
                     {category}
@@ -163,15 +158,15 @@ function CreateListingForm({
               </select>
               {!category && formSubmit && (
                 <>
-                <div className="create-listing__error-message">
-                <img
-                  src={error}
-                  alt="error icon"
-                  className="create-listing__error-icon"
-                />
-                  This field is required
-                </div>
-              </>
+                  <div className="create-listing__error-message">
+                    <img
+                      src={error}
+                      alt="error icon"
+                      className="create-listing__error-icon"
+                    />
+                    This field is required
+                  </div>
+                </>
               )}
 
               <label htmlFor="price" className="create-listing__label">
@@ -189,21 +184,18 @@ function CreateListingForm({
                 onChange={(e) => setPrice(e.target.value)}
               />
               {!price && formSubmit && (
-              <>
-              <div className="create-listing__error-message">
-              <img
-                src={error}
-                alt="error icon"
-                className="create-listing__error-icon"
-              />
-                This field is required
-              </div>
-            </>
-            )}
-
+                <>
+                  <div className="create-listing__error-message">
+                    <img
+                      src={error}
+                      alt="error icon"
+                      className="create-listing__error-icon"
+                    />
+                    This field is required
+                  </div>
+                </>
+              )}
             </div>
-            
-
 
             {/* right container */}
             <div className="create-listing__container-right">
@@ -219,9 +211,7 @@ function CreateListingForm({
                 defaultValue=""
                 onChange={(e) => setBrand(e.target.value)}
               >
-                <option value="">
-                  Select a brand
-                </option>
+                <option value="">Select a brand</option>
                 {cameraBrands.map((brand) => (
                   <option key={brand} value={brand}>
                     {brand}
@@ -230,15 +220,15 @@ function CreateListingForm({
               </select>
               {!brand && formSubmit && (
                 <>
-                <div className="create-listing__error-message">
-                <img
-                  src={error}
-                  alt="error icon"
-                  className="create-listing__error-icon"
-                />
-                  This field is required
-                </div>
-              </>
+                  <div className="create-listing__error-message">
+                    <img
+                      src={error}
+                      alt="error icon"
+                      className="create-listing__error-icon"
+                    />
+                    This field is required
+                  </div>
+                </>
               )}
 
               <label htmlFor="condition" className="create-listing__label">
@@ -255,9 +245,7 @@ function CreateListingForm({
                 defaultValue=""
                 onChange={(e) => setCondition(e.target.value)}
               >
-                <option value="">
-                  Select a condition
-                </option>
+                <option value="">Select a condition</option>
                 {cameraConditions.map((condition) => (
                   <option key={condition} value={condition}>
                     {condition}
@@ -266,15 +254,15 @@ function CreateListingForm({
               </select>
               {!condition && formSubmit && (
                 <>
-                <div className="create-listing__error-message">
-                <img
-                  src={error}
-                  alt="error icon"
-                  className="create-listing__error-icon"
-                />
-                  This field is required
-                </div>
-              </>
+                  <div className="create-listing__error-message">
+                    <img
+                      src={error}
+                      alt="error icon"
+                      className="create-listing__error-icon"
+                    />
+                    This field is required
+                  </div>
+                </>
               )}
 
               <label htmlFor="image" className="create-listing__label">
@@ -291,15 +279,15 @@ function CreateListingForm({
               />
               {!image && formSubmit && (
                 <>
-                <div className="create-listing__error-message">
-                <img
-                  src={error}
-                  alt="error icon"
-                  className="create-listing__error-icon"
-                />
-                  This field is required
-                </div>
-              </>
+                  <div className="create-listing__error-message">
+                    <img
+                      src={error}
+                      alt="error icon"
+                      className="create-listing__error-icon"
+                    />
+                    This field is required
+                  </div>
+                </>
               )}
             </div>
           </div>

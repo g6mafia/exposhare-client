@@ -2,16 +2,21 @@ import "./HomeCategoryCards.scss";
 import { Link } from "react-router-dom";
 import ArrowRight from "../../assets/icons/arrow-right.svg";
 
-function HomeCategoryCards({ filteredCategories}) {
+function HomeCategoryCards({ filteredCategories }) {
   return (
     <>
-      <section className="card-category__container">
+    <section className="card-category">
+      <div className="card-category__container">
         <div className="card-category__wrapper-1">
           <h2 className="card-category__title">Shop by Category</h2>
           <Link to="/shop?category" className="card-category__link">
             SEE ALL <img src={ArrowRight} className="card-brands__icon-right" />
           </Link>
-          <Link to="/shop?category" className="card-category__link--mobile"><img src={ArrowRight} className="card-category__icon-right--mobile" />
+          <Link to="/shop?category" className="card-category__link--mobile">
+            <img
+              src={ArrowRight}
+              className="card-category__icon-right--mobile"
+            />
           </Link>
         </div>
         <div className="card-category__wrapper-2">
@@ -33,6 +38,7 @@ function HomeCategoryCards({ filteredCategories}) {
             </Link>
           ))}
         </div>
+      </div>
       </section>
     </>
   );

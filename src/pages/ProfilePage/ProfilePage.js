@@ -149,34 +149,34 @@ function ProfilePage({ handleChange, profileData }) {
   return (
     <section className="profile-page">
       <div className="profile-page__container">
-      <UserDashboard handleLogout={handleLogout} />
-      <UserProfile
-        handleChange={handleChange}
-        profileData={profileData}
-        setCreateListingForm={setCreateListingForm}
-        setEditUserForm={setEditUserForm}
-      />
-      <UserActions handleDeleteUser={handleDeleteUser} />
-      {editUserForm && (
-        <>
-          <EditUserForm
-            profileData={profileData}
-            setEditUserForm={setEditUserForm}
-            handleEditUser={handleEditUser}
-            handleImageUpload={handleImageUpload}
-          />
-        </>
-      )}
+        <UserDashboard handleLogout={handleLogout} />
+        <UserProfile
+          handleChange={handleChange}
+          profileData={profileData}
+          setCreateListingForm={setCreateListingForm}
+          setEditUserForm={setEditUserForm}
+        />
+        <UserActions handleDeleteUser={handleDeleteUser} />
+        {editUserForm && (
+          <>
+            <EditUserForm
+              profileData={profileData}
+              setEditUserForm={setEditUserForm}
+              handleEditUser={handleEditUser}
+              handleImageUpload={handleImageUpload}
+            />
+          </>
+        )}
 
-      {createListingForm && (
-        <>
-          <CreateListingForm
-            setCreateListingForm={setCreateListingForm}
-            handleCreateListing={handleCreateListing}
-            setUploadedImageUrl={setUploadedImageUrl}
-          />
-        </>
-      )}
+        {createListingForm && (
+          <>
+            <CreateListingForm
+              setCreateListingForm={setCreateListingForm}
+              handleCreateListing={handleCreateListing}
+              setUploadedImageUrl={setUploadedImageUrl}
+            />
+          </>
+        )}
       </div>
     </section>
   );
