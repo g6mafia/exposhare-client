@@ -27,26 +27,7 @@ function UserListings({
     "Olympus",
     "Pentax",
   ];
-
-  // const filmCameraBrands = [
-  //   "Canon",
-  //   "Nikon",
-  //   "Olympus",
-  //   "Pentax",
-  //   "Leica",
-  //   "Minolta",
-  //   "Contax",
-  // ];
-
-  // const lensBrands = [
-  //   "Canon",
-  //   "Nikon",
-  //   "Sony",
-  //   "FujiFilm",
-  //   "Panasonic",
-  //   "Olympus",
-  //   "Sigma",
-  // ];
+  
   const cameraConditions = ["New", "Used", "Refurbished"];
 
   const cameraCategory = [

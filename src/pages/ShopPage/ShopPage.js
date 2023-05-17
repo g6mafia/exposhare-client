@@ -26,6 +26,8 @@ function ShopPage({ handleChange }) {
       ...prevFilters,
       brand: query.get("brand"),
       search: query.get("search"),
+      condition: query.get("condition") || "",
+      category: query.get("category") || "",
     }));
   }, [location]);
 

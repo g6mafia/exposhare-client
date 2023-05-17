@@ -149,9 +149,10 @@ function CreateListingForm({
                 }`}
                 id="category"
                 name="category"
+                defaultValue=""
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="" disabled selected>
+                <option value="">
                   Select a category
                 </option>
                 {cameraCategory.map((category) => (
@@ -215,9 +216,10 @@ function CreateListingForm({
                 }`}
                 id="brand"
                 name="brand"
+                defaultValue=""
                 onChange={(e) => setBrand(e.target.value)}
               >
-                <option value="" disabled selected>
+                <option value="">
                   Select a brand
                 </option>
                 {cameraBrands.map((brand) => (
@@ -250,9 +252,10 @@ function CreateListingForm({
                 }`}
                 id="condition"
                 name="condition"
+                defaultValue=""
                 onChange={(e) => setCondition(e.target.value)}
               >
-                <option value="" disabled selected>
+                <option value="">
                   Select a condition
                 </option>
                 {cameraConditions.map((condition) => (
