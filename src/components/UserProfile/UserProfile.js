@@ -35,8 +35,20 @@ function UserProfile({
     }
   };
 
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString("en-US");
+  const formatDate = (dateTimeString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      timeZone: "America/New_York", // Set the desired time zone
+    };
+
+    const dateTime = new Date(dateTimeString);
+    const formattedDate = dateTime.toLocaleString("en-US", options);
+    return formattedDate;
   };
 
   return (
@@ -99,6 +111,7 @@ function UserProfile({
               <p className="user-profile__info-type">Email</p>
               <p className="user-profile__info-type">Address</p>
               <p className="user-profile__info-type">Date Joined</p>
+              <p className="user-profile__info-type">Date Updated</p>
             </div>
             <div className="user-profile__info-wrapper--right">
               <p className="user-profile__info-value">
@@ -106,6 +119,10 @@ function UserProfile({
               </p>
               <p className="user-profile__info-value"> {profileData.email}</p>
               <p className="user-profile__info-value"> {profileData.address}</p>
+              <p className="user-profile__info-value">
+                {" "}
+                {formatDate(profileData.created_at)}
+              </p>
               <p className="user-profile__info-value">
                 {" "}
                 {formatDate(profileData.updated_at)}
