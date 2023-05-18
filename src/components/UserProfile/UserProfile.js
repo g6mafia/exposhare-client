@@ -42,8 +42,7 @@ function UserProfile({
       day: "numeric",
       hour: "numeric",
       minute: "numeric",
-      second: "numeric",
-      timeZone: "America/New_York", // Set the desired time zone
+      timeZone: "America/New_York", 
     };
 
     const dateTime = new Date(dateTimeString);

@@ -7,6 +7,10 @@
   background-color: $third-color;
   width: 17.1875rem;
 
+  &:hover {
+    box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem $logo-color;
+  }
+
   @include desktop {
     width: 19rem;
   }

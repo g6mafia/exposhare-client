@@ -5,6 +5,21 @@ function ListingDetailsModal({ listing, isOpen, closeModal }) {
     return null;
   }
 
+  const formatDate = (dateTimeString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      timeZone: "America/New_York", 
+    };
+
+    const dateTime = new Date(dateTimeString);
+    const formattedDate = dateTime.toLocaleString("en-US", options);
+    return formattedDate;
+  };
+
   return (
     <>
       <div className="listings-details__overlay"></div>
@@ -26,6 +41,9 @@ function ListingDetailsModal({ listing, isOpen, closeModal }) {
               <p className="listings-details__item-type">Description </p>
               <p className="listings-details__item-type">Condition </p>
               <p className="listings-details__item-type">Price </p>
+              <p className="listings-details__item-type">
+                Created on:
+              </p>
             </div>
             <div className="listings-details__item-wrapper--right">
               <p className="listings-details__item-value">{listing.title}</p>
@@ -39,6 +57,9 @@ function ListingDetailsModal({ listing, isOpen, closeModal }) {
               </p>
               <p className="listings-details__item-value">
                 ${listing.price.toFixed(2)}
+              </p>
+              <p className="listings-details__item-value">
+                {formatDate(listing.created_at)} ET
               </p>
             </div>
           </div>
